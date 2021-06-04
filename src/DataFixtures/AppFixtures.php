@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\About;
 use App\Entity\NewsCategory;
 use App\Entity\News;
 use App\Entity\Expertise;
@@ -15,6 +16,15 @@ class AppFixtures extends Fixture
 
     {
         $faker = \Faker\Factory::create();
+
+        $about = [$faker->name];
+        $ab = new About();
+        $ab->setTitle($faker->name())
+        ->setSubtitle($faker->words(4, true))
+            ->setDescription($faker->paragraph(1,true))
+            ->setAvatar('https://fr.freepik.com/photos-gratuite/avocat-client_3357722.htm#page=1&query=avocat&position=29');
+            $manager->persist($ab);
+
 
         $newscategories = [$faker->word, $faker->word];
         $arrayNewsCategories = [];
