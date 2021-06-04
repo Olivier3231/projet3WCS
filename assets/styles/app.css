@@ -1,3 +1,41 @@
 body {
-    background-color: rgb(228, 241, 245);
+    background-color: rgb(228, 236, 238);
+}
+
+.card_1 {
+    border-width: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 2em rgb(37, 37, 49);
+}
+
+.card_2 {
+    background-color: #4886af;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 2em rgb(37, 37, 49);
+}
+
+.card-title_2 {
+    color: white;
+}
+
+.card-text_2 {
+    color: white;
+}
+
+.card_3 {
+    border-width: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 2em rgb(37, 37, 49);
+}
+
+
+/*Antoine css*/
+
+.news-card {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

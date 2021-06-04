@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Form\ContactType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,12 +14,12 @@ use Symfony\Component\Form\FormTypeInterface;
 class FormContactController extends AbstractController
 {
     /**
-     * @Route("/add", name="dd")
+     * @Route("/contact", name="contact")
      */
-    public function add(Request $request, EntityManagerInterface $manager): Response
+    public function contact(Request $request, EntityManagerInterface $manager): Response
     {
         $contact = new Contact();
-        $contactForm = $this->createForm(Contact::class, $contact);
+        $contactForm = $this->createForm(ContactType::class, $contact);
         $contactForm->handleRequest($request);
 
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
@@ -31,7 +32,7 @@ class FormContactController extends AbstractController
         }
 
         return $this->render('form.html.twig', [
-            'contactForm' => $contactForm->createView(),
+            'form' => $contactForm->createView(),
         ]);
     }
 }

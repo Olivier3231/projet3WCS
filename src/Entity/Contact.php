@@ -66,6 +66,11 @@ class Contact
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $checkbox;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,6 +144,18 @@ class Contact
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getCheckbox(): ?bool
+    {
+        return $this->checkbox;
+    }
+
+    public function setCheckbox(bool $checkbox): self
+    {
+        $this->checkbox = $checkbox;
 
         return $this;
     }

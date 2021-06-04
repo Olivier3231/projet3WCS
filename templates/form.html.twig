@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %} {% block body %}
-<h1 class="text-center"> Contact</h1>
-{% form_theme form 'foundation_5_layout.html.twig' %} {{ form_start(contactForm) }}
-<button type="submit">Envoyer</button> {{ form_end(contactForm) }} {% endblock %}
+{% block body %}
+<h1 class="mt-5 text-left">CONTACT</h1>
+{% form_theme form 'foundation_5_layout.html.twig' %} {{ form_start(form) }} {{ form_end(form) }}
+<button type="submit">Envoyer</button> {% endblock %}

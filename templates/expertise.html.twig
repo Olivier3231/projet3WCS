@@ -1,23 +1,33 @@
- {% block title %}EXPERTISES{% endblock %} {% block body %}
-<div class="card border-primary mb-3 d-flex justify-content-left" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-primary">
-        <h5 class="card-title">Primary card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
+ {% block title %}{% endblock %} {% block body %}
+<div class="mt-5">
+    <h1>EXPERTISES</h1>
 </div>
-<div class="card border-secondary mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-secondary">
-        <h5 class="card-title">Secondary card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="container" width='100%'>
+    <div class="row justify-content-start">
+        <div class="mt-5 card_1 rounded-pill" style="max-width: 54rem; ">
+            <div class="p-3 text-center">Droit du Travail</div>
+            <div class="card-body">
+                <h5 class="card-title ">Primary card title</h5>
+                <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
     </div>
-</div>
-<div class="card border-warning mb-3 d-flex justify-content-right" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-        <h5 class="card-title">Warning card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="m-5 row justify-content-end">
+        <div class="mt-5 card_2 rounded-pill " style="max-width: 54rem; ">
+            <div class="p-3 text-center">Droit de la Sécurité Sociale</div>
+            <div class=" card-body text-secondary ">
+                <h5 class="card-title_2 ">Secondary card title</h5>
+                <p class="card-text_2 ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
     </div>
-</div>
-{% endblock %}
+    <div class="row justify-content-start ">
+        <div class="mt-5 card_3 rounded-pill " style="max-width: 54rem; ">
+            <div class="p-3 text-center">Droit Commercial</div>
+            <div class="card-body ">
+                <h5 class="card-title ">Warning card title</h5>
+                <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+    </div>
+</div> {% endblock %}
