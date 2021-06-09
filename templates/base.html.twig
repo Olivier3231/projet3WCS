@@ -12,20 +12,340 @@
 </head>
 
 <body>
-    <header>{% include '_navbar.html.twig' %}</header>
-    <main class=" m-5 " <div id="presentation">{% include 'about.html.twig' %}
+    <header>{% include '_navbar.html.twig' %}
+    </header>
+    <main class=" m-5 " <div id="presentation">
+
+
+
+        {% include 'about.html.twig' %}
+
+        <div class="mt-5 pt-5">
+            <h1></h1>
+        </div>
+        <center>
+            <id="presentation">
+                <div class=" m-3 " style="max-width: 680px; ">
+                    <div class="row">
+                        <div class="col-md-4 mt-5">
+                            <img src="https://legalclient.fr/wp-content/uploads/2020/04/cropped-Thibaut-Bejat_1586006150_5e8888867f0f5_1586006178_5e8888a2b4496-150x150.jpg" alt=" Thibaud Béjat ">
+
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="card-body ">
+                                <h5 class="card-title ">{{about.title}}</h5>
+                                <p class="card-text ">sous-titre</p>
+                                <div class="card-text">
+                                    <p>description
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </center>
+
+
+
+
+
         </div>
         <hr style="height: 4px; color: #4886af" align=" CENTER " width="100% ">
+
+
+
         <div>{% include 'expertise.html.twig' %}
+
+            <div id="expertises" class=" expertise mt-5 ">
+                <h1>EXPERTISES</h1>
+            </div>
+
+            <div class="container mb-5 ">
+                <div class="row ">
+                    <div class="col-8 ">
+                        <div class="mt-5 card_1 rounded-pill " style="background-color : #E5E6E7; ">
+
+                            <div class="p-3 text-center ">Titre</div>
+                            <div class="card-body ">
+
+                                <h5 class="card-title ">First card title</h5>
+                                <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 "></div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-4 "></div>
+                    <div class="col-8 ">
+                        <div class="mt-5 card_2 rounded-pill " style="background-color : #4886AF; ">
+                            <div class="p-3 text-center ">Droit de la Sécurité Sociale</div>
+                            <div class=" card-body text-secondary ">
+                                <h5 class="card-title_2 ">Secondary card title</h5>
+                                <p class="card-text_2 ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-8 ">
+                        <div class="mt-5 card_1 rounded-pill " style="background-color : #E5E6E7; ">
+                            <div class="p-3 text-center ">Droit commercial</div>
+                            <div class="card-body ">
+                                <h5 class="card-title ">Third card title</h5>
+                                <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 "></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
         </div>
         <hr style="height: 4px; color: #4886af" align=" CENTER " width="100% ">
-        <div id="actualités">{% include 'news.html.twig' %}
+        <div id="actualités">
+
+
+            {% include 'news.html.twig' %}
+
+            <div class="mt-5">
+                <h1>ACTUALITES</h1>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <a href="">Les plus récentes </a>
+                </div>
+                <div class="col-2">
+                    <a href="">Journal Officiel </a>
+                </div>
+                <div class="col-4">
+                    <a href="">Les Décisions importantes des derniers mois  </a>
+                </div>
+                <div class="col-3">
+                    <a href="">Toutes </a>
+                </div>
+            </div>
+            <div class="aboutletout ">
+
+                <div class=" row ">
+                    <div class="col-1 ">
+                    </div>
+                    <div class="col-sm-5 ">
+                        <div class="card_5">
+
+                            <div class="col-1 ">
+                            </div>
+                            <div class="card-body-expertise-1 ">
+                                <div class="mt-0 "></div>
+                                <div class=" row ">
+                                    <div class="col-6 ">
+                                        <h5 class=" card-title-about ">Special title treatment</h5>
+                                    </div>
+                                    <div class="col-3 "></div>
+                                    <div class="col-3 ">
+                                        <p style="text-align: right ">image ici</p>
+                                    </div>
+                                </div>
+                                <div class="pr-5 ">
+
+                                    <p class="card-text p-2 ">Subtitle </p>
+                                </div>
+                                <div class="pl-5 ">
+
+                                    <p class="card-text p-2 ">Description </p>
+                                </div>
+                                <center>
+                                    <div class="p-1 ">
+                                        <a href="# " class="btn btn-primary ">Go somewhere</a>
+                                    </div>
+                                </center>
+
+
+                                <div class="card-date ">
+
+                                    <p style="text-align: right ">Date</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-1 ">
+                    </div>
+                    <div class="col-sm-5 ">
+                        <div class="card_6">
+
+                            <div class="col-1 ">
+                            </div>
+                            <div class="card-body-expertise-1 ">
+                                <div class="mt-0 "></div>
+                                <div class="p-5">
+                                    <div class=" row ">
+                                        <div class="col-7 ">
+                                            <h5 class=" card-title-about ">Special title treatme</h5>
+                                        </div>
+                                        <div class="col-3 "></div>
+                                        <div class="col-3 ">
+                                            <div class="card-title-about-image">
+                                                <p style=" text-align: right ">image ici</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pr-5 ">
+
+                                    <p class="card-text p-2 ">Subtitle </p>
+                                </div>
+                                <div class="pl-5 ">
+
+                                    <p class="card-text p-2 ">Description </p>
+                                </div>
+                                <center>
+                                    <div class="p-1 ">
+                                        <a href="# " class="btn btn-primary ">Go somewhere</a>
+                                    </div>
+                                </center>
+
+
+                                <div class="card-date ">
+                                    <p style="text-align: right ">Date</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mt-5 "></div>
+
+
+                <div class=" row ">
+                    <div class="col-1 ">
+                    </div>
+                    <div class="col-sm-5 ">
+                        <div class="card_5 ">
+
+                            <div class="col-1 ">
+                            </div>
+                            <div class="card-body-expertise-1 ">
+                                <div class="mt-0 "></div>
+                                <div class="p-5 ">
+                                    <div class=" row ">
+                                        <div class="col-6 ">
+                                            <h5 class=" card-title-about ">Special title treatme</h5>
+                                        </div>
+                                        <div class="col-3 "></div>
+                                        <div class="col-3 ">
+                                            <p style="text-align: right ">image ici</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pr-5 ">
+
+                                    <p class="card-text p-2 ">Subtitle </p>
+                                </div>
+                                <div class="pl-5 ">
+
+                                    <p class="card-text p-2 ">Description </p>
+                                </div>
+                                <center>
+                                    <div class="p-1 ">
+                                        <a href="# " class="btn btn-primary ">Go somewhere</a>
+                                    </div>
+                                </center>
+
+
+                                <div class="card-date ">
+                                    <p style="text-align: right ">Date</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-1 ">
+                    </div>
+                    <div class="col-sm-5 ">
+                        <div class="card_6 ">
+
+                            <div class="col-1 ">
+                            </div>
+                            <div class="card-body-expertise-1 ">
+                                <div class="mt-0 "></div>
+                                <div class="p-5 ">
+                                    <div class=" row ">
+                                        <div class="col-6 ">
+                                            <h5 class=" card-title-about ">Special title treatme</h5>
+                                        </div>
+                                        <div class="col-3 "></div>
+                                        <div class="col-3 ">
+                                            <p style="text-align: right ">image ici</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pr-5 ">
+
+                                    <p class="card-text p-2 ">Subtitle </p>
+                                </div>
+                                <div class="pl-5 ">
+
+                                    <p class="card-text p-2 ">Description </p>
+                                </div>
+                                <center>
+                                    <div class="p-1 ">
+                                        <a href="# " class="btn btn-primary ">Go somewhere</a>
+                                    </div>
+                                </center>
+
+
+                                <div class="card-date ">
+                                    <p style="text-align: right ">Date</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
         </div>
         <hr style="height: 4px; color: #4886af" align=" CENTER " width="100% ">
-        <div id="contact">{% include 'form.html.twig' %}
+        <div id="contact">
+
+            {% include 'form.html.twig' %}
+
+
+            <h1>Contact</h1>
+            {{form_row(form.firstname)}}
+
+            <button class="btn btn-primary ">{{ button_label|default('Envoyer') }}</button>
+
+
+
+
         </div>
     </main>
-    <footer>{% include '_footer.html.twig' %}</footer>
+    <footer>
+
+
+
+        {% include '_footer.html.twig' %}
+
+
+
+
+
+    </footer>
 </body>
 
 </html>
