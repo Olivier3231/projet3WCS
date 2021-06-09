@@ -19,8 +19,10 @@ class FormContactController extends AbstractController
     public function contact(Request $request, EntityManagerInterface $manager): Response
     {
         $contact = new Contact();
+        
         $contactForm = $this->createForm(ContactType::class, $contact);
         $contactForm->handleRequest($request);
+        $this->created_at = $this->date_time_set;
 
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
             $manager = $this->getDoctrine()->getManager();

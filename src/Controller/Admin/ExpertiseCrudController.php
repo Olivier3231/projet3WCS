@@ -22,4 +22,4 @@ class ExpertiseCrudController extends AbstractCrudController
         ];
     }
     */
-}
+} 
