@@ -45,6 +45,11 @@ class Expertise
         $this->diligences = new ArrayCollection();
     }
 
+    public function __tostring()
+    {
+        return $this->getTitle();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

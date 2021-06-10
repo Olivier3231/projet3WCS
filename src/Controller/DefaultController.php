@@ -49,14 +49,15 @@ class DefaultController extends AbstractController
             $manager->persist($contact);
             $manager->flush();
 
+
             return $this->redirectToRoute('home');
         }
         return $this->render('default/index.html.twig', [
-            'about' => $this->$aboutRepository->findAll()[2],
-            'expertise' => $this->$expertiseRepository->findAll(), 
-            'news' => $this->$newsRepository->findAll(), 
-            'footer' => $this->$footerRepository->findAll(),
-            'form' => $contactForm->createView(),
+            'abouts' => $aboutRepository->findAll(),
+            'expertises' => $expertiseRepository->findAll(), 
+            'news' => $newsRepository->findAll(), 
+            /*'footer' => $footerRepository->findAll(),*/
+            /*'form' => $contactForm,*/
         ]);
     }
     
