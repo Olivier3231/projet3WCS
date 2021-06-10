@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\News;
+use App\Entity\NewsCategory;
 use App\Entity\Expertise;
 use App\Form\ContactType;
 use App\Repository\ExpertiseRepository;
@@ -15,6 +17,10 @@ use App\Entity\About;
 use App\Repository\AboutRepository;
 use App\Repository\FooterRepository;
 use App\Repository\NewsRepository;
+use App\Repository\NewsCategoryRepository;
+use App\Entity\ContactRepository;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class DefaultController extends AbstractController
 {
@@ -24,7 +30,6 @@ class DefaultController extends AbstractController
      */
     public function getAllExpertises(ExpertiseRepository $expertiseRepository): Response
     {
-        $expertises = new Expertise();
         return $this->render('default/index.html.twig', [
             'expertises' => $expertiseRepository->findAll(),
         ]);
@@ -33,12 +38,16 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(Request $request, EntityManagerInterface $manager,
-    AboutRepository $aboutRepository,
-    ExpertiseRepository $expertiseRepository,
-    NewsRepository $newsRepository,
-    FooterRepository $footerRepository): Response
-    {
+    public function index(
+        Request $request,
+        EntityManagerInterface $manager,
+        AboutRepository $aboutRepository,
+        ExpertiseRepository $expertiseRepository,
+        NewsRepository $newsRepository,
+        NewsCategoryRepository $newsCategoryRepository,
+        FooterRepository $footerRepository,
+        ContactType $contactType
+    ): Response {
         $contact = new Contact();
         $contactForm = $this->createForm(ContactType::class, $contact);
         $contactForm->handleRequest($request);
@@ -49,18 +58,18 @@ class DefaultController extends AbstractController
             $manager->persist($contact);
             $manager->flush();
 
-
             return $this->redirectToRoute('home');
         }
+
         return $this->render('default/index.html.twig', [
             'abouts' => $aboutRepository->findAll(),
-            'expertises' => $expertiseRepository->findAll(), 
-            'news' => $newsRepository->findAll(), 
+            'expertises' => $expertiseRepository->findAll(),
             /*'footer' => $footerRepository->findAll(),*/
-            /*'form' => $contactForm,*/
+            'form' => $contactForm->createView(),
+            /*$new => $newsRepository->findBy(['new'=> $new ], ['id' => 'DESC'], 3)*/
         ]);
     }
-    
+
     /**
      * @Route("/", name="home")
      */

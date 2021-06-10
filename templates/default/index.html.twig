@@ -74,8 +74,8 @@
                 <a href=" ">Toutes </a>
             </div>
         </div>
-        {% for new in news %}
-        <div class="aboutletout">
+        <div class="aboutletout ">
+            {% for expertise in expertises %}
 
             <div class=" row ">
                 <div class="col-1 ">
@@ -89,20 +89,20 @@
                             <div class="mt-0 "></div>
                             <div class=" row ">
                                 <div class="col-6 ">
-                                    <h5 class=" card-title-about ">{{new.title}}</h5>
+                                    <h5 class=" card-title-about "></h5>
                                 </div>
                                 <div class="col-3 "></div>
                                 <div class="col-3 ">
-                                    <p style="text-align: right ">{{new.subtitle}}</p>
+                                    <p style="text-align: right ">image ici</p>
                                 </div>
                             </div>
                             <div class="pr-5 ">
 
-                                <p class="card-text p-2 ">{{new.description}}</p>
+                                <p class="card-text p-2 "> </p>
                             </div>
                             <div class="pl-5 ">
 
-                                <p class="card-text p-2 ">Description </p>
+                                <p class="card-text p-2 "> </p>
                             </div>
                             <center>
                                 <div class="p-1 ">
@@ -113,15 +113,26 @@
 
                             <div class="card-date ">
 
-                                <p style="text-align: right ">Date</p>
+                                <p style="text-align: right "></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
 
+
                 <hr style="height: 4px; color: #4886af " align=" CENTER " width="100% ">
                 <div id="contact">
                     <h1 style="color:#4886af">Contact</h1>
-                    <button class="p-2 btn border border-dark bg-white">{{ button_label|default('Envoyer') }}</button>
-                </div> {% endblock %}
+                    <div class="container p-3">
+                        <div class="row">
+                            <div class="col-6">{% form_theme form 'bootstrap_4_layout.html.twig' %} {{form_row(form.firstname)}} {{form_row(form.lastname)}} {{form_row(form.email)}} {{form_row(form.phone_number)}} {{form_row(form.message, { 'attr': {'style': 'height: 25rem'}
+                                })}} {{form_row(form.checkbox)}}
+                                <button class="m-2 p-2 btn border border-dark bg-white">{{ button_label|default('Envoyer') }}</button>
+                            </div>
+                            <div class="col-6 pl-5 mt-4">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.978548696972!2d2.2912774158180307!3d48.87768547928943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f932e07fec1%3A0xe493fc5a9e79c52d!2s52%20Rue%20des%20Acacias%2C%2075017%20Paris!5e0!3m2!1sfr!2sfr!4v1623337638778!5m2!1sfr!2sfr"
+                                    width="600" height="750" style="border:10px;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div> {% endblock %}
