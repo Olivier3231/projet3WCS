@@ -21,6 +21,8 @@ use App\Repository\NewsCategoryRepository;
 use App\Entity\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class DefaultController extends AbstractController
 {
@@ -61,13 +63,15 @@ class DefaultController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
+
         return $this->render('default/index.html.twig', [
             'abouts' => $aboutRepository->findAll(),
             'expertises' => $expertiseRepository->findAll(),
             /*'footer' => $footerRepository->findAll(),*/
             'form' => $contactForm->createView(),
-            /*$new => $newsRepository->findBy(['new'=> $new ], ['id' => 'DESC'], 3)*/
-        ]);
+            'news' => $newsRepository->findBy([], ['id' => 'DESC'], 4),
+            'newscategory' => $newsCategoryRepository->findOneBy([], ['id' => 'ASC']),
+            ]);
     }
 
     /**

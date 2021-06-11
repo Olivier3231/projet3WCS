@@ -29,6 +29,11 @@ class NewsCategory
      */
     private $news;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $logo;
+
     public function __construct()
     {
         $this->news = new ArrayCollection();
@@ -77,6 +82,18 @@ class NewsCategory
                 $news->setNewsCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(string $logo): self
+    {
+        $this->logo = $logo;
 
         return $this;
     }

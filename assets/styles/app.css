@@ -41,7 +41,7 @@ body {
 .card_5 {
     border-width: 15px;
     border-radius: 20px;
-    box-shadow: 0 0 2em rgb(48, 48, 51);
+    box-shadow: 0 0 2em rgb(255, 255, 255);
     background-color: #4886af;
     color: white;
 }
