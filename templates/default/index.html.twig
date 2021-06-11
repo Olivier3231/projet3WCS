@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}{% block body %}
-<div class="p-5 ">
-    <div class="p-5 " id="presentation">
+<div class="p-5">
+    <div class="p-5" id="presentation">
         {% for about in abouts %}
         <center>
-            <div class=" m-3 " style="max-width: 680px; ">
-                <div class="row ">
-                    <div class="col-md-4 mt-5 ">
-                        <img class="rounded-circle" src={{about.avatar}} alt=" Thibaud Béjat ">
+            <div class="m-3" style="max-width: 680px;">
+                <div class="row">
+                    <div class="col-md-4 mt-5">
+                        <img class="rounded-circle" src={{about.avatar}} alt="Thibaud Béjat">
                     </div>
-                    <div class="col-md-8 ">
+                    <div class="col-md-8">
                         <div class="card-body justify-content-left" style="color:#4886af">
                             <h5 class="card-title">{{about.title}}</h5>
                             <p class="card-text">{{about.subtitle}}</p>
@@ -22,7 +22,7 @@
         </center>
         {% endfor %}
     </div>
-    <hr style="height: 4px; color: #4886af" align=" CENTER " width="100%">
+    <hr style="height: 4px; color: #4886af" align="CENTER" width="100%">
     <div>
         <div id="expertises" class="mt-5">
             <h1 style="color:#4886af">EXPERTISES</h1>
@@ -30,8 +30,8 @@
         <div class="container mb-5">
 
             {% for expertise in expertises %}{% if expertise.id is divisible by(2) %}
-            <div class="row ">
-                <div class="col-8 ">
+            <div class="row">
+                <div class="col-8">
                     <div class="mt-5 card_5" style="background-color : #E5E6E7;">
                         <div class="p-3 text-center text-dark">{{expertise.title}}</div>
                         <div class="card-body">
@@ -42,7 +42,7 @@
                 <div class="col-4"></div>
             </div>
             {% else %}
-            <div class="row ">
+            <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
                     <div class="mt-5 card_5" style="background-color : #4886AF;">
@@ -84,22 +84,25 @@
                             <div class="card_5">
                                 <div class="card-body-expertise-16">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-5">
                                             <h5 class="card-title-about"> {{new.title}} </h5>
                                         </div>
+                                        <div class="col-4"></div>
                                         <div class="col-3">
-                                            <img class="rounded-circle " style="text-align: right" src={{new.newscategory.logo}}>
+                                            <img class="img-news mr-3 mt-3" style="text-align: right" src={{new.newscategory.logo}}>
                                         </div>
                                     </div>
-                                    <div class=" pr-5 ">
-                                        <p class="card-text p-2"> {{new.description}} </p>
+                                    <h6 class="card-title-about"> {{new.newscategory.name}} </h6>
+
+                                    <div class="pr-5 ">
+                                        <p class="card-text p-2 "> {{new.description}} </p>
                                     </div>
                                     <div class="pl-5 ">
-                                        <p class="card-text p-2"> {{new.date}} </p>
+                                        <p class="card-text p-2 "> {{new.date}} </p>
                                     </div>
                                     <center>
                                         <div class="p-1 ">
-                                            <a href="# " class="btn bg-white border-dark"> En savoir plus </a>
+                                            <a href="# " class="btn bg-white border-dark "> En savoir plus </a>
                                         </div>
                                     </center>
                                     <div class="card-date6 ">
@@ -112,10 +115,10 @@
 
                     </div>
                 </div>
-                <hr style="height: 4px; color: #4886af " align=" CENTER " width="100% ">
-                <div id="contact">
-                    <h1 style="color:#4886af">CONTACT</h1>
-                    <div class="container p-3 mt-5">
+                <hr style="height: 4px; color: #4886af " align="CENTER " width="100% ">
+                <div id="contact ">
+                    <h1 class="mt-5 " style="color:#4886af ">CONTACT</h1>
+                    <div class="container p-3 mt-5 ">
                         <div class="row ">
                             <div class="col-6 ">{% form_theme form 'bootstrap_4_layout.html.twig' %} {{form_row(form.firstname)}} {{form_row(form.lastname)}} {{form_row(form.email)}} {{form_row(form.phone_number)}} {{form_row(form.message, { 'attr': {'style': 'height: 25rem'}
                                 })}} {{form_row(form.checkbox)}}

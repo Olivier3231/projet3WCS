@@ -26,17 +26,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class DefaultController extends AbstractController
 {
-
-    /**
-     * @Route("/", name="home")
-     */
-    public function getAllExpertises(ExpertiseRepository $expertiseRepository): Response
-    {
-        return $this->render('default/index.html.twig', [
-            'expertises' => $expertiseRepository->findAll(),
-        ]);
-    }
-
     /**
      * @Route("/", name="home")
      */
@@ -67,7 +56,7 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', [
             'abouts' => $aboutRepository->findAll(),
             'expertises' => $expertiseRepository->findAll(),
-            /*'footer' => $footerRepository->findAll(),*/
+            'footer' => $footerRepository->findAll(),
             'form' => $contactForm->createView(),
             'news' => $newsRepository->findBy([], ['id' => 'DESC'], 4),
             'newscategory' => $newsCategoryRepository->findOneBy([], ['id' => 'ASC']),

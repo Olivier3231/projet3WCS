@@ -33,6 +33,10 @@ body {
 
 /*Antoine css*/
 
+.img-news {
+    margin: 10px 10px 20px 00px;
+}
+
 .card-date {
     padding: 20px 50px 00px 00px;
     text-align: center;
