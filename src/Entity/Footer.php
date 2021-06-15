@@ -37,6 +37,7 @@ class Footer
      */
     private $year_copyright;
 
+
     public function getId(): ?int
     {
         return $this->id;

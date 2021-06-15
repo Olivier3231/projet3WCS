@@ -18,7 +18,6 @@ class FooterRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Footer::class);
     }
-
     // /**
     //  * @return Footer[] Returns an array of Footer objects
     //  */

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\Footer;
 use App\Entity\News;
 use App\Entity\NewsCategory;
 use App\Entity\Expertise;
@@ -36,7 +37,6 @@ class DefaultController extends AbstractController
         ExpertiseRepository $expertiseRepository,
         NewsRepository $newsRepository,
         NewsCategoryRepository $newsCategoryRepository,
-        FooterRepository $footerRepository,
         ContactType $contactType
     ): Response {
         $contact = new Contact();
@@ -56,21 +56,9 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', [
             'abouts' => $aboutRepository->findAll(),
             'expertises' => $expertiseRepository->findAll(),
-            'footer' => $footerRepository->findAll(),
             'form' => $contactForm->createView(),
             'news' => $newsRepository->findBy([], ['id' => 'DESC'], 4),
             'newscategory' => $newsCategoryRepository->findOneBy([], ['id' => 'ASC']),
             ]);
     }
-
-    /**
-     * @Route("/", name="home")
-     */
-    /*public function showExpertise(ExpertiseRepository $expertiseRepository): Response
-    {
-
-        return $this->render('default/index.html.twig', [
-            'expertise' => $expertiseRepository ->findOneBy(['expertiseList' => ''])
-        ]);
-    }*/
 }

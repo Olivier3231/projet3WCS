@@ -16,7 +16,7 @@
     </header>
     {% block body %}{% endblock %}
     <footer class="mt-5">
-        {% include '_footer.html.twig' %}
+        {{ render(controller( 'App\\Controller\\FooterController::displayFooter')) }}
     </footer>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -33,30 +33,27 @@
             </div>
             <div class="col-5 text-white">
                 <ul class="list-unstyled">
+                    {% for footer in footers %}
                     <li>
                         <a>Thibaud Béjat</a>
                     </li>
                     <li>
-                        <a>Paris</a>
+                        <a>{{ footer.city }}</a>
                     </li>
                     <li>
-                        <a>Email: tbejat.avocat@gmail.com</a>
+                        <a>{{ footer.email }}</a>
                     </li>
                     <li>
-                        <a>Tél: +33 (0)7 60 56 16 34 </a>
+                        <a>Tél: {{ footer.phone }}</a>
                     </li>
+                    {% endfor %}
                 </ul>
-
             </div>
-            <!--Grid column-->
         </div>
-        <!--Grid row-->
     </div>
-    <!-- Grid container -->
-    <!-- Copyright -->
+    {% for footer in footers %}
     <div class="text-center text-white p-3" style="background-color: #4886af;bottom:0vh">
-        © Thibaud Béjat Avocat 2021 - Tous droits réservés
+        © Thibaud Béjat Avocat {{ footer.yearcopyright|date("m-d-Y") }} - Tous droits réservés
     </div>
-    <!-- Copyright -->
-
+    {% endfor %}
     {% endblock %}
