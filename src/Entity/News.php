@@ -84,9 +84,9 @@ class News
         return $this;
     }
 
-    public function getDate(string $format = 'D-m-y H:i:s'): string
+    public function getDate(): \DateTimeInterface
     {
-        return $this->date->format($format);
+        return $this->date;
     }
 
     public function setDate(\DateTimeInterface $date): self

@@ -1,12 +1,26 @@
-/*expertise
 body {
-    background-color: rgb(228, 236, 238);
-}*/
+    color: #4886af;
+    padding: 30px;
+}
+
+.separateur {
+    border: 3px solid#4886af;
+    border-radius: 5px;
+}
+
+
+/*à propos*/
+
+#avatar {
+    width: 10%;
+    height: 300px;
+}
+
+
+/*competence*/
 
 .card_1 {
-    border-width: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 2em rgb(37, 37, 49);
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .card_2 {
@@ -30,61 +44,48 @@ body {
     box-shadow: 0 0 2em rgb(37, 37, 49);
 }
 
+.card_competence1 {
+    border-width: 15px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 2px 1px rgba(25, 25, 26, 0.2);
+    background-color: #E5E6E7;
+    color: white;
+    height: 80%;
+    width: 100%;
+}
 
-/*Antoine css*/
+.card_competence2 {
+    border-width: 15px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 2px 1px rgba(25, 25, 26, 0.2);
+    background-color: #4886AF;
+    color: white;
+    height: 80%;
+    width: 100%;
+}
+
+
+/*Actualités*/
 
 .img-news {
-    margin: 10px 10px 20px 00px;
+    height: 40%;
+    width: 40%;
 }
 
 .card-date {
-    padding: 20px 50px 00px 00px;
-    text-align: center;
+    text-align: right;
 }
 
 .card_5 {
     border-width: 15px;
     border-radius: 20px;
-    box-shadow: 0 0 2em rgb(255, 255, 255);
+    box-shadow: 8px 8px 2px 1px rgba(25, 25, 26, 0.2);
     background-color: #4886af;
     color: white;
+    height: 30rem;
 }
-
-.card_6 {
-    border-width: 15px;
-    border-radius: 20px;
-    box-shadow: 0 0 2em rgb(48, 48, 51);
-    background-color: #a7a7a7;
-    color: white;
-}
-
-.card-title-about {
-    padding: 20px 50px 00px 00px;
-    text-align: center;
-}
-
-.card-title-about-image {
-    padding: 20px 50px 00px 00px;
-}
-
 
 /* Contact CSS */
-
-.contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.formulaire {
-    position: absolute;
-    width: 531px;
-    height: 55px;
-    background: #EBEBEB;
-    border: 1px solid #042E60;
-    box-sizing: border-box;
-    border-radius: 19px;
-}
 
 ul {
     list-style: none;
@@ -92,4 +93,64 @@ ul {
 
 .picture {
     margin-top: 11%;
+}
+
+.form {
+    border-radius: 25rem;
+    justify-content: center;
+}
+
+.message {
+    height: 100px;
+    border-radius: 25rem;
+}
+
+.footer1 {
+    background-color: #4886af;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+}
+
+.footer2 {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+    padding-top: 5%;
+    padding-left: 15%;
+}
+
+.footer3 {
+    background-color: #4886af;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.footer {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #4886af;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.color {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    background-color: #4886af;
+}
+
+.padding {
+    padding-top: 5%;
+    padding-right: 7%;
+}
+
+.btn {
+    color: #4886af;
+    border-color: #4886af;
 }

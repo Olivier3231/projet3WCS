@@ -11,18 +11,17 @@ use Symfony\Component\Form\Test\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class ContactType extends AbstractType {
-
-    
+class ContactType extends AbstractType
+{
 
     public function buildForm(FormFormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('firstname', null, array('label' => 'Prénom'))
-        ->add('lastname', null, array('label' => 'Nom'))
-        ->add('email', null, array('label' => 'Email'))
-        ->add('phone_number', null, array('label' => 'Téléphone'))
-        ->add('message', null, array('label' => 'Message'))
+        ->add('firstname', null, array('attr' => array('placeholder' => 'Prénom')))
+        ->add('lastname', null, array('attr' => array('placeholder' => 'Nom')))
+        ->add('email', null, array('attr' => array('placeholder' => 'Email')))
+        ->add('phone_number', null, array('attr' => array('placeholder' => 'Téléphone')))
+        ->add('message', null, array('attr' => array('placeholder' => 'Message')))
         ->add('checkbox', CheckboxType::class, [
         'label' => 'En cochant cette case, j\'accepte que le cabinet me contacte pour répondre à ma demande',
         'required' => true,
