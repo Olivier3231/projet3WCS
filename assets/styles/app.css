@@ -1,3 +1,95 @@
+/*expertise
 body {
-    background-color: lightblue;
+    background-color: rgb(228, 236, 238);
+}*/
+
+.card_1 {
+    border-width: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 2em rgb(37, 37, 49);
+}
+
+.card_2 {
+    background-color: #4886af;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 2em rgb(37, 37, 49);
+}
+
+.card-title_2 {
+    color: white;
+}
+
+.card-text_2 {
+    color: white;
+}
+
+.card_3 {
+    border-width: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 2em rgb(37, 37, 49);
+}
+
+
+/*Antoine css*/
+
+.img-news {
+    margin: 10px 10px 20px 00px;
+}
+
+.card-date {
+    padding: 20px 50px 00px 00px;
+    text-align: center;
+}
+
+.card_5 {
+    border-width: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 2em rgb(255, 255, 255);
+    background-color: #4886af;
+    color: white;
+}
+
+.card_6 {
+    border-width: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 2em rgb(48, 48, 51);
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.card-title-about {
+    padding: 20px 50px 00px 00px;
+    text-align: center;
+}
+
+.card-title-about-image {
+    padding: 20px 50px 00px 00px;
+}
+
+
+/* Contact CSS */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulaire {
+    position: absolute;
+    width: 531px;
+    height: 55px;
+    background: #EBEBEB;
+    border: 1px solid #042E60;
+    box-sizing: border-box;
+    border-radius: 19px;
+}
+
+ul {
+    list-style: none;
+}
+
+.picture {
+    margin-top: 11%;
 }

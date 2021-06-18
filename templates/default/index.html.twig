@@ -1,9 +1,136 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}{% block body %}
+<div class="p-5">
+    <div class="p-5" id="presentation">
+        {% for about in abouts %}
+        <center>
+            <div class="m-3" style="max-width: 680px;">
+                <div class="row">
+                    <div class="col-md-4 mt-5">
+                        <img class="rounded-circle" src={{about.avatar}} alt="Thibaud Béjat">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body justify-content-left" style="color:#4886af">
+                            <h5 class="card-title">{{about.title}}</h5>
+                            <p class="card-text">{{about.subtitle}}</p>
+                            <div class="card-text">
+                                <p>{{about.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+        {% endfor %}
+    </div>
+    <hr style="height: 4px; color: #4886af" align="CENTER" width="100%">
+    <div id="expertises">
+        <div class="mt-5">
+            <h1 style="color:#4886af">EXPERTISES</h1>
+        </div>
+        <div class="container mb-5">
 
-{% block title %}{% endblock %}
+            {% for expertise in expertises %}{% if expertise.id is divisible by(2) %}
+            <div class="row">
+                <div class="col-8">
+                    <div class="mt-5 card_5" style="background-color : #E5E6E7;">
+                        <div class="p-3 text-center text-dark">{{expertise.title}}</div>
+                        <div class="card-body">
+                            <p class="card-text text-dark">{{expertise.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            {% else %}
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-8">
+                    <div class="mt-5 card_5" style="background-color : #4886AF;">
+                        <div class="p-3 text-center">{{expertise.title}}</div>
+                        <div class=" card-body text-secondary">
+                            <p class="card-text_2">{{expertise.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}{% endfor %}
+        </div>
+        <hr style="height: 4px; color: #4886af" align="CENTER" width="100%">
+        <div id="actualités">
+            <div class="mt-5 mb-5">
+                <h1 style="color:#4886af">ACTUALITES</h1>
+            </div>
+            <div class="row mb-5">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <a href=" ">Les plus récentes </a>
+                </div>
+                <div class="col-2">
+                    <a href=" ">Journal Officiel </a>
+                </div>
+                <div class="col-4">
+                    <a href=" ">Les Décisions importantes des derniers mois  </a>
+                </div>
+                <div class="col-3">
+                    <a href=" ">Toutes </a>
+                </div>
+            </div>
+            <div class="aboutletout">
 
-{% block body %}
-<div class="container">
-    <h1>TDBT START ! ✅</h1>
-</div>
-{% endblock %}
+                <div class="container">
+                    <div class="row">
+                        {% for new in news %}
+                        <div class="col-sm-5">
+                            <div class="card_5">
+                                <div class="card-body-expertise-16">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <h5 class="card-title-about"> {{new.title}} </h5>
+                                        </div>
+                                        <div class="col-4"></div>
+                                        <div class="col-3">
+                                            <img class="img-news mr-3 mt-3" style="text-align: right" src={{new.newscategory.logo}}>
+                                        </div>
+                                    </div>
+                                    <h6 class="card-title-about"> {{new.newscategory.name}} </h6>
+
+                                    <div class="pr-5 ">
+                                        <p class="card-text p-2 "> {{new.description}} </p>
+                                    </div>
+                                    <div class="pl-5 ">
+                                        <p class="card-text p-2 "> {{new.date|date("m-d-Y")}} </p>
+                                    </div>
+                                    <center>
+                                        <div class="p-1 ">
+                                            <a href="# " class="btn bg-white border-dark "> En savoir plus </a>
+                                        </div>
+                                    </center>
+                                    <div class="card-date6 ">
+                                        <p style="text-align: right "></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <hr style="height: 4px; color: #4886af " align="CENTER " width="100% ">
+                <div id="contact">
+                    <h1 class="mt-5 " style="color:#4886af ">CONTACT</h1>
+                    <div class="container p-3 mt-5 ">
+                        <div class="row ">
+                            <div class="col-6 ">{% form_theme form 'bootstrap_4_layout.html.twig' %} {{form_row(form.firstname)}} {{form_row(form.lastname)}} {{form_row(form.email)}} {{form_row(form.phone_number)}} 
+                            {{form_row(form.message, { 'attr': {'style': 'height: 25rem'}})}} {{form_row(form.checkbox)}}
+                                <button class="m-2 p-2 btn border border-dark bg-white ">{{ button_label|default('Envoyer') }}</button>
+                            </div>
+                            <div class="col-6 ">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.978548696972!2d2.2912774158180307!3d48.87768547928943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f932e07fec1%3A0xe493fc5a9e79c52d!2s52%20Rue%20des%20Acacias%2C%2075017%20Paris!5e0!3m2!1sfr!2sfr!4v1623337638778!5m2!1sfr!2sfr "
+                                    width="600 " height="750 " style="border:10px; " allowfullscreen=" " loading="lazy "></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endblock %}

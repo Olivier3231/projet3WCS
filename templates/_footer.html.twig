@@ -1,0 +1,59 @@
+{% block footer %}
+
+<div class="footer">
+    <div class="d-flex justify-content-center flex-wrap pt-3" style="background-color: #4886af;bottom:0vh">
+        <div class="container justify-content-center" style="display: flex;">
+
+            <!--Grid column-->
+            <div class="row list-unstyled">
+
+                <ul class="col-5 list-unstyled">
+                    <li>
+                        <a href="#presentation" class="text-white">À propos</a>
+                    </li>
+                    <li>
+                        <a href="#expertises" class="text-white">Expertises</a>
+                    </li>
+                    <li>
+                        <a href="#actualités" class="text-white">Actualités</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-white">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#mentionslegales" class="text-white">Mentions légales</a>
+                    </li>
+                    <li>
+                        <a href="#protection_donnees" class="text-white">Politique de protection des données</a>
+                    </li>
+            </div>
+            <div class="col-2">
+                <a href="#presentation"><i class="far fa-arrow-alt-circle-up col-4 text-white" style="font-size: 40px; color: white"></i></a>
+                <p style="color: white; ">RETOUR EN HAUT</p>
+            </div>
+            <div class="col-5 text-white">
+                <ul class="list-unstyled">
+                    {% for footer in footers %}
+                    <li>
+                        <a>Thibaud Béjat</a>
+                    </li>
+                    <li>
+                        <a>{{ footer.city }}</a>
+                    </li>
+                    <li>
+                        <a>{{ footer.email }}</a>
+                    </li>
+                    <li>
+                        <a>Tél: {{ footer.phone }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% for footer in footers %}
+    <div class="text-center text-white p-3" style="background-color: #4886af;bottom:0vh">
+        © Thibaud Béjat Avocat {{ footer.yearcopyright|date("m-d-Y") }} - Tous droits réservés
+    </div>
+    {% endfor %}
+    {% endblock %}
