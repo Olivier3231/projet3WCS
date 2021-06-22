@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\NewsRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +43,11 @@ class News
      * @ORM\JoinColumn(nullable=false)
      */
     private $news_category;
+
+    public function __construct()
+    {
+        $this->date = new DateTime('now');
+    }
 
     public function getId(): ?int
     {
@@ -84,7 +90,7 @@ class News
         return $this;
     }
 
-    public function getDate(): \DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }

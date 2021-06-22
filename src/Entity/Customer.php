@@ -64,6 +64,10 @@ class Customer
      */
     private $folders;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Diligence::class, mappedBy="customer", orphanRemoval=true)
+     */
+
     public function __construct()
     {
         $this->bills = new ArrayCollection();
@@ -212,10 +216,14 @@ class Customer
         if ($this->folders->removeElement($folder)) {
             // set the owning side to null (unless already changed)
             if ($folder->getCustomer() === $this) {
-                $folder->setCustomer(null);
             }
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return sprintf('%s %s', $this->firstname, $this->lastname);
     }
 }

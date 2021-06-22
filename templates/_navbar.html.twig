@@ -1,35 +1,30 @@
 {% block header %}
-<div class=".d-none .d-xs-block">
-    <nav class="navbar navbar-expand-lg navbar navbar-dark fixed-top" style="background-color:#4886af">
-        <button class="navbar-toggler" type=" button " data-toggle="collapse " data-target="dropdown1 " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
-      <span class="navbar-toggler-icon "></span>
-          <span class="icon-bar"></span>
+
+<nav class="navbar navbar-expand-lg navbar navbar-custom fixed-top">
+    <div class="container-fluid">
+        <img class="rounded-circle" src="{{ asset( 'build/logothibaut.png') }}" width="70px" heigth="70px" alt=" ">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
         </button>
-        <img class="rounded-circle " src="{{ asset( 'build/logothibaut.png') }} " width="70px " heigth="70px " alt=" ">
-        <div class="container-fluid ">
-
-            <div class="collapse navbar-collapse pl-3 " id="dropdown">
-
-                <div class="me-auto mb-2 mb-lg-0 mx-auto d-flex justify-content-between flex-wrap ">
-                    <li class="list-unstyled mb-0 ">
-                        <a class="text-white nav-link active " aria-current="page " href="/ ">Accueil</a>
-                    </li>
-                    <li class="list-unstyled mb-0 ">
-                        <a class="text-white nav-link active " aria-current="page " href="/#compétences ">Compétences</a>
-                    </li>
-                    <li class="list-unstyled mb-0 ">
-                        <a class="text-white nav-link active " aria-current="page " href="/#actualités ">Actualités</a>
-                    </li>
-                    <li class="list-unstyled mb-0 ">
-                        <a class="text-white nav-link active " aria-current="page " href="/#contact ">Contact</a>
-                    </li>
-                    <li class="list-unstyled mb-0 ">
-                        <a class="text-white nav-link active " aria-current="page " href="/admin ">Login</a>
-                    </li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="me-auto mb-2 mb-lg-0 mx-auto d-flex justify-content-between flex-wrap">
+                <div class="nav-item">
+                    <a class="nav-link" style="color:white" aria-current="page" href="/">Accueil</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" style="color:white" aria-current="page" href="/#compétences">Compétences</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" style="color:white" aria-current="page" href="/#actualités">Actualités</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" style="color:white" aria-current="page" href="/#contact">Contact</a>
                 </div>
             </div>
-    </nav>
+        </div>
     </div>
-</div>
+
+</nav>
+
 
 {% endblock %}

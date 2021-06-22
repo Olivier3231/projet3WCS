@@ -8,7 +8,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use App\Entity\Contact;
 use App\Entity\ExpertiseList;
 use App\Entity\Expertise;
@@ -53,5 +52,14 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-list', Owner::class);
         yield MenuItem::linkToCrud('Taux TVA', 'fas fa-list', Rate::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-list', Contact::class);
+    }
+
+    /**
+     * @Route("/logout", name="app_logout", methods={"GET"})
+     */
+    public function logout(): void
+    {
+         // controller can be blank: it will never be executed!
+         throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
 }

@@ -7,6 +7,13 @@ button {
     justify-content: right;
 }
 
+
+/* navbar */
+
+.navbar-custom {
+    background-color: #4886af;
+}
+
 h5 {
     font-weight: bold;
 }
@@ -103,6 +110,7 @@ footer {
 }
 
 .btn {
+    margin-left: 15px;
     color: #4886af;
     border-color: #4886af;
     box-shadow: 4px 4px 2px 1px rgba(25, 25, 26, 0.2);
@@ -112,6 +120,22 @@ footer {
     width: 40rem;
     height: 35rem;
     border-radius: 10px;
+}
+
+.form-control {
+    margin: 10px;
+}
+
+.h3 {
+    margin-left: 15px;
+}
+
+.username {
+    margin-left: 15px;
+}
+
+.password {
+    margin-left: 15px;
 }
 
 @media screen and (max-width: 1384px) and (min-width: 993px) {
@@ -163,7 +187,38 @@ footer {
     .article {
         display: flow-root;
         width: 200%;
-        padding-left: 15%;
+        padding-left: 8%;
+    }
+    .space {
+        display: none;
+    }
+    .competence {
+        margin-left: 20%;
+    }
+    .map {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .article {
+        width: auto;
+    }
+    .map {
+        margin-left: auto;
+        width: 29rem;
+    }
+    .map1 {
+        margin-right: 10%;
+    }
+    .width {
+        width: auto;
+    }
+    .competence {
+        margin-left: 2%;
+    }
+    .contact {
+        margin-left: 5%;
     }
 }
 
