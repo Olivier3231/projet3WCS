@@ -12,3 +12,4 @@ class ExpertiseCrudController extends AbstractCrudController
         return Expertise::class;
     }
 }
+
