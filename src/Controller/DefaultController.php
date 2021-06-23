@@ -61,4 +61,60 @@ class DefaultController extends AbstractController
             'newscategory' => $newsCategoryRepository->findOneBy([], ['id' => 'ASC']),
             ]);
     }
+
+    /**
+     * @Route("/recent", name="recent")
+     */
+   public function recent(
+        EntityManagerInterface $manager,
+        NewsRepository $newsRepository,
+        AboutRepository $aboutRepository,
+
+        NewsCategoryRepository $newsCategoryRepository
+   ): Response{
+       return $this->render('default/recent.html.twig', [
+        'abouts' => $aboutRepository->findAll(),
+        'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
+        'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
+            ]);
+   }
+
+
+    /**
+     * @Route("/journal", name="journal")
+     */
+    public function journal(
+        EntityManagerInterface $manager,
+        NewsRepository $newsRepository,
+        AboutRepository $aboutRepository,
+
+        NewsCategoryRepository $newsCategoryRepository
+   ): Response{
+       return $this->render('default/journal.html.twig', [
+        'abouts' => $aboutRepository->findAll(),
+            'news' => $newsRepository->findAll(),
+            'newscategory' => $newsCategoryRepository->findAll(),
+
+            ]);
+   }
+    
+    /**
+     * @Route("/journal", name="journal")
+     */
+    public function décismportant(
+        EntityManagerInterface $manager,
+        NewsRepository $newsRepository,
+        AboutRepository $aboutRepository,
+
+        NewsCategoryRepository $newsCategoryRepository
+   ): Response{
+       return $this->render('default/journal.html.twig', [
+        'abouts' => $aboutRepository->findAll(),
+            'news' => $newsRepository->findAll(),
+            'newscategory' => $newsCategoryRepository->findAll(),
+
+            ]);
+   }
+    
 }
+

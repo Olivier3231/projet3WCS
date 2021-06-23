@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Expertise;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 
 class ExpertiseCrudController extends AbstractCrudController
 {
@@ -11,5 +12,11 @@ class ExpertiseCrudController extends AbstractCrudController
     {
         return Expertise::class;
     }
+    public function configureAssets(Assets $assets): Assets
+    {
+        return $assets
+            ->addCssFile('build/admin.css')
+        ;
+    } 
 }
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use App\Entity\Bill;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -11,4 +12,11 @@ class BillCrudController extends AbstractCrudController
     {
         return Bill::class;
     }
+    public function configureAssets(Assets $assets): Assets
+    {
+        return $assets
+            ->addCssFile('build/admin.css')
+        ;
+    } 
+
 }

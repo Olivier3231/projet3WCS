@@ -35,7 +35,7 @@ class AdminController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Remote Fr March21 Php TDBT');
+            ->setTitle('Maître Thibaud BÉJAT');
     }
 
     public function configureMenuItems(): iterable
@@ -50,7 +50,7 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Diligence', 'fas fa-list', Diligence::class);
         yield MenuItem::linkToCrud('Facture', 'fas fa-list', Bill::class);
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-list', Owner::class);
-        yield MenuItem::linkToCrud('Taux TVA', 'fas fa-list', Rate::class);
+        yield MenuItem::linkToCrud('Tarification', 'fas fa-list', Rate::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-list', Contact::class);
     }
 
@@ -62,4 +62,7 @@ class AdminController extends AbstractDashboardController
          // controller can be blank: it will never be executed!
          throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
+
+    
+    
 }

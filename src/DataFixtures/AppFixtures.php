@@ -7,6 +7,7 @@ use App\Entity\NewsCategory;
 use App\Entity\News;
 use App\Entity\Expertise;
 use App\Entity\ExpertiseList;
+use App\Entity\Footer;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -16,9 +17,16 @@ class AppFixtures extends Fixture
     {
         $faker = \Faker\Factory::create();
         $abo = new About();
-        $abo->setTitle($faker->name())
-            ->setSubtitle($faker->words(4, true))
-            ->setDescription($faker->paragraph(1, true))
+        $abo->setTitle('Thibaud Béjat')
+            ->setSubtitle('- Avocat à la Cour de Paris -')
+            ->setDescription("Avocat au Barreau de Paris, spécialisé en droit du travail et droit de la sécurité sociale.
+            Clientèle se composant principalement de startups.
+            
+            Activité de Conseil et activité judiciaire devant le Conseil de prud'hommes, le Tribunal judiciaire et le Tribunal de Commerce.
+            
+            Grand adepte du Legal Design, afin de répondre au mieux aux besoins du client/utilisateur en utilisant un langage clair et une infographie intelligible et pertinente.
+            
+            Curieux, rigoureux, diplomate et doté d'une jolie plume.")
             ->setAvatar('https://fr.freepik.com
             /photos-gratuite/avocat-client_3357722.htm#page=1&query=avocat&position=29');
         $manager->persist($abo);
@@ -37,7 +45,7 @@ class AppFixtures extends Fixture
             $new = new News();
             $new->setTitle($faker->words(3, true))
             ->setSubtitle($faker->words(5, true))
-            ->setDescription($faker->paragraph(2, true))
+            ->setDescription($faker->paragraph(30, true))
             ->setDate($faker->dateTime())
             ->setNewsCategory($faker->randomElement($arrayNewsCategories));
             $manager->persist($new);
@@ -59,6 +67,14 @@ class AppFixtures extends Fixture
             ->setExpertiseList($faker->randomElement($arrayExpertiseLists));
             $manager->persist($expertise);
         }
+
+        $foot = new Footer();
+        $foot->setPhone('07.70.56.16.34')
+            ->setCity('Paris')
+            ->setEmail('tbejat.avocat@gmail.com')
+            ->setYearCopyright(new \DateTime('now'));
+        $manager->persist($foot);
+
         $manager->flush();
     }
 }

@@ -38,6 +38,12 @@ class Diligence
      */
     private $bill;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Folder::class, inversedBy="diligences")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $folder;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +93,18 @@ class Diligence
     public function setBill(?Bill $bill): self
     {
         $this->bill = $bill;
+
+        return $this;
+    }
+
+    public function getFolder(): ?Folder
+    {
+        return $this->folder;
+    }
+
+    public function setFolder(?Folder $folder): self
+    {
+        $this->folder = $folder;
 
         return $this;
     }
