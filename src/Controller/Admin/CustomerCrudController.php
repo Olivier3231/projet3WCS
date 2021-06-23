@@ -11,5 +11,4 @@ class CustomerCrudController extends AbstractCrudController
     {
         return Customer::class;
     }
-
 }

@@ -11,5 +11,4 @@ class NewsCategoryCrudController extends AbstractCrudController
     {
         return NewsCategory::class;
     }
-
 }

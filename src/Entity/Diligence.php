@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\DiligenceRepository;
+use DateInterval;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,7 +24,7 @@ class Diligence
     private $description;
 
     /**
-     * @ORM\Column(type="dateinterval")
+     * @ORM\Column(type="integer")
      */
     private $duration;
 
@@ -34,7 +35,6 @@ class Diligence
 
     /**
      * @ORM\ManyToOne(targetEntity=Bill::class, inversedBy="diligences")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $bill;
 
@@ -55,12 +55,12 @@ class Diligence
         return $this;
     }
 
-    public function getDuration(): ?\DateInterval
+    public function getDuration(): ?int
     {
         return $this->duration;
     }
 
-    public function setDuration(\DateInterval $duration): self
+    public function setDuration(int $duration): self
     {
         $this->duration = $duration;
 

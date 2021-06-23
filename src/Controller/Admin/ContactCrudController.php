@@ -11,5 +11,4 @@ class ContactCrudController extends AbstractCrudController
     {
         return Contact::class;
     }
-
 }

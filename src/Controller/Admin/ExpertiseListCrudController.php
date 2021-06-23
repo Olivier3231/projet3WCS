@@ -11,5 +11,4 @@ class ExpertiseListCrudController extends AbstractCrudController
     {
         return ExpertiseList::class;
     }
-
 }

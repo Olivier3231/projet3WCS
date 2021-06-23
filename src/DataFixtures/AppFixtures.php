@@ -17,18 +17,18 @@ class AppFixtures extends Fixture
         $faker = \Faker\Factory::create();
         $abo = new About();
         $abo->setTitle($faker->name())
-        ->setSubtitle($faker->words(4, true))
+            ->setSubtitle($faker->words(4, true))
             ->setDescription($faker->paragraph(1, true))
-            ->setAvatar
-            ('https://fr.freepik.com/photos-gratuite/avocat-client_3357722.htm#page=1&query=avocat&position=29');
-            $manager->persist($abo);
-
+            ->setAvatar('https://fr.freepik.com
+            /photos-gratuite/avocat-client_3357722.htm#page=1&query=avocat&position=29');
+        $manager->persist($abo);
 
         $newscategories = [$faker->word, $faker->word];
         $arrayNewsCategories = [];
         foreach ($newscategories as $newscategory) {
             $newscat = new NewsCategory();
-            $newscat->setName($newscategory);
+            $newscat->setName($newscategory)
+                ->setLogo("https://i.ibb.co/d2hh67r/marteau.png");
             $manager->persist($newscat);
             array_push($arrayNewsCategories, $newscat);
         }

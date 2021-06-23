@@ -11,5 +11,4 @@ class RateCrudController extends AbstractCrudController
     {
         return Rate::class;
     }
-
 }

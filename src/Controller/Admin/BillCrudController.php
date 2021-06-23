@@ -11,5 +11,4 @@ class BillCrudController extends AbstractCrudController
     {
         return Bill::class;
     }
-
 }

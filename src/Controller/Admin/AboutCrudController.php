@@ -11,5 +11,4 @@ class AboutCrudController extends AbstractCrudController
     {
         return About::class;
     }
-
 }

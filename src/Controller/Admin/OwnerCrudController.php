@@ -11,5 +11,4 @@ class OwnerCrudController extends AbstractCrudController
     {
         return Owner::class;
     }
-
 }
