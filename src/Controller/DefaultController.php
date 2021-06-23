@@ -99,22 +99,38 @@ class DefaultController extends AbstractController
    }
     
     /**
-     * @Route("/decisionimportante", name="decisionimportante")
+     * @Route("/importante", name="importante")
      */
-    public function decisionimportante(
+    public function importante(
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
 
         NewsCategoryRepository $newsCategoryRepository
    ): Response{
-       return $this->render('default/decisionimportante.html.twig', [
+       return $this->render('default/importante.html.twig', [
         'abouts' => $aboutRepository->findAll(),
             'news' => $newsRepository->findAll(),
             'newscategory' => $newsCategoryRepository->findAll(),
 
             ]);
    }
-    
+     /**
+     * @Route("/actualites", name="actualites")
+     */
+    public function actualites(
+        EntityManagerInterface $manager,
+        NewsRepository $newsRepository,
+        AboutRepository $aboutRepository,
+
+        NewsCategoryRepository $newsCategoryRepository
+   ): Response{
+       return $this->render('default/actualites.html.twig', [
+        'abouts' => $aboutRepository->findAll(),
+            'news' => $newsRepository->findAll(),
+            'newscategory' => $newsCategoryRepository->findAll(),
+
+            ]);
+   }
 }
 

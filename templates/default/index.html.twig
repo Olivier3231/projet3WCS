@@ -63,17 +63,25 @@
 <div class="container">
     <div class="row mb-5">
         <div class="col-2">
-            <a href=" /recent/ ">Les plus récentes</a>
+        <div class="nav-item">
+            <a class="nav-link" aria-current="page" href="../ ">Les plus récentes</a>
         </div>
+         </div>
         <div class="col-2">
-            <a href="/journal/ ">Journal Officiel</a>
+        <div class="nav-item">
+            <a class="nav-link" aria-current="page" href="../journal">Journal Officiel</a>
         </div>
+         </div>
         <div class="col-4">
-            <a href=" ">Les Décisions importantes des derniers mois</a>
+        <div class="nav-item">
+            <a class="nav-link" aria-current="page" href="../importante">Les Décisions importantes des derniers mois</a>
         </div>
+         </div>
         <div class="col-3">
-            <a href="">Toutes les actualités</a>
+        <div class="nav-item">
+            <a class="nav-link" aria-current="page" href="../actualites">Toutes les actualités</a>
         </div>
+         </div>
     </div>
     <div class="article row g-5">
         {% for new in news %}
