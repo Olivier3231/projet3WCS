@@ -10,21 +10,20 @@
 <div class="container">
     <div class="row mb-5">
         <div class="col-2">
-            <a href="">Les plus récentes</a>
+            <a href="/">Les plus récentes</a>
         </div>
         <div class="col-2">
-            <a href=" ">Journal Officiel</a>
+            <a class="nav-link" aria-current="page" href="/journal">Journal Officiel</a>
         </div>
         <div class="col-4">
-            <a href=" ">Les Décisions importantes des derniers mois</a>
+            <a class="nav-link" aria-current="page" href="/importante">Les Décisions importantes des derniers mois</a>
         </div>
         <div class="col-3">
-            <a href=" ">Toutes les actualités</a>
+            <a class="nav-link" aria-current="page" href="../actualites">Toutes les actualités</a>
         </div>
     </div>
     <div class="article row g-5">
-        {% for new in news %}
-        {% if new.getImportance ==  1 %}
+        {% for new in news %} {% if new.getImportance == 1 %}
         <div class="news col-sm-6">
             <div class="card_5">
                 <div class="row">
@@ -40,60 +39,46 @@
                     </div>
                 </div>
                 <h6 class="m-4"> {{new.newscategory.name}} </h6>
-                <div class="new_description ">
+                <div class="new_description">
                     <p class=" p-2 m-4 ">{{new.description}}</p>
                 </div>
-                <div class="p-1 text-center ">
-                    <a href="#myModal{{ loop.index }} " data-bs-target="#myModal{{ loop.index }} " data-bs-toggle="modal " class=" btn bg-white rounded align-center "> En savoir plus </a>
-                    <div class="modal fade " id="myModal{{ loop.index }} " tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
-                        <div class="modal-dialog modal-dialog-centered " role="document ">
-                            <div class="modal-content ">
-                                <div class="modal-header ">
-                                    <h5 class="modal-title " id="exampleModalLongTitle ">Modal title</h5>
-                                    <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close ">
-                                <span aria-hidden="true ">&times;</span>
-                            </button>
+                <div class="p-1 text-center">
+                    <a href="#myModal{{ loop.index }}" data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class=" btn bg-white rounded align-center"> En savoir plus </a>
+                    <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class=" modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">{{new.title}}</h5>
                                 </div>
-                                <div class="modal-body ">
-                                    <div class="container-fluid ">
+                                <div class="modal-body">
+                                    <div class="container-fluid">
                                         <div class="row ">
-                                            <div class="col-md-4 ">.col-md-4</div>
-                                            <div class="col-md-4 ml-auto ">.col-md-4 .ml-auto</div>
-                                        </div>
-                                        <div class="row ">
-                                            <div class="col-md-3 ml-auto ">.col-md-3 .ml-auto</div>
-                                            <div class="col-md-2 ml-auto ">.col-md-2 .ml-auto</div>
-                                        </div>
-                                        <div class="row ">
-                                            <div class="col-md-6 ml-auto ">.col-md-6 .ml-auto</div>
-                                        </div>
-                                        <div class="row ">
-                                            <div class="col-sm-9 ">
-                                                Level 1: .col-sm-9
+                                            <div class="col-sm-12">
+                                                <h6>{{new.newscategory.name}}</h6>
                                                 <div class="row ">
-                                                    <div class="col-8 col-sm-6 ">
-                                                        Level 2: .col-8 .col-sm-6
-                                                    </div>
-                                                    <div class="col-4 col-sm-6 ">
-                                                        Level 2: .col-4 .col-sm-6
+                                                    <div class="col-10 m-5">
+                                                        {{new.subtitle}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row ">
+                                            <div class="col-md-12 ml-auto">{{new.description}}</div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer ">
-                                    <button type="button " class="btn btn-secondary " data-dismiss="modal ">Close</button>
-                                    <button type="button " class="btn btn-primary ">Save changes</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <p class="card-date m-3 "> {{new.date|date("d-m-Y ")}} </p>
+                    <p class="card-date m-3"> {{new.date|date("d-m-Y")}} </p>
                 </div>
             </div>
         </div>
-      {% else %} {% endif %}
-{% endfor %}{% endblock %}
+        {% else %} {% endif %} {% endfor %}
+    </div>
+</div>{% endblock %}

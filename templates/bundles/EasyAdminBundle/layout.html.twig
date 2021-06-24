@@ -70,9 +70,9 @@
                 {% for item in ea.userMenu.items %} {% if item.isMenuSection %}
                 <hr class="m-0" /> {% else %}
                 <a href="{{ item.linkUrl }}" class="user-action {{ item.cssClass }}" target="{{ item.linkTarget }}" rel="{{ item.linkRel }}" referrerpolicy="origin-when-cross-origin">
-                                                    {% if item.icon is not empty %}<i class="fa fa-fw {{ item.icon }}"></i>{% endif %}
-                                                    <span>{{ item.label }}</span>
-                                                </a> {% endif %} {% endfor %}
+                    {% if item.icon is not empty %}<i class="fa fa-fw{{ item.icon }}" style="color: white;"></i>{% endif %}
+                    <span>{{ item.label }}</span>
+                </a> {% endif %} {% endfor %}
             </div>
             {% endif %} {% endblock user_menu %} {% endset %}
 
@@ -113,8 +113,8 @@
                             <h1 class="title">
                                 {% block content_title %}{% endblock %} {% block content_help %} {% if has_help_message %}
                                 <span class="content-header-help">
-                                                                <i class="far fa-question-circle" data-toggle="tooltip" title="{{ ea.crud.helpMessage|e('html_attr') }}"></i>
-                                                            </span> {% endif %} {% endblock %}
+                                <i class="far fa-question-circle" data-toggle="tooltip" title="{{ ea.crud.helpMessage|e('html_attr') }}"></i>
+                                </span> {% endif %} {% endblock %}
                             </h1>
                         </div>
 

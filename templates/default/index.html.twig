@@ -1,33 +1,31 @@
  {% extends 'base.html.twig' %}{% block body %} {% for about in abouts %}
 
-<div class="presentation p-5">
-    <div class="about row m-5">
+<div class="presentation pt-2" id="bgI">
+    <div class="about row m-5 align-items-center">
         <div class="avatar col-4 text-center">
-            <img class="picture rounded-circle" src="{{ asset('build/avatarThibaud.png') }}" alt="Thibaud Béjat">
+            <img class="picture rounded-circle" src="{{ asset( 'build/avatarThibaud.png') }} " alt="Thibaud Béjat ">
         </div>
-        <div class="col-8">
+        <div class="col-8 mt-4 pt-5">
             <div class="card-body">
                 <h5 class="card-title">{{about.title}}</h5>
                 <h6 class="card-text">{{about.subtitle}}</h6>
                 <div class="card-text">
                     <p>{{about.description}}</p>
                 </div>
-                <div class="text-center pt-5">
-                    <a href="/#contact" class="btn bg-white"> Contact </a>
-                </div>
-                <div id="compétences"></div>
+            </div>
+            <div class="text-center pt-5">
+                <a href="/#contact" class="btn bg-white"> Contact </a>
             </div>
         </div>
         {% endfor %}
     </div>
+    <div class="mt-3" id="compétences">
+        <hr class="separateur separator--line">
+    </div>
 </div>
 
-<hr class="separateur">
-
 <h1 class="titre mt-5 mb-5">COMPÉTENCES</h1>
-
-<div class="competence container mb-5">
-
+<div class="competence container mb-5 pb-5">
     {% for expertise in expertises %}{% if expertise.id is divisible by(2) %}
     <div class="total_card row">
         <div class="width col-8">
@@ -53,36 +51,36 @@
         </div>
     </div>
     {% endif %}{% endfor %}
-    <div class="mb-5" id="actualités"></div>
+    <div class="mb-5 mt-2" id="actualités">
+    </div>
 </div>
+<hr class="separateur separator--line my-5">
+<h1 class="titre my-5">ACTUALITÉS</h1>
 
-<hr class="separateur">
-
-<h1 class="titre mt-5 mb-5">ACTUALITÉS</h1>
-
-<div class="container">
-    <div class="row mb-5">
-        <div class="col-2">
+<div class="row-link ">
+    <div class="col-2">
         <div class="nav-item">
             <a class="nav-link" aria-current="page" href="../ ">Les plus récentes</a>
         </div>
-         </div>
-        <div class="col-2">
-        <div class="nav-item">
-            <a class="nav-link" aria-current="page" href="../journal">Journal Officiel</a>
+    </div>
+    <div class="col-2">
+        <div class=" nav-item">
+            <a class="nav-link" aria-current="page" href="/journal">Journal Officiel</a>
         </div>
-         </div>
-        <div class="col-4">
+    </div>
+    <div class="col-4">
         <div class="nav-item">
-            <a class="nav-link" aria-current="page" href="../importante">Les Décisions importantes des derniers mois</a>
+            <a class="nav-link" aria-current="page" href="/importante">Les Décisions importantes des derniers mois</a>
         </div>
-         </div>
-        <div class="col-3">
+    </div>
+    <div class="col-3">
         <div class="nav-item">
             <a class="nav-link" aria-current="page" href="../actualites">Toutes les actualités</a>
         </div>
-         </div>
     </div>
+</div>
+
+<div class="container my-5 py-5">
     <div class="article row g-5">
         {% for new in news %}
         <div class="news col-sm-6">
@@ -104,47 +102,32 @@
                     <p class="p-2 m-4">{{new.description}}</p>
                 </div>
                 <div class="p-1 text-center">
-                    <a href="#myModal{{ loop.index }} " data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class=" btn bg-white rounded align-center"> En savoir plus </a>
+                    <a href="#myModal{{ loop.index }}" data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class="btn bg-white rounded align-center"> En savoir plus </a>
                     <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                                <div class=" modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">{{new.title}}</h5>
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-md-4">.col-md-4</div>
-                                            <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
-                                            <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-9">
-                                                Level 1: .col-sm-9
+                                            <div class="col-sm-12">
+                                                <h6>{{new.newscategory.name}}</h6>
                                                 <div class="row">
-                                                    <div class="col-8 col-sm-6">
-                                                        Level 2: .col-8 .col-sm-6
-                                                    </div>
-                                                    <div class="col-4 col-sm-6">
-                                                        Level 2: .col-4 .col-sm-6
+                                                    <div class="col-10 m-5">
+                                                        {{new.subtitle}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-12 ml-auto">{{new.description}}</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -156,18 +139,18 @@
             </div>
         </div>
         {% endfor %}
-        <div class="mb-5" id="contact"></div>
+    </div>
+    <div class="mb-5 mt-2" id="contact">
     </div>
 </div>
-
-<hr class="separateur">
-<h1 class="titre mt-5 mb-5">CONTACT</h1>
-<div class="container">
+<hr class="separateur separator--line my-5">
+<h1 class="titre mb-5">CONTACT</h1>
+<div class="container my-5 py-5">
     <div class=" contact row gx-5">
         <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">{% form_theme form 'bootstrap_4_layout.html.twig' %}
             <div class="form">
                 {{ form_start(form) }}
-                <div class="m-3">{{form_widget(form.firstname)}}</div>
+                <div class="m-3 ">{{form_widget(form.firstname)}}</div>
                 <div class="form-error">
                     {{ form_errors(form.firstname) }}
                 </div>
