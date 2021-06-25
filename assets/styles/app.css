@@ -16,15 +16,12 @@ button {
 
 .presentation {
     min-height: 75vh;
-}
-
-#bgI {
-    background-image: url("remote-fr-March21-php-TDBT/assets/images/background.png");
+    background-image: url("remote-fr-March21-php-TDBT/assets/images/background1.png");
+    background-size: contain;
     transition: background-image 2s linear;
-    opacity: 0.5;
 }
 
-#bgI:hover {
+.presentation:hover {
     background-image: transparent;
 }
 
@@ -37,6 +34,7 @@ button {
 
 .navbar-custom {
     background-color: #4886af;
+    box-shadow: 8px 8px 2px 1px rgba(25, 25, 26, 0.2);
 }
 
 .logoNav {
