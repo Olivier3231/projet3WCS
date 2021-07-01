@@ -11,6 +11,9 @@ import './styles/app.css';
 // start the Stimulus application
 import './bootstrap';
 
+
+//texte présentation
+//$("#test").show("slide", { direction: "right" }, 2000);
 new Filter(document.querySelector('.js-filter'))
 var myCarousel = document.querySelector('#myCarousel')
 var carousel = new bootstrap.Carousel(myCarousel, {
