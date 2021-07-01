@@ -44,6 +44,11 @@ class News
      */
     private $news_category;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $importance;
+
     public function __construct()
     {
         $this->date = new DateTime('now');
@@ -110,6 +115,18 @@ class News
     public function setNewsCategory(?NewsCategory $news_category): self
     {
         $this->news_category = $news_category;
+
+        return $this;
+    }
+
+    public function getImportance(): ?int
+    {
+        return $this->importance;
+    }
+
+    public function setImportance(int $importance): self
+    {
+        $this->importance = $importance;
 
         return $this;
     }

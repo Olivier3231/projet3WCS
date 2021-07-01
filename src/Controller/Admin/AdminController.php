@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -35,23 +36,23 @@ class AdminController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Remote Fr March21 Php TDBT');
+            ->setTitle('Maître Thibaud BÉJAT');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
-        yield MenuItem::linkToCrud('Compétences', 'fas fa-list', Expertise::class);
-        yield MenuItem::linkToCrud('Listes compétences', 'fas fa-list', ExpertiseList::class);
-        yield MenuItem::linkToCrud('Actualités', 'fas fa-list', News::class);
-        yield MenuItem::linkToCrud('Catégories d\'actualités', 'fas fa-list', NewsCategory::class);
-        yield MenuItem::linkToCrud('Dossiers', 'fas fa-list', Folder::class);
-        yield MenuItem::linkToCrud('Clients', 'fas fa-list', Customer::class);
-        yield MenuItem::linkToCrud('Diligence', 'fas fa-list', Diligence::class);
-        yield MenuItem::linkToCrud('Facture', 'fas fa-list', Bill::class);
-        yield MenuItem::linkToCrud('Propriétaire', 'fas fa-list', Owner::class);
-        yield MenuItem::linkToCrud('Taux TVA', 'fas fa-list', Rate::class);
-        yield MenuItem::linkToCrud('Contact', 'fas fa-list', Contact::class);
+        yield MenuItem::linkToCrud('Compétences', 'fas fa-balance-scale', Expertise::class);
+        yield MenuItem::linkToCrud('Listes compétences', 'fas fa-gavel', ExpertiseList::class);
+        yield MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class);
+        yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class);
+        yield MenuItem::linkToCrud('Dossiers', 'fas fa-folder-minus', Folder::class);
+        yield MenuItem::linkToCrud('Clients', 'fas fa-handshake', Customer::class);
+        yield MenuItem::linkToCrud('Diligence', 'fas fa-user-check', Diligence::class);
+        yield MenuItem::linkToCrud('Facture', 'fas fa-file-pdf', Bill::class);
+        yield MenuItem::linkToCrud('Propriétaire', 'fas fa-landmark', Owner::class);
+        yield MenuItem::linkToCrud('Tarification', 'fas fa-percent', Rate::class);
+        yield MenuItem::linkToCrud('Contact', 'fas fa-headset', Contact::class);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CustomerRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -64,14 +65,11 @@ class Customer
      */
     private $folders;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Diligence::class, mappedBy="customer", orphanRemoval=true)
-     */
-
     public function __construct()
     {
         $this->bills = new ArrayCollection();
         $this->folders = new ArrayCollection();
+        $this->created_at = new DateTime();
     }
 
     public function getId(): ?int
