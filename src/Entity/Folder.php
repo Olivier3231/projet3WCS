@@ -21,9 +21,10 @@ class Folder
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=ExpertiseList::class, inversedBy="folder")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $number;
+    private $expertiseList;
 
     /**
      * @ORM\Column(type="datetime")
@@ -45,6 +46,7 @@ class Folder
     {
         $this->created_at = new DateTime();
         $this->diligences = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -121,5 +123,17 @@ class Folder
     public function __toString()
     {
         return sprintf("%d - %s %s", $this->number, $this->customer->getLastname(), $this->customer->getFirstname());
+    }
+
+    public function getExpertiseList(): ?ExpertiseList
+    {
+        return $this->expertiseList;
+    }
+
+    public function setExpertiseList(?ExpertiseList $expertiseList): self
+    {
+        $this->expertiseList = $expertiseList;
+
+        return $this;
     }
 }

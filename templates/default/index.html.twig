@@ -18,7 +18,7 @@
                         <img class="picture rounded-circle" src="{{ asset( 'build/avatarThibaud.png') }}" alt="Thibaud Béjat">
                     </div>
                     <div id="table" class="col-8">
-                        <div id="centeralign" class="card-body">
+                        <div id="card-about" class="card-body">
                             <h5 class="card-title">{{about.title}}</h5>
                             <h6 class="card-text1">{{about.subtitle}}</h6>
                             <div class="card-text">
@@ -42,7 +42,7 @@
                             <img class="picture rounded-circle" src="{{ asset( 'build/avatarThibaud.png') }}" alt="Thibaud Béjat">
                         </div>
                         <div class="col-8 ">
-                            <div class="card-body">
+                            <div id="card-about" class="card-body">
                                 <h5 class="card-title">{{about.title}}</h5>
                                 <h6 class="card-text1">{{about.subtitle}}</h6>
                                 <div class="card-text">
@@ -67,7 +67,7 @@
                             <img class="picture rounded-circle" src="{{ asset( 'build/avatarThibaud.png') }}" alt="Thibaud Béjat">
                         </div>
                         <div class="col-8">
-                            <div class="card-body">
+                            <div id="card-about" class="card-body">
                                 <h5 class="card-title">{{about.title}}</h5>
                                 <h6 class="card-text1">{{about.subtitle}}</h6>
                                 <div class="card-text">
@@ -80,7 +80,7 @@
                         <div class="text-center pt-3 col-4">
                             <a href="/#contact" class="btn bg-white"> Contact </a>
                         </div>
-                        <div class="col-2"></div> 
+                        <div class="col-2"></div>
                     </div>
                 </div>
                 <div class="mb-5 mt-2" id="compétences"></div>
@@ -169,7 +169,7 @@
                 </div>
                 <div class="p-1 text-center">
                     <a href="#myModal{{ loop.index }}" data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class="btn bg-white rounded align-center"> En savoir plus </a>
-                    <div class="modal fade" id="myModal{{ loop.index }} " tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle " aria-hidden="true">
+                    <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                             <div class="modal-content">
                                 <div class=" modal-header">
