@@ -47,6 +47,7 @@ class AppFixtures extends Fixture
             ->setSubtitle($faker->words(5, true))
             ->setDescription($faker->paragraph(30, true))
             ->setDate($faker->dateTime())
+            ->setImportance($faker->numberBetween(0.1))
             ->setNewsCategory($faker->randomElement($arrayNewsCategories));
             $manager->persist($new);
         }

@@ -19,8 +19,10 @@ class FolderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('number'),
+            
             AssociationField::new('customer'),
+            AssociationField::new('Owner'),
+            AssociationField::new('businessType'),
             
         ];
     }

@@ -20,8 +20,6 @@ class DiligenceCrudController extends AbstractCrudController
         return [
             Field::new('description'),
             Field::new('duration'),
-            AssociationField::new('expertise'),
-            AssociationField::new('folder'),
         ];
     }
 

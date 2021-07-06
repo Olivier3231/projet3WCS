@@ -20,6 +20,7 @@ use App\Entity\Diligence;
 use App\Entity\Folder;
 use App\Entity\Owner;
 use App\Entity\Rate;
+use App\Entity\BusinessType;
 
 class AdminController extends AbstractDashboardController
 {
@@ -48,6 +49,7 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class);
         yield MenuItem::linkToCrud('Dossiers', 'fas fa-folder-minus', Folder::class);
         yield MenuItem::linkToCrud('Clients', 'fas fa-handshake', Customer::class);
+        yield MenuItem::linkToCrud('Type Facturation', 'fas fa-euro-sign', BusinessType::class);
         yield MenuItem::linkToCrud('Diligence', 'fas fa-user-check', Diligence::class);
         yield MenuItem::linkToCrud('Facture', 'fas fa-file-pdf', Bill::class);
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-landmark', Owner::class);

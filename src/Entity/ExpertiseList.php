@@ -29,15 +29,10 @@ class ExpertiseList
      */
     private $expertises;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Folder::class, mappedBy="expertiseList", orphanRemoval=true)
-     */
-    private $folder;
 
     public function __construct()
     {
         $this->expertises = new ArrayCollection();
-        $this->folder = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,33 +82,4 @@ class ExpertiseList
         return $this;
     }
 
-    /**
-     * @return Collection|Folder[]
-     */
-    public function getFolder(): Collection
-    {
-        return $this->folder;
-    }
-
-    public function addFolder(Folder $folder): self
-    {
-        if (!$this->folder->contains($folder)) {
-            $this->folder[] = $folder;
-            $folder->setExpertiseList($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFolder(Folder $folder): self
-    {
-        if ($this->folder->removeElement($folder)) {
-            // set the owning side to null (unless already changed)
-            if ($folder->getExpertiseList() === $this) {
-                $folder->setExpertiseList(null);
-            }
-        }
-
-        return $this;
-    }
 }

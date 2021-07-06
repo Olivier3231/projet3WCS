@@ -21,12 +21,6 @@ class Folder
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ExpertiseList::class, inversedBy="folder")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $expertiseList;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
@@ -38,14 +32,21 @@ class Folder
     private $customer;
 
     /**
-     * @ORM\OneToMany(targetEntity=Diligence::class, mappedBy="folder")
+     * @ORM\ManyToOne(targetEntity=Owner::class, inversedBy="folders")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $diligences;
+    private $Owner;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=BusinessType::class, inversedBy="folders")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $businessType;
+
 
     public function __construct()
     {
         $this->created_at = new DateTime();
-        $this->diligences = new ArrayCollection();
         
     }
 
@@ -54,17 +55,6 @@ class Folder
         return $this->id;
     }
 
-    public function getNumber(): ?int
-    {
-        return $this->number;
-    }
-
-    public function setNumber(int $number): self
-    {
-        $this->number = $number;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -90,50 +80,33 @@ class Folder
         return $this;
     }
 
-    /**
-     * @return Collection|Diligence[]
-     */
-    public function getDiligences(): Collection
-    {
-        return $this->diligences;
-    }
-
-    public function addDiligence(Diligence $diligence): self
-    {
-        if (!$this->diligences->contains($diligence)) {
-            $this->diligences[] = $diligence;
-            $diligence->setFolder($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDiligence(Diligence $diligence): self
-    {
-        if ($this->diligences->removeElement($diligence)) {
-            // set the owning side to null (unless already changed)
-            if ($diligence->getFolder() === $this) {
-                $diligence->setFolder(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function __toString()
     {
-        return sprintf("%d - %s %s", $this->number, $this->customer->getLastname(), $this->customer->getFirstname());
+        return sprintf("%d - %s %s", $this->customer->getLastname(), $this->customer->getFirstname());
     }
 
-    public function getExpertiseList(): ?ExpertiseList
+    public function getOwner(): ?Owner
     {
-        return $this->expertiseList;
+        return $this->Owner;
     }
 
-    public function setExpertiseList(?ExpertiseList $expertiseList): self
+    public function setOwner(?Owner $Owner): self
     {
-        $this->expertiseList = $expertiseList;
+        $this->Owner = $Owner;
 
         return $this;
     }
+
+    public function getBusinessType(): ?BusinessType
+    {
+        return $this->businessType;
+    }
+
+    public function setBusinessType(?BusinessType $businessType): self
+    {
+        $this->businessType = $businessType;
+
+        return $this;
+    }
+
 }
