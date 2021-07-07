@@ -55,4 +55,9 @@ class PresetDiligence
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return sprintf('%s %s', $this->amount, $this->description);
+    }
 }

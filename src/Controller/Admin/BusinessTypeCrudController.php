@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\BusinessType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class BusinessTypeCrudController extends AbstractCrudController
@@ -11,6 +12,14 @@ class BusinessTypeCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return BusinessType::class;
+    }
+    public function configureFields(string $pageName): iterable
+    {
+        return [
+
+            Field::new('name'), 
+            
+        ];
     }
 
     public function configureAssets(Assets $assets): Assets

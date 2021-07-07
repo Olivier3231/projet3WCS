@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SubFolderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,16 @@ class SubFolder
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Folder::class, mappedBy="subFolder")
+     */
+    private $folders;
+
+    public function __construct()
+    {
+        $this->folders = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +47,41 @@ class SubFolder
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return sprintf('%s', $this->name);
+    }
+
+    /**
+     * @return Collection|Folder[]
+     */
+    public function getFolders(): Collection
+    {
+        return $this->folders;
+    }
+
+    public function addFolder(Folder $folder): self
+    {
+        if (!$this->folders->contains($folder)) {
+            $this->folders[] = $folder;
+            $folder->setSubFolder($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFolder(Folder $folder): self
+    {
+        if ($this->folders->removeElement($folder)) {
+            // set the owning side to null (unless already changed)
+            if ($folder->getSubFolder() === $this) {
+                $folder->setSubFolder(null);
+            }
+        }
 
         return $this;
     }

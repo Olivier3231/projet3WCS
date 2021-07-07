@@ -53,6 +53,16 @@ class Folder
      */
     private $presetDiligence;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=SubFolder::class, inversedBy="folders")
+     */
+    private $subFolder;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=BillingMethod::class)
+     */
+    private $billingMethod;
+
 
     public function __construct()
     {
@@ -165,6 +175,30 @@ class Folder
     public function removePresetDiligence(PresetDiligence $presetDiligence): self
     {
         $this->presetDiligence->removeElement($presetDiligence);
+
+        return $this;
+    }
+
+    public function getSubFolder(): ?SubFolder
+    {
+        return $this->subFolder;
+    }
+
+    public function setSubFolder(?SubFolder $subFolder): self
+    {
+        $this->subFolder = $subFolder;
+
+        return $this;
+    }
+
+    public function getBillingMethod(): ?BillingMethod
+    {
+        return $this->billingMethod;
+    }
+
+    public function setBillingMethod(?BillingMethod $billingMethod): self
+    {
+        $this->billingMethod = $billingMethod;
 
         return $this;
     }

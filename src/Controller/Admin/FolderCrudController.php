@@ -20,9 +20,14 @@ class FolderCrudController extends AbstractCrudController
     {
         return [
             
-            AssociationField::new('customer'),
             AssociationField::new('Owner'),
+            AssociationField::new('customer'),
             AssociationField::new('businessType'),
+            AssociationField::new('billingMethod'),
+            AssociationField::new('subFolder'),
+            AssociationField::new('diligence'),
+            AssociationField::new('presetDiligence'),
+            
             
         ];
     }

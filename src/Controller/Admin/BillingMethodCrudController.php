@@ -2,23 +2,15 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\PresetDiligence;
+use App\Entity\BillingMethod;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class PresetDiligenceCrudController extends AbstractCrudController
+class BillingMethodCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return PresetDiligence::class;
-    }
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            Field::new('description'),
-            Field::new('amount'),
-        ];
+        return BillingMethod::class;
     }
 
     public function configureAssets(Assets $assets): Assets
