@@ -29,9 +29,17 @@ class BusinessType
      */
     private $folders;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=SubFolder::class)
+     */
+    private $subFolder;
+
+    
+
     public function __construct()
     {
         $this->folders = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -85,4 +93,17 @@ class BusinessType
     {
         return sprintf('%s', $this->name);
     }
+
+    public function getSubFolder(): ?SubFolder
+    {
+        return $this->subFolder;
+    }
+
+    public function setSubFolder(?SubFolder $subFolder): self
+    {
+        $this->subFolder = $subFolder;
+
+        return $this;
+    }
+
 }

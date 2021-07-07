@@ -365,7 +365,8 @@
             .avatar {
                 height: 60%;
                 width: 60%;
-                padding-top: 8%;
+                padding-top: 0%;
+                padding-bottom: 00%;
             }
             card-title {
                 padding-top: 1%;
@@ -375,7 +376,8 @@
             }
             .carousel-caption {
                 top: 00%;
-                bottom: initial;
+                transform: translateY(-1050%);
+                bottom: initial
             }
             .contact {
                 display: flex;

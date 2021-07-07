@@ -43,10 +43,22 @@ class Folder
      */
     private $businessType;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Diligence::class)
+     */
+    private $diligence;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=PresetDiligence::class)
+     */
+    private $presetDiligence;
+
 
     public function __construct()
     {
         $this->created_at = new DateTime();
+        $this->diligence = new ArrayCollection();
+        $this->presetDiligence = new ArrayCollection();
         
     }
 
@@ -105,6 +117,54 @@ class Folder
     public function setBusinessType(?BusinessType $businessType): self
     {
         $this->businessType = $businessType;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Diligence[]
+     */
+    public function getDiligence(): Collection
+    {
+        return $this->diligence;
+    }
+
+    public function addDiligence(Diligence $diligence): self
+    {
+        if (!$this->diligence->contains($diligence)) {
+            $this->diligence[] = $diligence;
+        }
+
+        return $this;
+    }
+
+    public function removeDiligence(Diligence $diligence): self
+    {
+        $this->diligence->removeElement($diligence);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PresetDiligence[]
+     */
+    public function getPresetDiligence(): Collection
+    {
+        return $this->presetDiligence;
+    }
+
+    public function addPresetDiligence(PresetDiligence $presetDiligence): self
+    {
+        if (!$this->presetDiligence->contains($presetDiligence)) {
+            $this->presetDiligence[] = $presetDiligence;
+        }
+
+        return $this;
+    }
+
+    public function removePresetDiligence(PresetDiligence $presetDiligence): self
+    {
+        $this->presetDiligence->removeElement($presetDiligence);
 
         return $this;
     }
