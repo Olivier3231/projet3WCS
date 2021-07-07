@@ -61,32 +61,38 @@
         
         .nav-link {
             color: white;
-            font-size: 18px;
+            font-size: 22px;
             border-radius: 10px;
             display: flex;
-            justify-content: space-evenly;
+            text-align: center;
+            justify-content: space-between;
+            padding-left: 40px;
+            padding-right: 40px;
         }
         
         .nav-link:hover {
             background-color: #dfdfdf;
             border-radius: 10px;
             color: #4886af;
-            font-size: 20px;
+            font-size: 24px;
         }
         
         .nav-link1 {
-            font-size: 18px;
+            font-size: 24px;
             color: #4886af;
             border-radius: 10px;
             display: flex;
-            justify-content: space-evenly;
+            text-align: center;
+            justify-content: space-between;
+            padding-left: 40px;
+            padding-right: 40px;
         }
         
         .nav-link1:hover {
             color: #4886af;
-            background-color: #e7e7e7;
+            background-color: #dfdfdf;
             border-radius: 10px;
-            font-size: 20px;
+            font-size: 26px;
         }
         /* présentation */
         
