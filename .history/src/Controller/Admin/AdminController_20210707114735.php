@@ -21,7 +21,6 @@ use App\Entity\Folder;
 use App\Entity\Owner;
 use App\Entity\Rate;
 use App\Entity\BusinessType;
-use App\Entity\UploadBackground;
 use App\Entity\UploadCarrousel;
 
 class AdminController extends AbstractDashboardController
@@ -57,8 +56,8 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-landmark', Owner::class);
         yield MenuItem::linkToCrud('Tarification', 'fas fa-percent', Rate::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-headset', Contact::class);
-        yield MenuItem::linkToCrud('Carrousel', 'fas fa-parachute-box', UploadCarrousel::class);
-        yield MenuItem::linkToCrud('Background', 'far fa-images', UploadBackground::class);
+        yield MenuItem::linkToCrud('Carrousel', 'fas fa-headset', UploadCarrousel::class);
+        yield MenuItem::linkToCrud('Background', 'fas fa-headset', Contact::class);
     }
 
     /**
