@@ -17,7 +17,7 @@ class BusinessTypeCrudController extends AbstractCrudController
     {
         return [
 
-            Field::new('name'), 
+            Field::new('name', 'Nom'), 
             
         ];
     }

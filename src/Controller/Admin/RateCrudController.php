@@ -12,6 +12,7 @@ class RateCrudController extends AbstractCrudController
     {
         return Rate::class;
     }
+
     public function configureAssets(Assets $assets): Assets
     {
         return $assets

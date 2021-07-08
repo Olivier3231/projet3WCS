@@ -5,8 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Diligence;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class DiligenceCrudController extends AbstractCrudController
 {
@@ -18,8 +18,8 @@ class DiligenceCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('description'),
-            Field::new('duration'),
+            TextareaField::new('description', 'Description'),
+            IntegerField::new('duration', 'Durée'),
         ];
     }
 

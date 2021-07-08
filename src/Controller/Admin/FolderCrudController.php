@@ -8,6 +8,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 
 class FolderCrudController extends AbstractCrudController
 {
@@ -19,15 +21,17 @@ class FolderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            
-            AssociationField::new('Owner'),
-            AssociationField::new('customer'),
-            AssociationField::new('businessType'),
-            AssociationField::new('billingMethod'),
-            AssociationField::new('subFolder'),
-            AssociationField::new('diligence'),
-            AssociationField::new('presetDiligence'),
-            
+            IdField::new('id')->hideOnForm(),
+            FormField::addPanel('Général'),
+            AssociationField::new('Owner', 'Propriétaire'),
+            AssociationField::new('customer', 'Client'),
+            AssociationField::new('businessType', "type d'affaire"),
+            FormField::addPanel('Facturation'),
+            AssociationField::new('billingMethod', 'Methode de facturation')->hideOnIndex(),
+            AssociationField::new('subFolder', 'Sous-dossier'),
+            FormField::addPanel('Diligences'),
+            AssociationField::new('diligence')->hideOnIndex(),
+            AssociationField::new('presetDiligence', 'Diligence préétablie')->hideOnIndex(),
             
         ];
     }

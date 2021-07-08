@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use App\Entity\Contact;
-use App\Entity\ExpertiseList;
 use App\Entity\Expertise;
 use App\Entity\NewsCategory;
 use App\Entity\News;
@@ -47,7 +46,6 @@ class AdminController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
         yield MenuItem::linkToCrud('Compétences', 'fas fa-balance-scale', Expertise::class);
-        yield MenuItem::linkToCrud('Listes compétences', 'fas fa-gavel', ExpertiseList::class);
         yield MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class);
         yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class);
         yield MenuItem::linkToCrud('Dossiers', 'fas fa-folder-minus', Folder::class);

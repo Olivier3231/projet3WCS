@@ -6,6 +6,8 @@ use App\Entity\PresetDiligence;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class PresetDiligenceCrudController extends AbstractCrudController
 {
@@ -16,8 +18,8 @@ class PresetDiligenceCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('description'),
-            Field::new('amount'),
+            TextField::new('description', 'Description'),
+            Field::new('amount', 'Montant'),
         ];
     }
 

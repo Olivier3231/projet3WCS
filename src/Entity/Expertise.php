@@ -29,13 +29,6 @@ class Expertise
      */
     private $description;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=ExpertiseList::class, inversedBy="expertises")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $expertise_list;
-
-
     public function __tostring()
     {
         return $this->getTitle();
@@ -66,18 +59,6 @@ class Expertise
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getExpertiseList(): ?ExpertiseList
-    {
-        return $this->expertise_list;
-    }
-
-    public function setExpertiseList(?ExpertiseList $expertise_list): self
-    {
-        $this->expertise_list = $expertise_list;
 
         return $this;
     }

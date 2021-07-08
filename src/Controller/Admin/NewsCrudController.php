@@ -21,10 +21,10 @@ class NewsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextField::new('subtitle'),
-            TextEditorField::new('description'),
-            AssociationField::new('news_category'),
+            TextField::new('title', 'Titre'),
+            TextField::new('subtitle', 'SousTitre'),
+            TextEditorField::new('description', 'Description'),
+            AssociationField::new('news_category', 'Catégorie'),
             NumberField::new('importance')
 
         ];

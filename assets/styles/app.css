@@ -5,7 +5,7 @@
         
         body::after {
             content: "";
-            background-image: url(/home/joshmfr/workspace/TDBT/remote-fr-March21-php-TDBT/assets/images/vecteezy_light-grey-background_1907694.png);
+            background-image: url('build/images/vecteezy_light-grey-background_1907694.png');
             opacity: 0.5;
             top: 0;
             left: 0;
