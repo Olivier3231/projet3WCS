@@ -51,13 +51,13 @@ class UploadBackground
     public function setImageUpload(Upload $upload = null)
     {
         $this->imageUpload = $upload;
-        if ($upload) {
+        if ($u) {
             $this->createdAt = new \DateTime('now');    
         }
 
-    public function getImageUpload(): ?sting
+    public function getImageFile()
     {
-        return $this->imageUpload;
+        return $this->imageFile;
     }
     }
 }

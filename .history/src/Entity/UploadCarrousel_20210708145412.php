@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\UploadBackgroundRepository;
+use App\Repository\UploadCarrouselRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\Upload\Upload;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * @ORM\Entity(repositoryClass=UploadBackgroundRepository::class)
+ * @ORM\Entity(repositoryClass=UploadCarrouselRepository::class)
  * @Vich\Uploadable
  */
-class UploadBackground
+class UploadCarrousel
 {
     /**
      * @ORM\Id
@@ -26,10 +26,10 @@ class UploadBackground
     private $upload;
 
     /**
-     * @Vich\Uploadablefield(mapping"upload_background", fileNameProperty="upload")
+     * @Vich\Uploadablefield(mapping"upload_carrousel", fileNameProperty="upload")
      * @var upload
      */
-    private $imageUpload;
+    private $imageF;
 
     public function getId(): ?int
     {
@@ -46,18 +46,5 @@ class UploadBackground
         $this->upload = $upload;
 
         return $this;
-    }
-
-    public function setImageUpload(Upload $upload = null)
-    {
-        $this->imageUpload = $upload;
-        if ($upload) {
-            $this->createdAt = new \DateTime('now');    
-        }
-
-    public function getImageUpload(): ?sting
-    {
-        return $this->imageUpload;
-    }
     }
 }

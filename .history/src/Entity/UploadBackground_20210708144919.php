@@ -55,9 +55,9 @@ class UploadBackground
             $this->createdAt = new \DateTime('now');    
         }
 
-    public function getImageUpload(): ?sting
+    public function getImageUpload()
     {
-        return $this->imageUpload;
+        return $this->imageFile;
     }
-    }
+
 }

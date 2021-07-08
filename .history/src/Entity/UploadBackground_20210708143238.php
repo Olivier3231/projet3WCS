@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\UploadBackgroundRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\Upload\Upload;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=UploadBackgroundRepository::class)
@@ -26,10 +26,10 @@ class UploadBackground
     private $upload;
 
     /**
-     * @Vich\Uploadablefield(mapping"upload_background", fileNameProperty="upload")
-     * @var upload
+     * @Vich\Uploadablefield(mapping"upload_background", fileNameProperty="file)
+     * @var file
      */
-    private $imageUpload;
+    private $imageFile;
 
     public function getId(): ?int
     {
@@ -48,16 +48,5 @@ class UploadBackground
         return $this;
     }
 
-    public function setImageUpload(Upload $upload = null)
-    {
-        $this->imageUpload = $upload;
-        if ($upload) {
-            $this->createdAt = new \DateTime('now');    
-        }
-
-    public function getImageUpload(): ?sting
-    {
-        return $this->imageUpload;
-    }
-    }
+    
 }
