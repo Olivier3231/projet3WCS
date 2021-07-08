@@ -1,0 +1,9 @@
+vich_uploader:
+    db_driver: orm
+
+    #mappings:
+    #    upload_background:
+    #        uri_prefix: /upload/background
+    #        upload_destination: '%kernel.project_dir%/public%upload_background'
+             delete_on_update: false
+             delete_on
