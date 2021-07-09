@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\BillingMethod;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -32,6 +33,16 @@ class BillingMethodCrudController extends AbstractCrudController
             ->addCssFile('build/admin.css')
         ;
     } 
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Methode  de facturation')
+        ->setPageTitle('edit', 'Methode  de facturation')
+        ->setPageTitle('new', 'Methode  de facturation')
+        ->setPageTitle('detail', 'Methode  de facturation')
+        ;
+    }
 
     /*
     public function configureFields(string $pageName): iterable

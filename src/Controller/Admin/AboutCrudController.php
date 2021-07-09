@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\About;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
@@ -28,6 +29,7 @@ class AboutCrudController extends AbstractCrudController
             TextField::new('subtitle', 'Titre'),
             AvatarField::new('avatar', "avatar"),
             TextEditorField::new('description', 'decription')->hideOnIndex(),
+           
             
         ];
     }
@@ -37,4 +39,14 @@ class AboutCrudController extends AbstractCrudController
             ->addCssFile('build/admin.css')
         ;
     } 
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Accueil')
+        ->setPageTitle('edit', 'Accueil')
+        ->setPageTitle('new', 'Accueil')
+        ->setPageTitle('detail', 'Accueil')
+        ;
+    }
 }

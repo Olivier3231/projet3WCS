@@ -6,6 +6,7 @@ use App\Entity\Customer;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\LocaleField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
@@ -35,4 +36,14 @@ class CustomerCrudController extends AbstractCrudController
             ->addCssFile('build/admin.css')
         ;
     } 
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Clients')
+        ->setPageTitle('edit', 'Clients')
+        ->setPageTitle('new', 'Clients')
+        ->setPageTitle('detail', 'Clients')
+        ;
+    }
 }

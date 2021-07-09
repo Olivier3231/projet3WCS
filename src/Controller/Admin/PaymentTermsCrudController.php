@@ -2,26 +2,34 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\SubFolder;
+use App\Entity\PaymentTerms;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class SubFolderCrudController extends AbstractCrudController
+class PaymentTermsCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return SubFolder::class;
+        return PaymentTerms::class;
     }
 
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id')->hideOnForm()->hideOnIndex(),
-            TextField::new('name', 'Nom'),
-            
+            Field::new('ribNumber', 'RIB'),
+            Field::new('IBAN')->hideOnIndex(),
+            Field::new('BIC')->hideOnIndex(),
+            TextAreaField::new('domiciliation'),
+            TextEditorField::new('modalites', 'Modalités'),
+            TextEditorField::new('lawrecall', 'Rappel legislatif'),
         ];
     }
 
@@ -30,15 +38,15 @@ class SubFolderCrudController extends AbstractCrudController
         return $assets
             ->addCssFile('build/admin.css')
         ;
-    }
+    } 
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setPageTitle('index', 'Sous Dossiers')
-        ->setPageTitle('edit', 'Sous Dossiers')
-        ->setPageTitle('new', 'Sous Dossiers')
-        ->setPageTitle('detail', 'Sous Dossiers')
+        ->setPageTitle('index', 'Eléments de facture')
+        ->setPageTitle('edit', 'Eléments de facture')
+        ->setPageTitle('new', 'Eléments de facture')
+        ->setPageTitle('detail', 'Eléments de facture')
         ;
     }
 

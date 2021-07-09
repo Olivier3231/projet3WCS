@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Expertise;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -31,6 +32,16 @@ class ExpertiseCrudController extends AbstractCrudController
         return $assets
             ->addCssFile('build/admin.css')
         ;
-    } 
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Expertises')
+        ->setPageTitle('edit', 'Expertises')
+        ->setPageTitle('new', 'Expertises')
+        ->setPageTitle('detail', 'Expertises')
+        ;
+    }
 }
 

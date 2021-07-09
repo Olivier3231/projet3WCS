@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Owner;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
@@ -39,5 +40,15 @@ public function configureFields(string $pageName): iterable
         return $assets
             ->addCssFile('build/admin.css')
         ;
-    } 
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Propriétaire')
+        ->setPageTitle('edit', 'Propriétaire')
+        ->setPageTitle('new', 'Propriétaire')
+        ->setPageTitle('detail', 'Propriétaire')
+        ;
+    }
 }

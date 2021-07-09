@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Folder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
@@ -41,5 +42,15 @@ class FolderCrudController extends AbstractCrudController
         return $assets
             ->addCssFile('build/admin.css')
         ;
-    } 
+    }
+    
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Dossiers')
+        ->setPageTitle('edit', 'Dossiers')
+        ->setPageTitle('new', 'Dossiers')
+        ->setPageTitle('detail', 'Dossiers')
+        ;
+    }
 }

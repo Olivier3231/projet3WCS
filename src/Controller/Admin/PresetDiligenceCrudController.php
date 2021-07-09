@@ -6,8 +6,8 @@ use App\Entity\PresetDiligence;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class PresetDiligenceCrudController extends AbstractCrudController
 {
@@ -30,14 +30,15 @@ class PresetDiligenceCrudController extends AbstractCrudController
         ;
     } 
 
-    /*
-    public function configureFields(string $pageName): iterable
+    public function configureCrud(Crud $crud): Crud
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        return $crud
+        ->setPageTitle('index', 'diligences préétablies')
+        ->setPageTitle('edit', 'diligences préétablies')
+        ->setPageTitle('new', 'diligences préétablies')
+        ->setPageTitle('detail', 'diligdiligences préétablies')
+        ->setPaginatorPageSize(8)
+        ;
     }
-    */
+    
 }

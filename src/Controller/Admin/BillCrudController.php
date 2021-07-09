@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use App\Entity\Bill;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -33,5 +34,15 @@ class BillCrudController extends AbstractCrudController
             ->addCssFile('build/admin.css')
         ;
     } 
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Facture')
+        ->setPageTitle('edit', 'Facture')
+        ->setPageTitle('new', 'Facture')
+        ->setPageTitle('detail', 'Facture')
+        ;
+    }
 
 }

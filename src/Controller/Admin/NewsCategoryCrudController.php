@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\NewsCategory;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -32,5 +33,15 @@ class NewsCategoryCrudController extends AbstractCrudController
         return $assets
             ->addCssFile('build/admin.css')
         ;
-    } 
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Categories d\'Actualités')
+        ->setPageTitle('edit', 'Categories d\'Actualités')
+        ->setPageTitle('new', 'Categories d\'Actualités')
+        ->setPageTitle('detail', 'Categories d\'Actualités')
+        ;
+    }
 }
