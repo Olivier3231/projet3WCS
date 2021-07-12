@@ -16,8 +16,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Vich\UploaderBundle\Form\Type\VichImageType;
-
 
 class UploadCarrouselCrudController extends AbstractCrudController
 {

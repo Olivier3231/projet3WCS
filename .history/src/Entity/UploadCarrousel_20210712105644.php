@@ -26,16 +26,13 @@ class UploadCarrousel
     private $upload;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a single property.
      * @Vich\UploadableField(mapping="images", fileNameProperty="upload")
      * @var File
      */
     private $imageUpload;
 
-    /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
-     */
-    private $updatedAt;
+    
 
     public function getId(): ?int
     {
@@ -57,7 +54,7 @@ class UploadCarrousel
     {
         $this->imageUpload = $upload;
         if ($upload) {
-            $this->updatedAt = new \DateTime('now');
+            $this->createdAt = new \DateTime('now');
         }
     }
 

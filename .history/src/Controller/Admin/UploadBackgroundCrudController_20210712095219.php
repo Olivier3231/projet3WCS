@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\UploadBackground;
 use App\Field\IllustrationField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -13,7 +12,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UploadBackgroundCrudController extends AbstractCrudController
 {
@@ -29,15 +27,27 @@ class UploadBackgroundCrudController extends AbstractCrudController
     }
     public function configureFields(string $pageName): iterable
     {
-        $fields = [];
+        return [
+            
+            TextField::new('imageUpload')
+            ->setFormType(VichImageType::class),
+            ->setUploadDir('images/background'),
+            ImageField::new('upload')
+            ->setBasePath('images/background'),
+            IllustrationField::New('mainIllustration'),
 
-        if ($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {
-            array_push($fields, ImageField::new('upload')->setUploadDir('images/'));
-        } else {
-            array_push($fields, TextField::new('imageUpload')
-            ->setFormType(VichImageType::class));
-        }
-        return $fields;
+        ];
     }
 }
+
+    /*
+    public function configureFields(string $pageName): iterable
+    {
+        return [
+            IdField::new('id'),
+            TextField::new('title'),
+            TextEditorField::new('description'),
+        ];
+    }
+    */
 

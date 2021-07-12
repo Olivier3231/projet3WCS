@@ -26,6 +26,7 @@ class UploadCarrousel
     private $upload;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a single property.
      * @Vich\UploadableField(mapping="images", fileNameProperty="upload")
      * @var File
      */

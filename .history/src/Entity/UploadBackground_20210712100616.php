@@ -2,16 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\UploadCarrouselRepository;
+use App\Repository\UploadBackgroundRepository;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Self_;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
+use  Vich\UploaderBundle\Form\Type\VichImageType;
+
+
+
 
 /**
- * @ORM\Entity(repositoryClass=UploadCarrouselRepository::class)
+ * @ORM\Entity(repositoryClass=UploadBackgroundRepository::class)
  * @Vich\Uploadable
  */
-class UploadCarrousel
+class UploadBackground
 {
     /**
      * @ORM\Id
@@ -26,16 +31,10 @@ class UploadCarrousel
     private $upload;
 
     /**
-     * @Vich\UploadableField(mapping="images", fileNameProperty="upload")
-     * @var File
+     * @Vich\Uploadablefield(mapping="upload_background", fileNameProperty="upload")
+     * @var upload
      */
     private $imageUpload;
-
-    /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
-     */
-    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -53,16 +52,19 @@ class UploadCarrousel
 
         return $this;
     }
-    public function setImageUpload(File $upload = null)
+
+    public function setImageUpload(File $imageUpload = null)
     {
-        $this->imageUpload = $upload;
-        if ($upload) {
-            $this->updatedAt = new \DateTime('now');
+        $this->imageUpload = $imageUpload;
+        if (null !== $imageUpload) {
+            $this->createdAt = new \DateTime('now');
         }
+        return $this;
     }
 
     public function getImageUpload()
     {
         return $this->imageUpload;
     }
+
 }

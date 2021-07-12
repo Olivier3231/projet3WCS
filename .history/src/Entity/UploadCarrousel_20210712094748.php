@@ -26,16 +26,11 @@ class UploadCarrousel
     private $upload;
 
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a single property.
      * @Vich\UploadableField(mapping="images", fileNameProperty="upload")
      * @var File
      */
     private $imageUpload;
-
-    /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
-     */
-    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -57,12 +52,18 @@ class UploadCarrousel
     {
         $this->imageUpload = $upload;
         if ($upload) {
-            $this->updatedAt = new \DateTime('now');
+            $this->createdAt = new \DateTime('now');
         }
     }
 
     public function getImageUpload()
     {
         return $this->imageUpload;
+    }
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/documents';
     }
 }
