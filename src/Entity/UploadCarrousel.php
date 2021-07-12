@@ -47,7 +47,7 @@ class UploadCarrousel
         return $this->upload;
     }
 
-    public function setUpload(string $upload): self
+    public function setUpload(?string $upload): self
     {
         $this->upload = $upload;
 

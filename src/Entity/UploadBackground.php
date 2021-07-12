@@ -51,20 +51,19 @@ class UploadBackground
         return $this->upload;
     }
 
-    public function setUpload(string $upload): self
+    public function setUpload(?string $upload): self
     {
         $this->upload = $upload;
 
         return $this;
     }
 
-    public function setImageUpload(File $imageUpload = null)
+    public function setImageUpload(File $upload = null)
     {
-        $this->imageUpload = $imageUpload;
-        if (null !== $imageUpload) {
+        $this->imageUpload = $upload;
+        if ($upload) {
             $this->updatedAt = new \DateTime('now');
         }
-        return $this;
     }
 
     public function getImageUpload()
