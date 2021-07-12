@@ -21,11 +21,6 @@ class Folder
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $number;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
@@ -37,14 +32,44 @@ class Folder
     private $customer;
 
     /**
-     * @ORM\OneToMany(targetEntity=Diligence::class, mappedBy="folder")
+     * @ORM\ManyToOne(targetEntity=Owner::class, inversedBy="folders")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $diligences;
+    private $Owner;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=BusinessType::class, inversedBy="folders")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $businessType;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Diligence::class)
+     */
+    private $diligence;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=PresetDiligence::class)
+     */
+    private $presetDiligence;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=SubFolder::class, inversedBy="folders")
+     */
+    private $subFolder;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=BillingMethod::class)
+     */
+    private $billingMethod;
+
 
     public function __construct()
     {
         $this->created_at = new DateTime();
-        $this->diligences = new ArrayCollection();
+        $this->diligence = new ArrayCollection();
+        $this->presetDiligence = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -52,17 +77,6 @@ class Folder
         return $this->id;
     }
 
-    public function getNumber(): ?int
-    {
-        return $this->number;
-    }
-
-    public function setNumber(int $number): self
-    {
-        $this->number = $number;
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -88,19 +102,47 @@ class Folder
         return $this;
     }
 
+    public function __toString()
+    {
+        return sprintf("%d - %s %s", $this->customer->getLastname(), $this->customer->getFirstname());
+    }
+
+    public function getOwner(): ?Owner
+    {
+        return $this->Owner;
+    }
+
+    public function setOwner(?Owner $Owner): self
+    {
+        $this->Owner = $Owner;
+
+        return $this;
+    }
+
+    public function getBusinessType(): ?BusinessType
+    {
+        return $this->businessType;
+    }
+
+    public function setBusinessType(?BusinessType $businessType): self
+    {
+        $this->businessType = $businessType;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Diligence[]
      */
-    public function getDiligences(): Collection
+    public function getDiligence(): Collection
     {
-        return $this->diligences;
+        return $this->diligence;
     }
 
     public function addDiligence(Diligence $diligence): self
     {
-        if (!$this->diligences->contains($diligence)) {
-            $this->diligences[] = $diligence;
-            $diligence->setFolder($this);
+        if (!$this->diligence->contains($diligence)) {
+            $this->diligence[] = $diligence;
         }
 
         return $this;
@@ -108,18 +150,57 @@ class Folder
 
     public function removeDiligence(Diligence $diligence): self
     {
-        if ($this->diligences->removeElement($diligence)) {
-            // set the owning side to null (unless already changed)
-            if ($diligence->getFolder() === $this) {
-                $diligence->setFolder(null);
-            }
+        $this->diligence->removeElement($diligence);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PresetDiligence[]
+     */
+    public function getPresetDiligence(): Collection
+    {
+        return $this->presetDiligence;
+    }
+
+    public function addPresetDiligence(PresetDiligence $presetDiligence): self
+    {
+        if (!$this->presetDiligence->contains($presetDiligence)) {
+            $this->presetDiligence[] = $presetDiligence;
         }
 
         return $this;
     }
 
-    public function __toString()
+    public function removePresetDiligence(PresetDiligence $presetDiligence): self
     {
-        return sprintf("%d - %s %s", $this->number, $this->customer->getLastname(), $this->customer->getFirstname());
+        $this->presetDiligence->removeElement($presetDiligence);
+
+        return $this;
     }
+
+    public function getSubFolder(): ?SubFolder
+    {
+        return $this->subFolder;
+    }
+
+    public function setSubFolder(?SubFolder $subFolder): self
+    {
+        $this->subFolder = $subFolder;
+
+        return $this;
+    }
+
+    public function getBillingMethod(): ?BillingMethod
+    {
+        return $this->billingMethod;
+    }
+
+    public function setBillingMethod(?BillingMethod $billingMethod): self
+    {
+        $this->billingMethod = $billingMethod;
+
+        return $this;
+    }
+
 }

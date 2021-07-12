@@ -6,6 +6,11 @@ use App\Entity\Customer;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\LocaleField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class CustomerCrudController extends AbstractCrudController
 {
@@ -17,12 +22,12 @@ class CustomerCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('firstname'),
-            Field::new('lastname'),
-            Field::new('email'),
-            Field::new('phone'),
+            Field::new('firstname', 'Prénom'),
+            Field::new('lastname', 'Nom'),
+            EmailField::new('email', 'Email'),
+            TelephoneField::new('phone','Téléphone'),
             Field::new('message'),
-            Field::new('adress'),
+            Field::new('adress', 'Adresse'),
         ];
     }
     public function configureAssets(Assets $assets): Assets
@@ -31,4 +36,14 @@ class CustomerCrudController extends AbstractCrudController
             ->addCssFile('build/admin.css')
         ;
     } 
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Clients')
+        ->setPageTitle('edit', 'Clients')
+        ->setPageTitle('new', 'Clients')
+        ->setPageTitle('detail', 'Clients')
+        ;
+    }
 }

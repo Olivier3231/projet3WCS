@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\News;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -21,10 +22,10 @@ class NewsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextField::new('subtitle'),
-            TextEditorField::new('description'),
-            AssociationField::new('news_category'),
+            TextField::new('title', 'Titre'),
+            TextField::new('subtitle', 'SousTitre'),
+            TextEditorField::new('description', 'Description'),
+            AssociationField::new('news_category', 'Catégorie'),
             NumberField::new('importance')
 
         ];
@@ -36,4 +37,14 @@ class NewsCrudController extends AbstractCrudController
             ->addCssFile('build/admin.css')
         ;
     } 
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Actualités')
+        ->setPageTitle('edit', 'Actualités')
+        ->setPageTitle('new', 'Actualités')
+        ->setPageTitle('detail', 'Actualités')
+        ;
+    }
 }

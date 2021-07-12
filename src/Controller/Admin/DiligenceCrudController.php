@@ -4,9 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Diligence;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class DiligenceCrudController extends AbstractCrudController
 {
@@ -18,10 +19,8 @@ class DiligenceCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('description'),
-            Field::new('duration'),
-            AssociationField::new('expertise'),
-            AssociationField::new('folder'),
+            TextareaField::new('description', 'Description'),
+            IntegerField::new('duration', 'Durée'),
         ];
     }
 
@@ -30,5 +29,15 @@ class DiligenceCrudController extends AbstractCrudController
         return $assets
             ->addCssFile('build/admin.css')
         ;
-    } 
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Diligences')
+        ->setPageTitle('edit', 'Diligences')
+        ->setPageTitle('new', 'Diligences')
+        ->setPageTitle('detail', 'Diligences')
+        ;
+    }
 }
