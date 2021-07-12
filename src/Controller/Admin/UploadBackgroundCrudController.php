@@ -30,7 +30,7 @@ class UploadBackgroundCrudController extends AbstractCrudController
         $fields = [];
 
         if ($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {
-            array_push($fields, ImageField::new('upload')->setUploadDir('uploads/'));
+            array_push($fields, ImageField::new('upload')->setBasePath('uploads/'));
         } else {
             array_push($fields, TextField::new('imageUpload')
             ->setFormType(VichImageType::class));
