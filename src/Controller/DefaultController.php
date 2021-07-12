@@ -3,10 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use App\Entity\Footer;
-use App\Entity\News;
-use App\Entity\NewsCategory;
-use App\Entity\Expertise;
 use App\Form\ContactType;
 use App\Repository\ExpertiseRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,16 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\About;
 use App\Repository\AboutRepository;
-use App\Repository\FooterRepository;
 use App\Repository\NewsRepository;
 use App\Repository\NewsCategoryRepository;
-use App\Entity\ContactRepository;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Constraints as Assert;
 
 class DefaultController extends AbstractController
 {
@@ -36,8 +25,8 @@ class DefaultController extends AbstractController
         AboutRepository $aboutRepository,
         ExpertiseRepository $expertiseRepository,
         NewsRepository $newsRepository,
-        NewsCategoryRepository $newsCategoryRepository,
-        ContactType $contactType
+        NewsCategoryRepository $newsCategoryRepository
+
     ): Response {
         $contact = new Contact();
         $contactForm = $this->createForm(ContactType::class, $contact);

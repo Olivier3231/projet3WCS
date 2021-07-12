@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Bundle\SnappyBundle\KnpSnappyBundle;
 use Knp\Snappy\Pdf;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
 
 class InvoiceController extends AbstractController
@@ -37,21 +38,14 @@ class InvoiceController extends AbstractController
         return $this->render('invoice/indexInvoice.html.twig', [
             'controller_name' => 'InvoiceController',]);
     }
-
-    /**
-    * Save the PDF to a file
-    *
-    * @param $filename
-    * @return static
-    */
-    public function save($filename)
+    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
     {
-        if ($this->html) {
-            $this->snappy->generateFromHtml($this->html, $filename, $this->options);
-        } elseif ($this->file) {
-            $this->snappy->generate($this->file, $filename, $this->options);
-        }
-        return $this;
+        $html = $this->renderView('MyBundle:Foo:indexInvoice.html.twig');
+
+        return new PdfResponse(
+            $knpSnappyPdf->getOutputFromHtml($html),
+            'file.pdf'
+        );
     }
 
 }
