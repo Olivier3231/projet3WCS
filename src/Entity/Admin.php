@@ -34,6 +34,11 @@ class Admin implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $eMail;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -116,5 +121,17 @@ class Admin implements UserInterface
     public function __toString(): string
     {
         return $this->username;
+    }
+
+    public function getEMail(): ?string
+    {
+        return $this->eMail;
+    }
+
+    public function setEMail(string $eMail): self
+    {
+        $this->eMail = $eMail;
+
+        return $this;
     }
 }
