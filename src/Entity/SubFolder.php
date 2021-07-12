@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\BusinessTypeRepository;
+use App\Repository\SubFolderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BusinessTypeRepository::class)
+ * @ORM\Entity(repositoryClass=SubFolderRepository::class)
  */
-class BusinessType
+class SubFolder
 {
     /**
      * @ORM\Id
@@ -25,14 +25,13 @@ class BusinessType
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Folder::class, mappedBy="businessType", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Folder::class, mappedBy="subFolder")
      */
     private $folders;
 
     public function __construct()
     {
         $this->folders = new ArrayCollection();
-        
     }
 
     public function getId(): ?int
@@ -52,6 +51,11 @@ class BusinessType
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return sprintf('%s', $this->name);
+    }
+
     /**
      * @return Collection|Folder[]
      */
@@ -64,7 +68,7 @@ class BusinessType
     {
         if (!$this->folders->contains($folder)) {
             $this->folders[] = $folder;
-            $folder->setBusinessType($this);
+            $folder->setSubFolder($this);
         }
 
         return $this;
@@ -74,17 +78,11 @@ class BusinessType
     {
         if ($this->folders->removeElement($folder)) {
             // set the owning side to null (unless already changed)
-            if ($folder->getBusinessType() === $this) {
-                $folder->setBusinessType(null);
+            if ($folder->getSubFolder() === $this) {
+                $folder->setSubFolder(null);
             }
         }
 
         return $this;
     }
-
-    public function __toString(): string
-    {
-        return sprintf('%s', $this->name);
-    }
-
 }

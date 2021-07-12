@@ -52,22 +52,6 @@ class AppFixtures extends Fixture
             $manager->persist($new);
         }
 
-        $expertiseLists = [$faker->sentence(), $faker->sentence()];
-        $arrayExpertiseLists = [];
-        foreach ($expertiseLists as $expertiseList) {
-            $expList = new ExpertiseList();
-            $expList->setText($expertiseList);
-            $manager->persist($expList);
-            array_push($arrayExpertiseLists, $expList);
-        }
-
-        for ($i = 0; $i < 3; $i++) {
-            $expertise = new Expertise();
-            $expertise->setTitle($faker->words(3, true))
-            ->setDescription($faker->paragraph(2, true))
-            ->setExpertiseList($faker->randomElement($arrayExpertiseLists));
-            $manager->persist($expertise);
-        }
 
         $foot = new Footer();
         $foot->setPhone('07.70.56.16.34')

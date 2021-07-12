@@ -2,29 +2,26 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\SubFolder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
-use App\Entity\Bill;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class BillCrudController extends AbstractCrudController
+class SubFolderCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Bill::class;
+        return SubFolder::class;
     }
 
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id')->hideOnForm(),
-            DateTimeField::new('CreatedAt', 'Date de Création'),
+            IdField::new('id')->hideOnForm()->hideOnIndex(),
+            TextField::new('name', 'Nom'),
+            
         ];
     }
 
@@ -33,16 +30,26 @@ class BillCrudController extends AbstractCrudController
         return $assets
             ->addCssFile('build/admin.css')
         ;
-    } 
+    }
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setPageTitle('index', 'Facture')
-        ->setPageTitle('edit', 'Facture')
-        ->setPageTitle('new', 'Facture')
-        ->setPageTitle('detail', 'Facture')
+        ->setPageTitle('index', 'Sous Dossiers')
+        ->setPageTitle('edit', 'Sous Dossiers')
+        ->setPageTitle('new', 'Sous Dossiers')
+        ->setPageTitle('detail', 'Sous Dossiers')
         ;
     }
 
+    /*
+    public function configureFields(string $pageName): iterable
+    {
+        return [
+            IdField::new('id'),
+            TextField::new('title'),
+            TextEditorField::new('description'),
+        ];
+    }
+    */
 }

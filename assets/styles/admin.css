@@ -45,6 +45,12 @@
         color: white;
     }
     
+    #main-menu .menu .menu-header span {
+        color: #2e63b3;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
     .content-header {
         background-color: #11ffee00;
     }

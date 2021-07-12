@@ -37,6 +37,8 @@ class About
      */
     private $avatar;
 
+    
+
     public function getId(): ?int
     {
         return $this->id;

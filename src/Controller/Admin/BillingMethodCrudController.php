@@ -2,24 +2,28 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\BusinessType;
+use App\Entity\BillingMethod;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 
-class BusinessTypeCrudController extends AbstractCrudController
+class BillingMethodCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return BusinessType::class;
+        return BillingMethod::class;
     }
+
     public function configureFields(string $pageName): iterable
     {
         return [
-
-            Field::new('name', 'Nom'), 
-            
+            IdField::new('id')->hideOnForm(),
+            BooleanField::new('subscription', 'Abonnement'),
+            BooleanField::new('timeSpent', 'Temps passé'),
         ];
     }
 
@@ -33,10 +37,10 @@ class BusinessTypeCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setPageTitle('index', 'Type de procédure')
-        ->setPageTitle('edit', 'Type de procédure')
-        ->setPageTitle('new', 'Type de procédure')
-        ->setPageTitle('detail', 'Type de procédure')
+        ->setPageTitle('index', 'Methode  de facturation')
+        ->setPageTitle('edit', 'Methode  de facturation')
+        ->setPageTitle('new', 'Methode  de facturation')
+        ->setPageTitle('detail', 'Methode  de facturation')
         ;
     }
 

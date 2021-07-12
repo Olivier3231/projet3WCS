@@ -29,13 +29,13 @@ class BillingMethod
 
     /**
      * @ORM\ManyToOne(targetEntity=Rate::class, inversedBy="billingMethods")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $rate;
 
     /**
      * @ORM\ManyToOne(targetEntity=Bill::class, inversedBy="billingMethods")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $bill;
 
@@ -90,5 +90,10 @@ class BillingMethod
         $this->bill = $bill;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return sprintf('%s, %s', $this->time_spent, $this->subscription);
     }
 }

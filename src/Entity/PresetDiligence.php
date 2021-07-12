@@ -2,16 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\DiligenceRepository;
-use DateInterval;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Repository\PresetDiligenceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=DiligenceRepository::class)
+ * @ORM\Entity(repositoryClass=PresetDiligenceRepository::class)
  */
-class Diligence
+class PresetDiligence
 {
     /**
      * @ORM\Id
@@ -26,9 +23,9 @@ class Diligence
     private $description;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=10, scale=2)
      */
-    private $duration;  
+    private $amount;
 
     public function getId(): ?int
     {
@@ -47,20 +44,20 @@ class Diligence
         return $this;
     }
 
-    public function getDuration(): ?int
+    public function getAmount(): ?string
     {
-        return $this->duration;
+        return $this->amount;
     }
 
-    public function setDuration(int $duration): self
+    public function setAmount(string $amount): self
     {
-        $this->duration = $duration;
+        $this->amount = $amount;
 
         return $this;
     }
 
     public function __toString(): string
     {
-        return sprintf('%s %s', $this->duration, $this->description);
+        return sprintf('%s %s', $this->amount, $this->description);
     }
 }
