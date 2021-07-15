@@ -60,7 +60,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', [
             'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'],1 ),
-            'carrouselle' => $uploadCarrouselRepository->findAll([], ['id' => 'DESC'],1 ),
+            'carrouselle' => $uploadCarrouselRepository->findAll([], ['id' => 'DESC'] ),
             'abouts' => $aboutRepository->findAll(),
             'expertises' => $expertiseRepository->findAll(),
             'form' => $contactForm->createView(),
