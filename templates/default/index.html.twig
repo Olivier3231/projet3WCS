@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}{% block body %}
+         {% for imageback in background %}
 
+<div class="img-background" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" class="d-block w-100" alt="... "");">
+
+        {% endfor %} 
 <div class="presentation pt-2">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -92,8 +96,8 @@
             </div>
             {% endfor %}
         </div>
-        <div class="mb-5 mt-2" id="compétences"></div>
     </div>
+        <div class="mb-5 mt-2" id="compétences"></div>
 </div>
 <br>
 <hr class="separateur separator--line mt-5">
@@ -256,5 +260,7 @@
                 loading="lazy"></iframe>
         </div>
     </div>
+
+</div>
 </div>
 {% endblock %}

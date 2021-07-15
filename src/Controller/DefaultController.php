@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\News;
 use App\Entity\About;
-
 use App\Entity\Footer;
 use App\Entity\Contact;
 use App\Entity\Expertise;
@@ -13,7 +13,6 @@ use App\Entity\UploadCarrousel;
 use App\Entity\UploadBackground;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\ContactRepository;
-
 use App\Repository\NewsRepository;
 use App\Repository\AboutRepository;
 use App\Repository\FooterRepository;
@@ -59,8 +58,8 @@ class DefaultController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-
         return $this->render('default/index.html.twig', [
+            'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'],1 ),
             'carrouselle' => $uploadCarrouselRepository->findAll([], ['id' => 'DESC'],1 ),
             'abouts' => $aboutRepository->findAll(),
             'expertises' => $expertiseRepository->findAll(),
@@ -77,15 +76,14 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
+    ): Response {
        return $this->render('default/recent.html.twig', [
         'abouts' => $aboutRepository->findAll([], ['id' => 'DESC'], 3),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
             ]);
-   }
+    }
 
 
     /**
@@ -95,17 +93,16 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
-       return $this->render('default/journal.html.twig', [
+    ): Response {
+        return $this->render('default/journal.html.twig', [
         'abouts' => $aboutRepository->findAll(),
             'news' => $newsRepository->findAll(),
             'newscategory' => $newsCategoryRepository->findAll(),
 
             ]);
-   }
-    
+    }
+
     /**
      * @Route("/importante", name="importante")
      */
@@ -113,16 +110,15 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
-       return $this->render('default/importante.html.twig', [
+    ): Response {
+        return $this->render('default/importante.html.twig', [
         'abouts' => $aboutRepository->findAll(),
             'news' => $newsRepository->findAll(),
             'newscategory' => $newsCategoryRepository->findAll(),
 
             ]);
-   }
+    }
      /**
      * @Route("/actualites", name="actualites")
      */
@@ -130,15 +126,13 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
-       return $this->render('default/actualites.html.twig', [
+    ): Response {
+        return $this->render('default/actualites.html.twig', [
         'abouts' => $aboutRepository->findAll(),
             'news' => $newsRepository->findAll(),
             'newscategory' => $newsCategoryRepository->findAll(),
 
             ]);
-   }
+    }
 }
-

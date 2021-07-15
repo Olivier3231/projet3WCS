@@ -1,11 +1,9 @@
     body {
-        color: #4886af;
         font-size: 20px;
     }
     
     body::after {
         content: "";
-        background-image: url('/home/wilder/remote-fr-March21-php-TDBT/assets/images/vecteezy_light-grey-background_1907694.png');
         opacity: 0.5;
         top: 0;
         bottom: 0;
@@ -14,7 +12,13 @@
         z-index: -1;
     }
     
-    button {
+    .img-background {
+        background-size: contain, cover;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .button {
         display: flex;
         justify-content: right;
     }
