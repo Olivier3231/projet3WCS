@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AvatarField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -28,7 +29,8 @@ class BillCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             DateTimeField::new('CreatedAt', 'Date de Création'),
-        
+            AssociationField::new('status', 'Status'),
+            Field::new('invoicePdf', 'PDF'),
         ];
     }
 
