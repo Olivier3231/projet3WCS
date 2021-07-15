@@ -20,9 +20,12 @@ use App\Entity\Rate;
 use App\Entity\SubFolder;
 use App\Repository\FolderRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Bundle\SnappyBundle\KnpSnappyBundle;
+use Knp\Snappy\Pdf;
+
 
 class InvoiceController extends AbstractController
 {
@@ -33,6 +36,22 @@ class InvoiceController extends AbstractController
     {
         return $this->render('invoice/indexInvoice.html.twig', [
             'controller_name' => 'InvoiceController',]);
+    }
+
+    /**
+    * Save the PDF to a file
+    *
+    * @param $filename
+    * @return static
+    */
+    public function save($filename)
+    {
+        if ($this->html) {
+            $this->snappy->generateFromHtml($this->html, $filename, $this->options);
+        } elseif ($this->file) {
+            $this->snappy->generate($this->file, $filename, $this->options);
+        }
+        return $this;
     }
 
 }

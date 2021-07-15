@@ -25,9 +25,9 @@ Encore
  */
 .addEntry('app', './assets/app.js')
     .addEntry('admin', './assets/styles/admin.css')
-
-// enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-.enableStimulusBridge('./assets/controllers.json')
+    .addEntry('invoice', './assets/styles/invoice.css')
+    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
+    .enableStimulusBridge('./assets/controllers.json')
 
 // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
 .splitEntryChunks()
