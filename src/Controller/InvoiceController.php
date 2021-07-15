@@ -20,9 +20,13 @@ use App\Entity\Rate;
 use App\Entity\SubFolder;
 use App\Repository\FolderRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Bundle\SnappyBundle\KnpSnappyBundle;
+use Knp\Snappy\Pdf;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
+
 
 class InvoiceController extends AbstractController
 {
@@ -33,6 +37,15 @@ class InvoiceController extends AbstractController
     {
         return $this->render('invoice/indexInvoice.html.twig', [
             'controller_name' => 'InvoiceController',]);
+    }
+    public function pdfAction(Knp\Snappy\Pdf $knpSnappyPdf)
+    {
+        $html = $this->renderView('MyBundle:Foo:indexInvoice.html.twig');
+
+        return new PdfResponse(
+            $knpSnappyPdf->getOutputFromHtml($html),
+            'file.pdf'
+        );
     }
 
 }
