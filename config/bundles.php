@@ -15,6 +15,7 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
+    Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle::class => ['all' => true],
     Knp\Bundle\SnappyBundle\KnpSnappyBundle::class => ['all' => true],
 ];
