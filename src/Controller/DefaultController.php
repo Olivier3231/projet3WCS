@@ -2,17 +2,36 @@
 
 namespace App\Controller;
 
+
+use App\Entity\News;
+use App\Entity\About;
+use App\Entity\Footer;
 use App\Entity\Contact;
+use App\Entity\Expertise;
+
 use App\Form\ContactType;
+use App\Entity\NewsCategory;
+use App\Entity\UploadCarrousel;
+use App\Entity\UploadBackground;
+use Doctrine\ORM\Mapping as ORM;
+use App\Entity\ContactRepository;
+use App\Repository\NewsRepository;
+use App\Repository\AboutRepository;
+use App\Repository\FooterRepository;
 use App\Repository\ExpertiseRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\NewsCategoryRepository;
+use Symfony\Component\Validator\Validation;
+use App\Repository\UploadCarrouselRepository;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\UploadBackgroundRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\AboutRepository;
-use App\Repository\NewsRepository;
-use App\Repository\NewsCategoryRepository;
+
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 class DefaultController extends AbstractController
 {
@@ -20,6 +39,8 @@ class DefaultController extends AbstractController
      * @Route("/", name="home")
      */
     public function index(
+        UploadBackgroundRepository $uploadBackgroundRepository,
+        UploadCarrouselRepository $uploadCarrouselRepository,
         Request $request,
         EntityManagerInterface $manager,
         AboutRepository $aboutRepository,
@@ -41,8 +62,9 @@ class DefaultController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-
         return $this->render('default/index.html.twig', [
+            'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'],1 ),
+            'carrouselle' => $uploadCarrouselRepository->findAll([], ['id' => 'DESC'] ),
             'abouts' => $aboutRepository->findAll(),
             'expertises' => $expertiseRepository->findAll(),
             'form' => $contactForm->createView(),
@@ -58,15 +80,14 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
+    ): Response {
        return $this->render('default/recent.html.twig', [
-        'abouts' => $aboutRepository->findAll(),
+        'abouts' => $aboutRepository->findAll([], ['id' => 'DESC'], 3),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
             ]);
-   }
+    }
 
 
     /**
@@ -76,17 +97,16 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
-       return $this->render('default/journal.html.twig', [
+    ): Response {
+        return $this->render('default/journal.html.twig', [
         'abouts' => $aboutRepository->findAll(),
             'news' => $newsRepository->findAll(),
             'newscategory' => $newsCategoryRepository->findAll(),
 
             ]);
-   }
-    
+    }
+
     /**
      * @Route("/importante", name="importante")
      */
@@ -94,16 +114,15 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
-       return $this->render('default/importante.html.twig', [
+    ): Response {
+        return $this->render('default/importante.html.twig', [
         'abouts' => $aboutRepository->findAll(),
             'news' => $newsRepository->findAll(),
             'newscategory' => $newsCategoryRepository->findAll(),
 
             ]);
-   }
+    }
      /**
      * @Route("/actualites", name="actualites")
      */
@@ -111,15 +130,13 @@ class DefaultController extends AbstractController
         EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-
         NewsCategoryRepository $newsCategoryRepository
-   ): Response{
-       return $this->render('default/actualites.html.twig', [
+    ): Response {
+        return $this->render('default/actualites.html.twig', [
         'abouts' => $aboutRepository->findAll(),
             'news' => $newsRepository->findAll(),
             'newscategory' => $newsCategoryRepository->findAll(),
 
             ]);
-   }
+    }
 }
-
