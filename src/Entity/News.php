@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\NewsRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +43,16 @@ class News
      * @ORM\JoinColumn(nullable=false)
      */
     private $news_category;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $importance;
+
+    public function __construct()
+    {
+        $this->date = new DateTime('now');
+    }
 
     public function getId(): ?int
     {
@@ -84,9 +95,9 @@ class News
         return $this;
     }
 
-    public function getDate(string $format = 'D-m-y H:i:s'): string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->date->format($format);
+        return $this->date;
     }
 
     public function setDate(\DateTimeInterface $date): self
@@ -104,6 +115,18 @@ class News
     public function setNewsCategory(?NewsCategory $news_category): self
     {
         $this->news_category = $news_category;
+
+        return $this;
+    }
+
+    public function getImportance(): ?int
+    {
+        return $this->importance;
+    }
+
+    public function setImportance(int $importance): self
+    {
+        $this->importance = $importance;
 
         return $this;
     }

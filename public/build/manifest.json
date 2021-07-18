@@ -1,9 +1,15 @@
 {
   "build/app.css": "/build/app.css",
   "build/app.js": "/build/app.js",
+  "build/admin.css": "/build/admin.css",
+  "build/admin.js": "/build/admin.js",
+  "build/invoice.css": "/build/invoice.css",
+  "build/invoice.js": "/build/invoice.js",
   "build/runtime.js": "/build/runtime.js",
   "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
-  "build/logo_TDBT.png": "/build/logo_TDBT.png",
+  "build/vecteezy_light-grey-background_1907694.png": "/build/vecteezy_light-grey-background_1907694.png",
+  "build/avatarThibaud.png": "/build/avatarThibaud.png",
+  "build/logo3.png": "/build/logo3.png",
   "build/logothibaut.png": "/build/logothibaut.png",
-  "build/photo.png": "/build/photo.png"
+  "build/logo2.png": "/build/logo2.png"
 }

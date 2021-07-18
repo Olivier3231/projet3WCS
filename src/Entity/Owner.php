@@ -32,11 +32,6 @@ class Owner
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $logo;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $email;
 
     /**
@@ -65,14 +60,20 @@ class Owner
     private $toque_number;
 
     /**
-     * @ORM\OneToMany(targetEntity=Bill::class, mappedBy="owner")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $bills;
+    private $logo;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Folder::class, mappedBy="Owner", orphanRemoval=true)
+     */
+    private $folders;
 
     public function __construct()
     {
-        $this->bills = new ArrayCollection();
+        $this->folders = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -99,18 +100,6 @@ class Owner
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getLogo(): ?string
-    {
-        return $this->logo;
-    }
-
-    public function setLogo(string $logo): self
-    {
-        $this->logo = $logo;
 
         return $this;
     }
@@ -187,33 +176,51 @@ class Owner
         return $this;
     }
 
-    /**
-     * @return Collection|Bill[]
-     */
-    public function getBills(): Collection
+    public function getLogo(): ?string
     {
-        return $this->bills;
+        return $this->logo;
     }
 
-    public function addBill(Bill $bill): self
+    public function setLogo(?string $logo): self
     {
-        if (!$this->bills->contains($bill)) {
-            $this->bills[] = $bill;
-            $bill->setOwner($this);
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Folder[]
+     */
+    public function getFolders(): Collection
+    {
+        return $this->folders;
+    }
+
+    public function addFolder(Folder $folder): self
+    {
+        if (!$this->folders->contains($folder)) {
+            $this->folders[] = $folder;
+            $folder->setOwner($this);
         }
 
         return $this;
     }
 
-    public function removeBill(Bill $bill): self
+    public function removeFolder(Folder $folder): self
     {
-        if ($this->bills->removeElement($bill)) {
+        if ($this->folders->removeElement($folder)) {
             // set the owning side to null (unless already changed)
-            if ($bill->getOwner() === $this) {
-                $bill->setOwner(null);
+            if ($folder->getOwner() === $this) {
+                $folder->setOwner(null);
             }
         }
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return sprintf('%s %s', $this->firstname, $this->lastname);
+    }
+
 }

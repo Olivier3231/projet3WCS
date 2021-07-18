@@ -9,6 +9,24 @@
       "css": [
         "/build/app.css"
       ]
+    },
+    "admin": {
+      "js": [
+        "/build/runtime.js",
+        "/build/admin.js"
+      ],
+      "css": [
+        "/build/admin.css"
+      ]
+    },
+    "invoice": {
+      "js": [
+        "/build/runtime.js",
+        "/build/invoice.js"
+      ],
+      "css": [
+        "/build/invoice.css"
+      ]
     }
   }
 }
