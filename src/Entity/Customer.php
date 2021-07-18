@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CustomerRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -54,10 +55,6 @@ class Customer
      */
     private $adress;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Bill::class, mappedBy="customer")
-     */
-    private $bills;
 
     /**
      * @ORM\OneToMany(targetEntity=Folder::class, mappedBy="customer")
@@ -66,8 +63,8 @@ class Customer
 
     public function __construct()
     {
-        $this->bills = new ArrayCollection();
         $this->folders = new ArrayCollection();
+        $this->created_at = new DateTime();
     }
 
     public function getId(): ?int
@@ -160,36 +157,6 @@ class Customer
     }
 
     /**
-     * @return Collection|Bill[]
-     */
-    public function getBills(): Collection
-    {
-        return $this->bills;
-    }
-
-    public function addBill(Bill $bill): self
-    {
-        if (!$this->bills->contains($bill)) {
-            $this->bills[] = $bill;
-            $bill->setCustomer($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBill(Bill $bill): self
-    {
-        if ($this->bills->removeElement($bill)) {
-            // set the owning side to null (unless already changed)
-            if ($bill->getCustomer() === $this) {
-                $bill->setCustomer(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Folder[]
      */
     public function getFolders(): Collection
@@ -212,10 +179,14 @@ class Customer
         if ($this->folders->removeElement($folder)) {
             // set the owning side to null (unless already changed)
             if ($folder->getCustomer() === $this) {
-                $folder->setCustomer(null);
             }
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return sprintf('%s %s', $this->firstname, $this->lastname);
     }
 }
