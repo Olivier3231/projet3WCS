@@ -160,6 +160,7 @@
         "files": [
             "config/packages/knp_snappy.yaml"
         ]
+    },    
 
     "jms/metadata": {
         "version": "2.5.0"
