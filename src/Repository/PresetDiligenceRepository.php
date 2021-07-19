@@ -22,19 +22,19 @@ class PresetDiligenceRepository extends ServiceEntityRepository
     // /**
     //  * @return PresetDiligence[] Returns an array of PresetDiligence objects
     //  */
-    /*
+    
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->where('p.folderId = :folder.id')
+            ->join('p.folder', '')
+            ->setParameter('folder.id', $value)
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?PresetDiligence

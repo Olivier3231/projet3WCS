@@ -69,6 +69,16 @@ class Owner
      */
     private $folders;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $City;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $zipCode;
+
     public function __construct()
     {
         $this->folders = new ArrayCollection();
@@ -221,6 +231,30 @@ class Owner
     public function __toString(): string
     {
         return sprintf('%s %s', $this->firstname, $this->lastname);
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->City;
+    }
+
+    public function setCity(string $City): self
+    {
+        $this->City = $City;
+
+        return $this;
+    }
+
+    public function getZipCode(): ?int
+    {
+        return $this->zipCode;
+    }
+
+    public function setZipCode(int $zipCode): self
+    {
+        $this->zipCode = $zipCode;
+
+        return $this;
     }
 
 }

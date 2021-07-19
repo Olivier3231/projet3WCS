@@ -37,6 +37,67 @@
         border-radius: 10px;
     }
     
+    .action-saveAndAddAnother {
+        margin-left: 15px;
+        padding: 6px;
+        color: #4886af;
+        border-color: #4886af;
+        background-color: #e7e7e7;
+        box-shadow: 4px 4px 2px 1px rgba(25, 25, 26, 0.2);
+        border-radius: 10px;
+    }
+    
+    .action-saveAndReturn {
+        margin-left: 15px;
+        padding: 6px;
+        color: #4886af;
+        border-color: #4886af;
+        background-color: #e7e7e7;
+        box-shadow: 4px 4px 2px 1px rgba(25, 25, 26, 0.2);
+        border-radius: 10px;
+    }
+    
+    .action-index {
+        margin-left: 15px;
+        padding: 6px;
+        color: #4886af;
+        border-color: #4886af;
+        background-color: #e7e7e7;
+        box-shadow: 4px 4px 2px 1px rgba(25, 25, 26, 0.2);
+        border-radius: 10px;
+    }
+    
+    .action-detail {
+        margin-left: 15px;
+        padding: 6px;
+        color: #4886af;
+        border-color: #4886af;
+        background-color: #e7e7e7;
+        box-shadow: 4px 4px 2px 1px rgba(25, 25, 26, 0.2);
+        border-radius: 10px;
+    }
+    
+    .action-saveAndContinue {
+        margin-left: 15px;
+        padding: 6px;
+        color: #4886af;
+        border-color: #4886af;
+        background-color: #e7e7e7;
+        box-shadow: 4px 4px 2px 1px rgba(25, 25, 26, 0.2);
+        border-radius: 10px;
+    }
+    
+
+    .action-invoice {
+        margin-left: 15px;
+        padding: 6px;
+        color: #4886af;
+        border-color: #4886af;
+        background-color: #e7e7e7;
+        box-shadow: 4px 4px 2px 1px rgba(25, 25, 26, 0.2);
+        border-radius: 10px;
+    }
+    
     .main-sidebar {
         background-color: #11ffee00;
     }
@@ -70,4 +131,11 @@
     
     .menu-icon {
         color: white!important;
+    }
+    
+    .submenu-toggle {
+        font-size: 13px;
+        color: #2e63b3!important;
+        font-weight: bold;
+
     }

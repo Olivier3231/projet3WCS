@@ -31,17 +31,43 @@
 {% include "invoice/headerInvoice.html.twig" %}
 
 <body>
+    <table class="invoiceId">
+        <tr>
+            {% for owner in owners %}{% for customer in customers %}
+            <td class="t1">
+                <p>Facture n°: </p>
+                <p>À l'attention de
+                    <select name="gender">
+                        <option value="">--</option>
+                        <option value="Mr">Monsieur</option>
+                        <option value="Mme">Madame</option>
+                    </select> {{customer.firstname}} {{customer.lastname}}
+                </p>
+            </td>
+
+            <td class="t2">
+                <p>Adresse de facturation:</p>
+                <p>{{customer.adress}}</p>
+                <p>{{customer.zipCode}} {{customer.city}}</p>
+                <p> {{owner.city}}, le: {{ "now"|date("d/m/Y") }} </p>
+            </td>
+
+        </tr> {% endfor %}{% endfor %}
+    </table>
     <div class="invoiceBody">
+
         <h2 class="invoiceTitle">DETAILS DES DILIGENCES</h2>
-        <p>Description des diligences</p>
-        <p class="total">Total des diligences: Temps passé</p>
+        {% for folder in folders %} {% for presetdiligence in presetdiligences %}
+        <p>{{presetdiligence.description}}</p>{% endfor %}{% endfor %}
+        <p class="total">Total des diligences: $Temps passé</p>
         <hr class="invoiceSeparator">
         <h2 class="invoiceTitle">Montant des honoraires</h2>
-        <p>Taux horaire : $HourlyRate</p>
-        <p>Montant des HONORAIRES HT : $Rate</p>
-        <p>Montant T.V.A à 20% : $TVA</p>
-        <p class="total">Total TTC: $prix</p>
-        <hr class="invoiceSeparator">
+        {% for rate in rates %}
+        <p>Taux horaire: {{rate.hourlyrate}}€</p>
+        <p>Montant des HONORAIRES HT: {{rate.ratesubscription}}€</p>
+        <p>Montant T.V.A à: {{rate.VATrate}}%</p>
+        <p class="total">Total TTC: $prix €</p>
+        <hr class="invoiceSeparator"> {% endfor %}
     </div>
     <div class="payment">
         {{include('invoice/paymentTerms.html.twig')}}

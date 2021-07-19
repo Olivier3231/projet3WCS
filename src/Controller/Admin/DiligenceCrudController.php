@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Diligence;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -39,5 +41,15 @@ class DiligenceCrudController extends AbstractCrudController
         ->setPageTitle('new', 'Diligences')
         ->setPageTitle('detail', 'Diligences')
         ;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+        ->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE)
+        ->add(Crud::PAGE_NEW, Action::INDEX)
+        ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
+            return $actions->setLabel('Créer Diligence');
+            });
     }
 }

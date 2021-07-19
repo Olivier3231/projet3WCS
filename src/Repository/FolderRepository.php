@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Folder;
+use App\Entity\Customer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,4 +48,5 @@ class FolderRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

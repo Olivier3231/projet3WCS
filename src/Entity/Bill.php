@@ -25,11 +25,15 @@ class Bill
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $invoicePdf;
 
     /**
-     * @ORM\OneToOne(targetEntity=BillStatus::class, mappedBy="bill", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=BillStatus::class, inversedBy="bills")
      */
-    private $billStatus;
+    private $status;
 
 
     public function getId(): ?int
@@ -51,19 +55,26 @@ class Bill
     }
 
 
-    public function getBillStatus(): ?BillStatus
+    public function getInvoicePdf(): ?string
     {
-        return $this->billStatus;
+        return $this->invoicePdf;
     }
 
-    public function setBillStatus(BillStatus $billStatus): self
+    public function setInvoicePdf(?string $invoicePdf): self
     {
-        // set the owning side of the relation if necessary
-        if ($billStatus->getBill() !== $this) {
-            $billStatus->setBill($this);
-        }
+        $this->invoicePdf = $invoicePdf;
 
-        $this->billStatus = $billStatus;
+        return $this;
+    }
+
+    public function getStatus(): ?BillStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?BillStatus $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
