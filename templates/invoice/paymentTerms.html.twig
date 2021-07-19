@@ -1,13 +1,11 @@
 <div class="paymentTerms">
     <h2 class="paymentTermsTitle">MODALITES DE PAIEMENT</h2>
-    <p>Les honoraires sont payables comptant à réception.</p>
-    <p>Le règlement peut être effectué par tout moyen à votre convenance et notamment, par chèque libellé à l’ordre de Me Thibaud BEJAT ou par virement sur le compte suivant :</p>
-    <p>RIB : 14518 29267 07731887040 51</p>
-    <p>IBAN : FR76 1451 8292 6707 7318 8704 051 – BIC : FTNOFRP1XXX</p>
-    <p>Domiciliation : Arkéa Direct Bank - Fortuneo – Tour Ariane - 5, place de la Pyramide - 92088 Paris La Défense</p>
-    <p>Tout retard de paiement entraine la perception de l’intérêt minimum prévu par la Loi, soit trois fois l’intérêt légal en vigueur. Les pénalités de retard sont exigibles sans qu’un rappel ne soit nécessaire.</p>
-    <p>Par application de l'article D.441-5 du Code de commerce issu du Décret n° 2012-1115 du 2 octobre 2012, il est dû de plein droit par tout professionnel en retard de paiement, une indemnité forfaitaire de 40 euros au profit du créancier (art. L. 441-6,
-        (I°), al. 12 du C. Com), correspondant aux frais de recouvrement. Il est précisé que si les frais de recouvrement exposés sont supérieurs audit montant de 40 euros, le créancier peut demander une indemnisation complémentaire, sur justification
-        (art. L. 441-6, (I°), al. 12 du C. Com).
+    {% for paymentterm in paymentterms %}
+    <p>{{paymentterm.modalites}}</p>
+    <p>RIB : {{paymentterm.ribNumber}}</p>
+    <p>IBAN : {{paymentterm.IBAN}} – BIC : {{paymentterm.BIC}}</p>
+    <p>Domiciliation : {{paymentterm.domiciliation}}</p>
+    <p>{{paymentterm.lawrecall}}
     </p>
+    {% endfor %}
 </div>

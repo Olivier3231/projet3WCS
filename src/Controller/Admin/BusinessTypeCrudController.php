@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\BusinessType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
@@ -40,14 +42,15 @@ class BusinessTypeCrudController extends AbstractCrudController
         ;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
+    public function configureActions(Actions $actions): Actions
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        return $actions
+        ->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE)
+        ->remove(Crud::PAGE_NEW, Action::SAVE_AND_ADD_ANOTHER)
+        ->add(Crud::PAGE_NEW, Action::INDEX)
+        ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
+            return $actions->setLabel('Créer Type de Procédure');
+            });
     }
-    */
+
 }

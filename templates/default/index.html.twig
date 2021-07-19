@@ -79,7 +79,39 @@
                             </div>
                         </div>
                     </div>
-
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="mb-5 mt-2" id="compétences"></div>
+    </div>
+        <div class="mb-5 mt-2" id="compétences"></div>
+</div>
+<br>
+<hr class="separateur separator--line mt-5">
+<h1 class="titre mt-3 mb-3">COMPÉTENCES</h1>
+<hr class="separateur separator--line">
+<div class="competence container mb-5 pb-5">
+    {% for expertise in expertises %}{% if expertise.id is divisible by(2) %}
+    <div class="total_card row">
+        <div class="width col-8">
+            <div class="mt-5 card_competence1">
+                <h5 class="p-3 text-center">{{expertise.title}}</h5>
+                <div class="card-body">
+                    <p class="card-text_1">{{expertise.description}}</p>
+                </div>
+            </div>
+            <div class="space col-4"></div>
+        </div>
+        {% else %}
+        <div class="total_card row">
+            <div class="space col-4"></div>
+            <div class="width col-8">
+                <div class="mt-5 card_competence2">
+                    <h5 class="p-3 text-center">{{expertise.title}}</h5>
+                    <div class="card-body text-secondary">
+                        <p class="card-text_2">{{expertise.description}}</p>
+                    </div>
                 </div>
             </div>
         </div>
