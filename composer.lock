@@ -5,11 +5,10 @@
         "This file is @generated automatically"
     ],
 
-
     "content-hash": "d9f8124dbedf3b2ba44a79d4ae69d2d8",
     "packages": [
         {
-    
+
             "name": "composer/package-versions-deprecated",
             "version": "1.11.99.2",
             "source": {
@@ -2001,14 +2000,12 @@
                 "rss": "https://github.com/laminas/laminas-code/releases.atom",
                 "source": "https://github.com/laminas/laminas-code"
             },
-
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
                     "type": "community_bridge"
                 }
             ],
-
             "time": "2021-07-09T11:58:40+00:00"
         },
         {

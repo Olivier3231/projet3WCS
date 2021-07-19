@@ -42,11 +42,6 @@ class InvoiceController extends AbstractController
 
     public function selectCustomer(EntityManagerInterface $em)
     {
-        $customer = $em->createQueryBuilder('c');
-        $customer->select('*')
-            ->from(Folder::class, 'c');
-
-        return $this->render('invoice/indexInvoice.html.twig', ['customer' => $customer]);
 
     }
     

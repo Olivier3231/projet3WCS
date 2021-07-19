@@ -78,7 +78,9 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Contact', 'fas fa-headset', Contact::class);
         yield MenuItem::linkToCrud('Carrousel', 'fas fa-parachute-box', UploadCarrousel::class);
         yield MenuItem::linkToCrud('Background', 'far fa-images', UploadBackground::class);
-        yield MenuItem::linkToLogout('Deconnexion', 'fa fa-sign-out');    }
+        yield MenuItem::linkToLogout('Deconnexion', 'fa fa-sign-out');
+    }
+
 
     /**
      * @Route("/logout", name="app_logout", methods={"GET"})
