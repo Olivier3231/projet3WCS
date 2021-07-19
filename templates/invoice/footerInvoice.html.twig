@@ -1,16 +1,18 @@
 <div class="footerInvoice">
+    {% for owner in owners %} {% for about in abouts %}
     <ul>
         <li class="footerInvoice">
-            <a>Thibaud BÉJAT</a>
+            <a>{{owner.firstname}} {{owner.lastname}}</a>
         </li>
         <li class="footerInvoice">
-            <a>Avocat au barreau de Paris</a>
+            <a>{{about.subtitle}}</a>
         </li>
         <li class="footerInvoice">
-            <a>tbejat.avocat@gmail.com</a>
+            <a>{{owner.email}}</a>
         </li>
         <li class="footerInvoice">
-            <a>N° de SIRET : 839 829 520 00015</a>
+            <a>N° de SIRET : {{owner.siretnumber}}</a>
         </li>
     </ul>
+    {% endfor %} {% endfor %}
 </div>

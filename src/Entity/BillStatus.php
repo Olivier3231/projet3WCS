@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BillStatusRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,10 +35,14 @@ class BillStatus
     private $in_progress;
 
     /**
-     * @ORM\OneToOne(targetEntity=Bill::class, inversedBy="billStatus", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity=Bill::class, mappedBy="status")
      */
-    private $bill;
+    private $bills;
+
+    public function __construct()
+    {
+        $this->bills = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -79,14 +85,34 @@ class BillStatus
         return $this;
     }
 
-    public function getBill(): ?Bill
+
+
+    /**
+     * @return Collection|Bill[]
+     */
+    public function getBills(): Collection
     {
-        return $this->bill;
+        return $this->bills;
     }
 
-    public function setBill(Bill $bill): self
+    public function addBill(Bill $bill): self
     {
-        $this->bill = $bill;
+        if (!$this->bills->contains($bill)) {
+            $this->bills[] = $bill;
+            $bill->setStatus($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBill(Bill $bill): self
+    {
+        if ($this->bills->removeElement($bill)) {
+            // set the owning side to null (unless already changed)
+            if ($bill->getStatus() === $this) {
+                $bill->setStatus(null);
+            }
+        }
 
         return $this;
     }

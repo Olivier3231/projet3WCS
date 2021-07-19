@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\About;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -48,5 +50,15 @@ class AboutCrudController extends AbstractCrudController
         ->setPageTitle('new', 'Accueil')
         ->setPageTitle('detail', 'Accueil')
         ;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+        ->remove(Crud::PAGE_INDEX, Action::DELETE)
+        ->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE)
+        ->remove(Crud::PAGE_NEW, Action::SAVE_AND_ADD_ANOTHER)
+        ->add(Crud::PAGE_NEW, Action::INDEX)
+        ->remove(Crud::PAGE_INDEX, Action::NEW);
     }
 }

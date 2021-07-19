@@ -43,8 +43,8 @@ class AppFixtures extends Fixture
 
         for ($i = 0; $i < 4; $i++) {
             $new = new News();
-            $new->setTitle($faker->words(3, true))
-            ->setSubtitle($faker->words(5, true))
+            $new->setTitle($faker->sentence())
+            ->setSubtitle($faker->sentence())
             ->setDescription($faker->paragraph(30, true))
             ->setDate($faker->dateTime())
             ->setImportance($faker->numberBetween(0.1))

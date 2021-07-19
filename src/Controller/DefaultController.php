@@ -47,7 +47,6 @@ class DefaultController extends AbstractController
         ExpertiseRepository $expertiseRepository,
         NewsRepository $newsRepository,
         NewsCategoryRepository $newsCategoryRepository
-
     ): Response {
         $contact = new Contact();
         $contactForm = $this->createForm(ContactType::class, $contact);
@@ -64,8 +63,8 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', [
             'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'],1 ),
-            'carrouselle' => $uploadCarrouselRepository->findAll([], ['id' => 'DESC'] ),
-            'abouts' => $aboutRepository->findAll(),
+            'carousel' => $uploadCarrouselRepository->findBy([], $orderBy = ['id' => 'DESC'], $limit = 3, $offset = null),
+            'about' => $aboutRepository->findAll()[0],
             'expertises' => $expertiseRepository->findAll(),
             'form' => $contactForm->createView(),
             'news' => $newsRepository->findBy([], ['id' => 'DESC'], 4),
@@ -76,15 +75,12 @@ class DefaultController extends AbstractController
     /**
      * @Route("/recent", name="recent")
      */
-   public function recent(
-        EntityManagerInterface $manager,
+    public function recent(
         NewsRepository $newsRepository,
-        AboutRepository $aboutRepository,
-        NewsCategoryRepository $newsCategoryRepository
+        AboutRepository $aboutRepository
     ): Response {
-       return $this->render('default/recent.html.twig', [
-        'abouts' => $aboutRepository->findAll([], ['id' => 'DESC'], 3),
-        'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
+        return $this->render('default/recent.html.twig', [
+        'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
             ]);
     }
@@ -94,49 +90,42 @@ class DefaultController extends AbstractController
      * @Route("/journal", name="journal")
      */
     public function journal(
-        EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/journal.html.twig', [
         'abouts' => $aboutRepository->findAll(),
-            'news' => $newsRepository->findAll(),
-            'newscategory' => $newsCategoryRepository->findAll(),
-
-            ]);
+        'news' => $newsRepository->findAll(),
+        'newscategory' => $newsCategoryRepository->findAll(),
+        ]);
     }
-
     /**
      * @Route("/importante", name="importante")
      */
     public function importante(
-        EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/importante.html.twig', [
         'abouts' => $aboutRepository->findAll(),
-            'news' => $newsRepository->findAll(),
-            'newscategory' => $newsCategoryRepository->findAll(),
-
-            ]);
+        'news' => $newsRepository->findAll(),
+        'newscategory' => $newsCategoryRepository->findAll(),
+        ]);
     }
      /**
      * @Route("/actualites", name="actualites")
      */
     public function actualites(
-        EntityManagerInterface $manager,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/actualites.html.twig', [
         'abouts' => $aboutRepository->findAll(),
-            'news' => $newsRepository->findAll(),
-            'newscategory' => $newsCategoryRepository->findAll(),
-
-            ]);
+        'news' => $newsRepository->findAll(),
+        'newscategory' => $newsCategoryRepository->findAll(),
+        ]);
     }
 }
