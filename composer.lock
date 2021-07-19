@@ -4,9 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
     "content-hash": "d9f8124dbedf3b2ba44a79d4ae69d2d8",
     "packages": [
         {
+
             "name": "composer/package-versions-deprecated",
             "version": "1.11.99.2",
             "source": {
@@ -1747,6 +1749,7 @@
             "time": "2021-05-22T16:11:15+00:00"
         },
         {
+
             "name": "knplabs/knp-snappy",
             "version": "v1.2.1",
             "source": {
@@ -1799,10 +1802,12 @@
                 "psr/container": "^1.0",
                 "symfony/cache": "^3.1|^4.0|^5.0",
                 "symfony/dependency-injection": "^3.1|^4.0|^5.0"
+
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+
                     "dev-master": "1.x-dev"
                 }
             },
@@ -1874,12 +1879,14 @@
             "autoload": {
                 "psr-4": {
                     "Knp\\Bundle\\SnappyBundle\\": "src/"
+
                     "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Metadata\\": "src/"
+
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1888,6 +1895,7 @@
             ],
             "authors": [
                 {
+
                     "name": "KnpLabs Team",
                     "homepage": "http://knplabs.com"
                 },
@@ -1910,6 +1918,7 @@
                 "source": "https://github.com/KnpLabs/KnpSnappyBundle/tree/v1.8.0"
             },
             "time": "2020-11-16T07:45:16+00:00"
+
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com"
                 },
@@ -1930,6 +1939,7 @@
                 "source": "https://github.com/schmittjoh/metadata/tree/2.5.0"
             },
             "time": "2021-03-07T19:20:09+00:00"
+
         },
         {
             "name": "laminas/laminas-code",

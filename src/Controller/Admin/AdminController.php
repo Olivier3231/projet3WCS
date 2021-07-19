@@ -81,6 +81,7 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToLogout('Deconnexion', 'fa fa-sign-out');
     }
 
+
     /**
      * @Route("/logout", name="app_logout", methods={"GET"})
      */

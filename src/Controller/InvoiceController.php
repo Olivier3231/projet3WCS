@@ -42,7 +42,6 @@ class InvoiceController extends AbstractController
 
     public function selectCustomer(EntityManagerInterface $em)
     {
-       
 
     }
     

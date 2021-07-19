@@ -87,6 +87,7 @@
         border-radius: 10px;
     }
     
+
     .action-invoice {
         margin-left: 15px;
         padding: 6px;
@@ -136,4 +137,5 @@
         font-size: 13px;
         color: #2e63b3!important;
         font-weight: bold;
+
     }

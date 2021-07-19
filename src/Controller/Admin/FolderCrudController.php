@@ -28,6 +28,7 @@ class FolderCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm()
             ->addCssClass('adminfolder') ,
             FormField::addPanel('Général')
+
             ->setIcon('fas fa-user-edit'),
             AssociationField::new('Owner', 'Propriétaire'),
             AssociationField::new('customer', 'Client'),
@@ -81,5 +82,6 @@ class FolderCrudController extends AbstractCrudController
     public function invoiceAction()
     {
         return $this->redirectToRoute('invoice');
+
     }
 }
