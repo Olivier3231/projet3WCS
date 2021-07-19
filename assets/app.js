@@ -11,8 +11,8 @@ import './styles/app.css';
 // start the Stimulus application
 import './bootstrap';
 
-
-
-
-
-//texte présentation
+// var myCarousel = document.querySelector('#carouselExampleDark')
+// var carousel = new bootstrap.Carousel(myCarousel, {
+//     interval: 10000,
+//     wrap: false
+// })
