@@ -15,6 +15,7 @@ use App\Entity\NewsCategory;
 use App\Entity\News;
 use App\Entity\Bill;
 use App\Entity\BillingMethod;
+use App\Entity\BillStatus;
 use App\Entity\Customer;
 use App\Entity\Diligence;
 use App\Entity\PresetDiligence;
@@ -45,17 +46,22 @@ class AdminController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Maître Thibaud BÉJAT');
+            ->setTitle('Maître Thibaud BÉJAT')
+            ->renderContentMaximized()
+            ;
             
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::section('Personnalisation');
         yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
-        yield MenuItem::linkToCrud('Compétences', 'fas fa-balance-scale', Expertise::class);
-        yield MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class);
-        yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class);
+        yield MenuItem::subMenu('PERSONNALISATION', 'fa fa-pencil')->setSubItems([
+            MenuItem::linkToCrud('Compétences', 'fas fa-balance-scale', Expertise::class),
+            MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class),
+            MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class),
+        ]);
+        
+       
         yield MenuItem::section('Facturation');
         yield MenuItem::linkToCrud('Dossiers', 'fas fa-folder-minus', Folder::class);
         yield MenuItem::linkToCrud('SousDossiers', 'fas fa-folder-minus', SubFolder::class);
@@ -65,13 +71,14 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Diligences préétablies', 'fas fa-user-check', PresetDiligence::class);
         yield MenuItem::linkToCrud('Facture', 'fas fa-file-pdf', Bill::class);
         yield MenuItem::linkToCrud('Méthode Facturation', 'fas fa-file-pdf', BillingMethod::class);
+        yield MenuItem::linkToCrud('Status Factures', 'fas fa-file-pdf', BillStatus::class);
         yield MenuItem::linkToCrud('Elements de Facture', 'fas fa-file-pdf', PaymentTerms::class);
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-landmark', Owner::class);
         yield MenuItem::linkToCrud('Tarification', 'fas fa-percent', Rate::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-headset', Contact::class);
         yield MenuItem::linkToCrud('Carrousel', 'fas fa-parachute-box', UploadCarrousel::class);
         yield MenuItem::linkToCrud('Background', 'far fa-images', UploadBackground::class);
-    }
+        yield MenuItem::linkToLogout('Deconnexion', 'fa fa-sign-out');    }
 
     /**
      * @Route("/logout", name="app_logout", methods={"GET"})

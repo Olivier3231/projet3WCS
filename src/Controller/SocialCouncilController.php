@@ -2,23 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\About;
-use App\Entity\Admin;
-use App\Entity\Bill;
-use App\Entity\BillingMethod;
-use App\Entity\BillStatus;
-use App\Entity\BusinessType;
-use App\Entity\Contact;
-use App\Entity\Customer;
-use App\Entity\Diligence;
-use App\Entity\Expertise;
-use App\Entity\Folder;
-use App\Entity\Footer;
-use App\Entity\Owner;
-use App\Entity\PresetDiligence;
-use App\Entity\Rate;
-use App\Entity\SubFolder;
+
+use App\Repository\AboutRepository;
+use App\Repository\CustomerRepository;
 use App\Repository\FolderRepository;
+use App\Repository\OwnerRepository;
+use App\Repository\PaymentTermsRepository;
+use App\Repository\RateRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,9 +19,14 @@ class SocialCouncilController extends AbstractController
     /**
      * @Route("/facturation/conseil", name="social_council")
      */
-    public function index(): Response
+    public function index(AboutRepository $aboutRepository, CustomerRepository $customerRepository,OwnerRepository $ownerRepository, PaymentTermsRepository $paymentTermsRepository, RateRepository $rateRepository): Response
     {
         return $this->render('invoice/socialCouncil.html.twig', [
+            'abouts' => $aboutRepository->findAll(),
+            'customers' => $customerRepository->findAll(),
+            'owners' => $ownerRepository->findAll(),
+            'paymentterms' => $paymentTermsRepository->findAll(),
+            'rates'=>$rateRepository->findAll(),
             'controller_name' => 'SocialCouncilController',
         ]);
     }

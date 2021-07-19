@@ -58,8 +58,21 @@ h3 {
 }
 
 .subHeaderInvoice .t1 {
-    padding-right: 0px;
     padding-right: 400px;
+}
+
+.invoiceId {
+    margin-bottom: 5%;
+}
+
+.invoiceId td {
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+.invoiceId .t1 {
+    padding-left: 500px;
+    padding-right: 500px;
 }
 
 .total {
