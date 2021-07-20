@@ -221,7 +221,7 @@ li .footerInvoice {
     height: 400px;
     color: white;
     float: left;
-    transform: translateY(-25px);
+    transform: translateY(25px);
     animation-delay: 3s;
     animation-name: slideIn;
     animation-iteration-count: infinite;
@@ -454,22 +454,22 @@ footer {
 }
 
 @media screen and (min-width: 1441px) {
-    /* .img-carousel {
-           height: 90vh;
-           width: 100vw;
-           align-items: center;
-       } */
+    .img-carousel {
+        height: 90vh;
+        width: 100vw;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width: 1440px) {
-    /* .img-carousel {
-           width: 100vw;
-           align-items: center;
-       }*/
+    .img-carousel {
+        width: 100vw;
+        align-items: center;
+    }
     .carousel-caption {
-        top: 70%;
+        top: 40%;
         transform: translateY(-50%);
-        bottom: initial
+        bottom: initial;
     }
     .map {
         height: 80%;
@@ -494,7 +494,7 @@ footer {
     .avatar {
         height: 60%;
         width: 60%;
-        padding-top: 0%;
+        padding-top: 80%;
         padding-bottom: 00%;
     }
     card-title {
@@ -648,7 +648,7 @@ html {
 }
 
 .card-body {
-    margin-top: 2%;
+    margin-top: 10%;
 }
 
 .card-text {
