@@ -2,13 +2,11 @@
 
 namespace App\Controller;
 
-
 use App\Entity\News;
 use App\Entity\About;
 use App\Entity\Footer;
 use App\Entity\Contact;
 use App\Entity\Expertise;
-
 use App\Form\ContactType;
 use App\Entity\NewsCategory;
 use App\Entity\UploadCarrousel;
@@ -27,11 +25,9 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Repository\UploadBackgroundRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 
 class DefaultController extends AbstractController
 {
@@ -62,8 +58,9 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('default/index.html.twig', [
-            'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'],1 ),
-            'carousel' => $uploadCarrouselRepository->findBy([], $orderBy = ['id' => 'DESC'], $limit = 3, $offset = null),
+            'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
+            'carousel' => $uploadCarrouselRepository
+            ->findBy([], $orderBy = ['id' => 'DESC'], $limit = 3, $offset = null),
             'about' => $aboutRepository->findAll()[0],
             'expertises' => $expertiseRepository->findAll(),
             'form' => $contactForm->createView(),

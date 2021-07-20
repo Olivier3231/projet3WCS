@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use Symfony\Component\HttpFoundation\Request;
 
 class FolderCrudController extends AbstractCrudController
 {
@@ -34,14 +35,13 @@ class FolderCrudController extends AbstractCrudController
             AssociationField::new('customer', 'Client'),
             AssociationField::new('businessType', "type d'affaire"),
             FormField::addPanel('Facturation')
-            ->setIcon('fas fa-euro-sign'),  
+            ->setIcon('fas fa-euro-sign'),
             AssociationField::new('billingMethod', 'Methode de facturation')->hideOnIndex(),
             AssociationField::new('subFolder', 'Sous-dossier'),
             FormField::addPanel('Diligences')
             ->setIcon('fas fa-balance-scale'),
             AssociationField::new('diligence')->hideOnIndex(),
             AssociationField::new('presetDiligence', 'Diligence préétablie')->hideOnIndex(),
-            
         ];
     }
 
@@ -51,7 +51,7 @@ class FolderCrudController extends AbstractCrudController
             ->addCssFile('build/admin.css')
         ;
     }
-    
+
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
@@ -76,12 +76,14 @@ class FolderCrudController extends AbstractCrudController
         ->add(Crud::PAGE_DETAIL, $invoiceAction)
         ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
             return $actions->setLabel('Créer Dossier');
-             });
+        });
     }
 
-    public function invoiceAction()
+    public function invoiceAction(Request $request)
     {
-        return $this->redirectToRoute('invoice');
-
+        $idFolder = $request->query->get('entityId');
+        return $this->redirectToRoute('invoice', [
+            'folderId' => $idFolder
+        ]);
     }
 }
