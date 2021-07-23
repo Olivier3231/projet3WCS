@@ -33,39 +33,38 @@
 <body>
     <table class="invoiceId">
         <tr>
-            {% for folder in folders %}{% for owner in owners %}{% for customer in customers %}
+            {% for folderId in folders %}
             <td class="t1">
-                <p>Facture n°: {{ 'now' | date('Y') }}|{{folder.id}}</p>
+                <p>Facture n°: {{ 'now' | date('Y') }}|{{folderId.id}}</p>
                 <p>À l'attention de
                     <select name="gender">
                         <option value="">---</option>
                         <option value="Mr">Monsieur</option>
                         <option value="Mme">Madame</option>
-                    </select> {{customer.firstname}} {{customer.lastname}}
+                    </select> {{folderId.customer.firstname}} {{folderId.customer.lastname}}
                 </p>
             </td>
 
             <td class="t2">
                 <p>Adresse de facturation:</p>
-                <p>{{customer.adress}}</p>
-                <p>{{customer.zipCode}} {{customer.city}}</p>
-                <p> {{owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
+                <p>{{folderId.customer.adress}}</p>
+                <p>{{folderId.customer.zipCode}} {{folderId.customer.city}}</p>
+                <p> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
             </td>
 
-        </tr> {% endfor %}{% endfor %}{% endfor %}
+        </tr> {% endfor %}
     </table>
     <div class="invoiceBody">
 
         <h2 class="invoiceTitle">DETAILS DES DILIGENCES</h2>
-        {% for folder in folders %} {% for presetdiligence in presetdiligences %}
-        <p>{{presetdiligence.description}}</p>{% endfor %}{% endfor %}
+        {% for folderId in folders %}
+        <p>{{folderId.presetdiligenceId.description}}</p>
         <p class="total">Total des diligences: $Temps passé</p>
         <hr class="invoiceSeparator">
         <h2 class="invoiceTitle">Montant des honoraires</h2>
-        {% for rate in rates %}
-        <p>Taux horaire: {{rate.hourlyrate}}€</p>
-        <p>Montant des HONORAIRES HT: {{rate.ratesubscription}}€</p>
-        <p>Montant T.V.A à: {{rate.VATrate}}%</p>
+        <p>Taux horaire: {{folderId.rate.hourlyrate}}€</p>
+        <p>Montant des HONORAIRES HT: {{folderId.rate.ratesubscription}}€</p>
+        <p>Montant T.V.A à: {{folderId.rate.VATrate}}%</p>
         <p class="total">Total TTC: $prix €</p>
         <hr class="invoiceSeparator"> {% endfor %}
     </div>
