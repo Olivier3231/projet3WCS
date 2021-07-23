@@ -50,9 +50,8 @@ class BillingMethodCrudController extends AbstractCrudController
     {
         return $actions
         ->remove(Crud::PAGE_INDEX, Action::DELETE)
-        ->remove(Crud::PAGE_INDEX, Action::NEW)
+        ->add(Crud::PAGE_NEW, Action::INDEX)
         ->remove(Crud::PAGE_INDEX, Action::EDIT);
         
     }
-
 }

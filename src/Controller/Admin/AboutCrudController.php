@@ -26,7 +26,7 @@ class AboutCrudController extends AbstractCrudController
     {
         return [
             
-            FormField::addPanel('Propritaire'),
+            FormField::addPanel('Propriétaire'),
             TextField::new('title', 'Nom-Prénom'),
             TextField::new('subtitle', 'Titre'),
             AvatarField::new('avatar', "avatar"),

@@ -33,12 +33,12 @@
 <body>
     <table class="invoiceId">
         <tr>
-            {% for owner in owners %}{% for customer in customers %}
+            {% for folder in folders %}{% for owner in owners %}{% for customer in customers %}
             <td class="t1">
-                <p>Facture n°: </p>
+                <p>Facture n°: {{ 'now' | date('Y') }}|{{folder.id}}</p>
                 <p>À l'attention de
                     <select name="gender">
-                        <option value="">--</option>
+                        <option value="">---</option>
                         <option value="Mr">Monsieur</option>
                         <option value="Mme">Madame</option>
                     </select> {{customer.firstname}} {{customer.lastname}}
@@ -49,10 +49,10 @@
                 <p>Adresse de facturation:</p>
                 <p>{{customer.adress}}</p>
                 <p>{{customer.zipCode}} {{customer.city}}</p>
-                <p> {{owner.city}}, le: {{ "now"|date("d/m/Y") }} </p>
+                <p> {{owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
             </td>
 
-        </tr> {% endfor %}{% endfor %}
+        </tr> {% endfor %}{% endfor %}{% endfor %}
     </table>
     <div class="invoiceBody">
 

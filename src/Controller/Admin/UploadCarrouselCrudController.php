@@ -3,7 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\UploadCarrousel;
-
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -38,5 +39,13 @@ class UploadCarrouselCrudController extends AbstractCrudController
             ->setFormType(VichImageType::class));
         }
         return $fields;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+        
+        ->add(Crud::PAGE_NEW, Action::INDEX);
+        
     }
 }

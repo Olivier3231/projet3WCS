@@ -214,6 +214,7 @@ li .footerInvoice {
 .about {
     background: rgba(54, 54, 54, 0.6);
     padding-bottom: 50px;
+    width: 120%;
 }
 
 #card-about {
