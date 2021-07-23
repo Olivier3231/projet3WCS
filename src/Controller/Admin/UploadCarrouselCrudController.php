@@ -45,7 +45,9 @@ class UploadCarrouselCrudController extends AbstractCrudController
     {
         return $actions
         
-        ->add(Crud::PAGE_NEW, Action::INDEX);
-        
+        ->add(Crud::PAGE_NEW, Action::INDEX)
+        ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
+            return $actions->setLabel('Créer Carroussel');
+        });
     }
 }

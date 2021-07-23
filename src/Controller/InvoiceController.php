@@ -58,7 +58,7 @@ class InvoiceController extends AbstractController
         
         //dd($folder);
 
-        if (strtolower($folder->getBusinessType()->getName() == 'Contentieux')) {
+        if (strtolower($folder->getBusinessType()->getName() == 'Contentieux')) {                       
             return $this->render('invoice/indexInvoice.html.twig', [
             'abouts' => $this->aboutRepository->findAll(),
             'customers' => $this->customerRepository->findAll(),
@@ -67,7 +67,7 @@ class InvoiceController extends AbstractController
             'paymentterms' => $this->paymentTermsRepository->findAll(),
             'presetdiligences' => $this->presetDiligenceRepository->findBy([], ['id' => 'ASC']),
             'rates' => $this->rateRepository->findAll(),
-            ]);
+            ]);            
         } else {
             return $this->render('invoice/socialCouncil.html.twig', [
             'abouts' => $this->aboutRepository->findAll(),
@@ -78,6 +78,6 @@ class InvoiceController extends AbstractController
             'presetdiligences' => $this->presetDiligenceRepository->findBy([], ['id' => 'ASC']),
             'rates' => $this->rateRepository->findAll(),
             ]);
-        }
+}
     }
 }

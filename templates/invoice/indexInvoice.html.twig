@@ -44,29 +44,29 @@
                     </select> {{folderId.customer.firstname}} {{folderId.customer.lastname}}
                 </p>
             </td>
-
             <td class="t2">
                 <p>Adresse de facturation:</p>
                 <p>{{folderId.customer.adress}}</p>
                 <p>{{folderId.customer.zipCode}} {{folderId.customer.city}}</p>
-                <p> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
             </td>
-
-        </tr> {% endfor %}
+        </tr>
     </table>
+    <div class="date">
+        <p> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
+    </div>
     <div class="invoiceBody">
-
-        <h2 class="invoiceTitle">DETAILS DES DILIGENCES</h2>
-        {% for folderId in folders %}
-        <p>{{folderId.presetdiligenceId.description}}</p>
+        <h2 class="invoiceTitle m-5">DETAILS DES DILIGENCES</h2>
+        {% for presetdiligence in presetdiligences %}
+        <p>{{presetdiligence.description}}</p>{% endfor %}
         <p class="total">Total des diligences: $Temps passé</p>
         <hr class="invoiceSeparator">
-        <h2 class="invoiceTitle">Montant des honoraires</h2>
-        <p>Taux horaire: {{folderId.rate.hourlyrate}}€</p>
-        <p>Montant des HONORAIRES HT: {{folderId.rate.ratesubscription}}€</p>
-        <p>Montant T.V.A à: {{folderId.rate.VATrate}}%</p>
+        <h2 class="invoiceTitle m-5">Montant des honoraires</h2>
+        {% for rate in rates %}
+        <p>Taux horaire: {{rate.hourlyrate}}€</p>
+        <p>Montant des HONORAIRES HT: {{rate.ratesubscription}}€</p>
+        <p>Montant T.V.A à: {{rate.VATrate}}%</p>
         <p class="total">Total TTC: $prix €</p>
-        <hr class="invoiceSeparator"> {% endfor %}
+        <hr class="invoiceSeparator"> {% endfor %}{% endfor %}
     </div>
     <div class="payment">
         {{include('invoice/paymentTerms.html.twig')}}

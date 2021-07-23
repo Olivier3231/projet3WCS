@@ -29,10 +29,10 @@ class BillStatusCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-        ->setPageTitle('index', 'Status  de facture')
-        ->setPageTitle('edit', 'Status  de facture')
-        ->setPageTitle('new', 'Status  de facture')
-        ->setPageTitle('detail', 'Status  de facture')
+        ->setPageTitle('index', 'Statut  de facture')
+        ->setPageTitle('edit', 'Statut de facture')
+        ->setPageTitle('new', 'Statut  de facture')
+        ->setPageTitle('detail', 'Statut  de facture')
         ;
     }
 
@@ -53,7 +53,7 @@ class BillStatusCrudController extends AbstractCrudController
         ->remove(Crud::PAGE_INDEX, Action::EDIT)
         ->add(Crud::PAGE_NEW, Action::INDEX)
         ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
-            return $actions->setLabel('Créer Status de Facture');
+            return $actions->setLabel('Créer Statut de Facture');
             })
         ;
     }

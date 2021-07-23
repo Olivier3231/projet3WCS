@@ -51,6 +51,9 @@ class BillingMethodCrudController extends AbstractCrudController
         return $actions
         ->remove(Crud::PAGE_INDEX, Action::DELETE)
         ->add(Crud::PAGE_NEW, Action::INDEX)
+        ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
+            return $actions->setLabel('Créer Méthode de facturation');
+        })
         ->remove(Crud::PAGE_INDEX, Action::EDIT);
         
     }
