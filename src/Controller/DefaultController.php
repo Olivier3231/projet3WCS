@@ -95,6 +95,7 @@ class DefaultController extends AbstractController
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/journal.html.twig', [
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findAll(),
         'newscategory' => $newsCategoryRepository->findAll(),
@@ -110,6 +111,7 @@ class DefaultController extends AbstractController
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/importante.html.twig', [
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findAll(),
         'newscategory' => $newsCategoryRepository->findAll(),
@@ -125,6 +127,7 @@ class DefaultController extends AbstractController
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/actualites.html.twig', [
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findAll(),
         'newscategory' => $newsCategoryRepository->findAll(),

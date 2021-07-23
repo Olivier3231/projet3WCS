@@ -64,7 +64,7 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-newspaper-o', NewsCategory::class);
         yield MenuItem::linkToCrud('Carrousel', 'far fa-images', UploadCarrousel::class);
         yield MenuItem::linkToCrud('Background', 'fa fa-file-image-o', UploadBackground::class);
-        yield MenuItem::linkToCrud('Footer', 'far fa-images', Footer::class);
+        yield MenuItem::linkToCrud('Footer', 'fas fa-shoe-prints', Footer::class);
         
        
         yield MenuItem::section('Facturation');

@@ -1,4 +1,6 @@
-{% extends 'base.html.twig' %}{% block body %}
+{% extends 'base.html.twig' %}{% block body %}{% for imageback in background %}
+<div class="d-block w-100" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" alt="... "></div>
+{% endfor %}
 
 <div class="mb-5" id="actualités"></div>
 </div>
@@ -40,7 +42,7 @@
                 </div>
                 <h6 class="m-4"> {{new.newscategory.name}} </h6>
                 <div class="new_description ">
-                    <p class=" p-2 m-4 ">{{new.description}}</p>
+                    <p class=" p-2 m-4 ">{{new.description|raw}}</p>
                 </div>
                 <div class="p-1 text-center ">
                     <a href="#myModal{{ loop.index }}" data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class=" btn bg-white rounded align-center"> En savoir plus </a>

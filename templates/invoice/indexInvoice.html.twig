@@ -35,7 +35,8 @@
         <tr>
             {% for folderId in folders %}
             <td class="t1">
-                <p>Facture n°: {{ 'now' | date('Y') }}|{{folderId.id}}</p>
+                <p>Facture n°:
+                    <b>{{ 'now' | date('Y') }}|{{folderId.id}}</b></p>
                 <p>À l'attention de
                     <select name="gender">
                         <option value="">---</option>
@@ -45,15 +46,13 @@
                 </p>
             </td>
             <td class="t2">
-                <p>Adresse de facturation:</p>
+                <U>Adresse de facturation:</U>
                 <p>{{folderId.customer.adress}}</p>
                 <p>{{folderId.customer.zipCode}} {{folderId.customer.city}}</p>
+                <p class="date"> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
             </td>
         </tr>
     </table>
-    <div class="date">
-        <p> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
-    </div>
     <div class="invoiceBody">
         <h2 class="invoiceTitle m-5">DETAILS DES DILIGENCES</h2>
         {% for presetdiligence in presetdiligences %}
