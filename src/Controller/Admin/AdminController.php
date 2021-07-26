@@ -24,6 +24,7 @@ use App\Entity\SubFolder;
 use App\Entity\Owner;
 use App\Entity\Rate;
 use App\Entity\BusinessType;
+use App\Entity\Footer;
 use App\Entity\UploadBackground;
 use App\Entity\UploadCarrousel;
 use App\Entity\PaymentTerms;
@@ -54,12 +55,14 @@ class AdminController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
-        yield MenuItem::subMenu('PERSONNALISATION', 'fa fa-pencil')->setSubItems([
-            MenuItem::linkToCrud('Compétences', 'fas fa-balance-scale', Expertise::class),
-            MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class),
-            MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class),
-        ]);
+        yield MenuItem::linktoDashboard('ACCUEIL', 'fa fa-home');
+        yield MenuItem::section('PERSONNALISATION', 'fa fa-pencil');
+        yield MenuItem::linkToCrud('Compétences', 'fas fa-balance-scale', Expertise::class);
+        yield MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class);
+        yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class);
+        yield MenuItem::linkToCrud('Carrousel', 'fas fa-parachute-box', UploadCarrousel::class);
+        yield MenuItem::linkToCrud('Background', 'far fa-images', UploadBackground::class);
+        yield MenuItem::linkToCrud('Footer', 'far fa-images', Footer::class);
         
        
         yield MenuItem::section('Facturation');
@@ -75,9 +78,9 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Elements de Facture', 'fas fa-file-pdf', PaymentTerms::class);
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-landmark', Owner::class);
         yield MenuItem::linkToCrud('Tarification', 'fas fa-percent', Rate::class);
+        yield MenuItem::section('Divers');
         yield MenuItem::linkToCrud('Contact', 'fas fa-headset', Contact::class);
-        yield MenuItem::linkToCrud('Carrousel', 'fas fa-parachute-box', UploadCarrousel::class);
-        yield MenuItem::linkToCrud('Background', 'far fa-images', UploadBackground::class);
+        
         yield MenuItem::linkToLogout('Deconnexion', 'fa fa-sign-out');
     }
 

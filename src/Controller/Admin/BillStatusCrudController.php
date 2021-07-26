@@ -51,6 +51,7 @@ class BillStatusCrudController extends AbstractCrudController
         return $actions
         ->remove(Crud::PAGE_INDEX, Action::DELETE)
         ->remove(Crud::PAGE_INDEX, Action::EDIT)
+        ->add(Crud::PAGE_NEW, Action::INDEX)
         ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
             return $actions->setLabel('Créer Status de Facture');
             })
