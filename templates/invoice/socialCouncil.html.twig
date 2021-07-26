@@ -7,14 +7,14 @@
     <title>Facturation{% block title %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('build/invoice.css') }}">
-    <link rel="icon" type="image/png" href="{{ asset('build/logothibaut.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('build/logo1.png') }}" />
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet"> {% block stylesheets %} {{ encore_entry_link_tags('app') }} {% endblock %}
 </head>
 
 <header class="m-5">
     <nav class="navbar navbar-expand-lg navbar-invoice fixed-top">
         <div class="container-fluid">
-            <img class="logoNav rounded-circle" src="{{ asset( 'build/logothibaut.png') }}" alt=" ">
+            <img class="logoNav rounded-circle" src="{{ asset( 'build/logo1.png') }}" alt=" ">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,42 +36,46 @@
         <tr>
             {% for folderId in folders %}
             <td class="t1">
-                <p>Facture n°: <b>{{ 'now' | date('Y') }}|{{folderId.id}}</b></p>
+                <p>Facture n°:
+                    <b>{{ 'now' | date('Y') }}|{{folderId.id}}</b></p>
+                </p>
                 <p>À l'attention de
                     <select name="gender">
-                        <option value="">---</option>
+                        <option value="">--</option>
                         <option value="Mr">Monsieur</option>
                         <option value="Mme">Madame</option>
-                    </select> {{folderId.customer}} </p>
+                    </select> {{folderId.customer}}
+                </p>
             </td>
-
             <td class="t2">
-                <p>Adresse de facturation: </p>
-                <b>{{folderId.customer}}</b>
+                <U>Adresse de facturation: </U>
                 <p>{{folderId.customer.adress}}</p>
                 <p>{{folderId.customer.zipCode}} {{folderId.customer.city}}</p>
-                <p> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
+                <p> {{folderId.owner.city}}, le: {{ "now"|date("d/m/Y") }} </p>
             </td>
-
         </tr>
-        {% endfor %} </table>
+        {% endfor %}
+    </table>
     <div class="invoiceBody">
         <h2 class="invoiceTitle">ABONNEMENT A LA HOT LINE</h2>
         {% for rate in rates %}
         <p>Montant des HONORAIRES HT: {{rate.ratesubscription}}€</p>
         <p>Montant T.V.A à: {{rate.VATrate}}%</p>
-        <p class="total">Total TTC: $prix €</p>
+        <p class="total">Total TTC: {{rate.ratesubscription + rate.VATrate }} €</p>
         <hr class="invoiceSeparator">{% endfor %}
         <div class="payment">
             {{include('invoice/paymentTerms.html.twig')}}
         </div>
         <h2 class="invoiceTitle">PRESTATIONS REALISEES AU COURS DU MOIS</h2>
-        <p>Description de la diligence</p>
-        <p class="total">Total des diligences: $Tps passé</p>
+        <U class="diligenceTitle mb-3">Description de la diligence:</U>
+        <input class="diligence"></input>
+        {% for diligence in diligences %}
+        <p class="total mt-5">Total des diligences: {{diligence.duration}} minutes</p>{% endfor %}
         <hr class="invoiceSeparator">
         <h2 class="invoiceTitle">TEMPS RESTANT SUR LE BUDGET EN COURS</h2>
-        <p>Détail budget tps par période</p>
-        <p>Temps restant = ($tempsInitial - $tempsPassé)</p>
+        <U class="mb-3">Détail budget temps par période</U>
+        <input class="detailTime"></input>
+        <p class="mt-5">Temps restant = ($tempsInitial - $tempsPassé)</p>
         <hr class="invoiceSeparator">
     </div>
     {% include "invoice/footerInvoice.html.twig" %} {% block javascripts %} {{ encore_entry_script_tags('app') }} {% endblock %}

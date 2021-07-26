@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Customer;
-use App\Entity\Folder;
 use App\Repository\AboutRepository;
 use App\Repository\CustomerRepository;
+use App\Repository\DiligenceRepository;
 use App\Repository\FolderRepository;
 use App\Repository\OwnerRepository;
 use App\Repository\PaymentTermsRepository;
@@ -25,6 +24,7 @@ class InvoiceController extends AbstractController
 {
     private $aboutRepository;
     private $customerRepository;
+    private $diligenceRepository;
     private $folderRepository;
     private $ownerRepository;
     private $paymentTermsRepository;
@@ -34,6 +34,7 @@ class InvoiceController extends AbstractController
     public function __construct(
         AboutRepository $aboutRepository,
         CustomerRepository $customerRepository,
+        DiligenceRepository $diligenceRepository,
         FolderRepository $folderRepository,
         OwnerRepository $ownerRepository,
         PaymentTermsRepository $paymentTermsRepository,
@@ -42,6 +43,7 @@ class InvoiceController extends AbstractController
     ) {
         $this->aboutRepository = $aboutRepository;
         $this->customerRepository = $customerRepository;
+        $this->diligenceRepository = $diligenceRepository;
         $this->folderRepository = $folderRepository;
         $this->ownerRepository = $ownerRepository;
         $this->paymentTermsRepository = $paymentTermsRepository;
@@ -55,28 +57,27 @@ class InvoiceController extends AbstractController
     public function index(int $folderId): Response
     {
         $folder = $this->folderRepository->find($folderId);
-        
         //dd($folder);
-
-        
-        if (strtolower($folder->getBusinessType()->getName() == 'Contentieux')) {                                  
+        if (strtolower($folder->getBusinessType()->getName() == 'Contentieux')) {
             return $this->render('invoice/indexInvoice.html.twig', [
             'abouts' => $this->aboutRepository->findAll(),
             'customers' => $this->customerRepository->findAll(),
-            'folders' => $this->folderRepository->findBy([], ['id' => 'ASC'], 1),
+            'diligences' => $this->diligenceRepository->findAll(),
+            'folders' => $this->folderRepository->findBy(['id' => $folder->getId()]),
             'owners' => $this->ownerRepository->findAll(),
             'paymentterms' => $this->paymentTermsRepository->findAll(),
-            'presetdiligences' => $this->presetDiligenceRepository->findBy([]),
+            'presetdiligences' => $this->presetDiligenceRepository->findAll(),
             'rates' => $this->rateRepository->findAll(),
-            ]);      
+            ]);
         } else {
             return $this->render('invoice/socialCouncil.html.twig', [
             'abouts' => $this->aboutRepository->findAll(),
             'customers' => $this->customerRepository->findAll(),
-            'folders' => $this->folderRepository->findAll(),
+            'diligences' => $this->diligenceRepository->findAll(),
+            'folders' => $this->folderRepository->findBy(['id' => $folder->getId()]),
             'owners' => $this->ownerRepository->findAll(),
             'paymentterms' => $this->paymentTermsRepository->findAll(),
-            'presetdiligences' => $this->presetDiligenceRepository->findBy([], ['id' => 'ASC']),
+            'presetdiligences' => $this->presetDiligenceRepository->findAll(),
             'rates' => $this->rateRepository->findAll(),
             ]);
         }

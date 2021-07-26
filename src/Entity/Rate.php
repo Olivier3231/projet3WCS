@@ -61,6 +61,11 @@ class Rate
         return $this;
     }
 
+    public function __toString()
+    {
+        return sprintf("%d - %s %s", $this->rate->getHourlyRate(), $this->rate->getVATRate());
+    }
+
     public function getHourlyRate(): ?string
     {
         return $this->hourly_rate;

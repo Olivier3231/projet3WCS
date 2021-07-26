@@ -126,3 +126,22 @@ li .footerInvoice {
     display: flex;
     justify-content: center;
 }
+
+.diligence {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 300px;
+}
+
+.diligenceTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.detailTime {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 300px;
+}
