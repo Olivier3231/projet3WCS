@@ -55,9 +55,10 @@ class InvoiceController extends AbstractController
     public function index(int $folderId): Response
     {
         $folder = $this->folderRepository->find($folderId);
+        
         //dd($folder);
 
-        if ($folder->getBusinessType()->getName() == 'contentieux') {
+        if (strtolower($folder->getBusinessType()->getName() == 'Contentieux')) {
             return $this->render('invoice/indexInvoice.html.twig', [
             'abouts' => $this->aboutRepository->findAll(),
             'customers' => $this->customerRepository->findAll(),
