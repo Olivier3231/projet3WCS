@@ -3,6 +3,11 @@
     color: #4886af;
 }
 
+.card-new {
+    height: 50px;
+    width: 50px;
+}
+
 body::after {
     content: "";
     opacity: 0.5;
@@ -96,9 +101,11 @@ hr {
 
 .nav-link1:hover {
     color: #4886af;
+    text-align: center;
     background-color: #dfdfdf;
     border-radius: 10px;
     font-size: 26px;
+    justify-content: center;
 }
 
 
