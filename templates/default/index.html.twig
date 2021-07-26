@@ -88,27 +88,26 @@
 		<h1 class="titre mt-3 mb-3">COMPÉTENCES</h1>
 		<hr class="separateur separator--line">
 		<div class="competence container mb-5 pb-5">
-			{% for expertise in expertises %}
-				{% if expertise.id is divisible by(2) %}
-					<div class="total_card row">
-						<div class="width col-8">
+			<div class="total_card row">
+				{% for expertise in expertises %}
+					{% if expertise.id is divisible by(2) %}
+						{# Les compétences en tableau #}
+						<div class="width col-6">
 							<div class="mt-5 card_competence1">
 								<h5 class="p-3 text-center">{{expertise.title}}</h5>
 								<div class="card-body"></div>
-								<p class="p-3 card-text_1">{{expertise.description|raw}}</p>
+								<p class="p-3 card-text_1">{{expertise.description}}</p>
 							</div>
 						</div>
-						<div class="space col-4"></div>
+						<div class="space col-0"></div>
 					</div>
 				{% else %}
-					<div class="total_card row">
-						<div class="space col-4"></div>
-						<div class="width col-8">
-							<div class="mt-5 card_competence2">
-								<h5 class="p-3 text-center">{{expertise.title}}</h5>
-								<div class="card-body text-secondary">
-									<p class="card-text_2">{{expertise.description|raw}}</p>
-								</div>
+
+					<div class="width col-6">
+						<div class="mt-5 card_competence2">
+							<h5 class="p-3 text-center">{{expertise.title}}</h5>
+							<div class="card-body text-secondary">
+								<p class="p-3 card-text_2">{{expertise.description}}</p>
 							</div>
 						</div>
 					</div>
@@ -120,13 +119,26 @@
 		<h1 class="titre mt-3 mb-3">ACTUALITÉS</h1>
 		<hr class="separateur separator--line">
 		<div class="row-link">
-
-			<a class="nav-link1" aria-current="page" href="/importante">Les Décisions importantes</a>
-
-			<a class="nav-link1" aria-current="page" href="../journal">Journal Officiel</a>
-
-			<a class="nav-link1" aria-current="page " href="../actualites">Toutes les actualités</a>
-
+			<div class="col-2">
+				<div class="nav-item">
+					<a class="nav-link1" aria-current="page" href="../">Les plus récentes</a>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class=" nav-item">
+					<a class="nav-link1" aria-current="page" href="/journal">Journal Officiel</a>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="nav-item">
+					<a class="nav-link1" aria-current="page" href="/importante">Les Décisions importantes</a>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="nav-item">
+					<a class="nav-link1" aria-current="page " href="../actualites">Toutes les actualités</a>
+				</div>
+			</div>
 		</div>
 		<div class="container my-5 py-5">
 			<div class="article row g-5">
@@ -135,7 +147,7 @@
 						<div class="card_5">
 							<div class="row">
 								<div class="col-6">
-									<h5 class="card-new m-4">
+									<h5 class="m-4">
 										{{new.title}}
 									</h5>
 								</div>
