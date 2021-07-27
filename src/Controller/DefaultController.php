@@ -70,13 +70,12 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/recent", name="recent")
+     * @Route("/actualites-recentes", name="recent_actualities")
      */
     public function recent(
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
-        AboutRepository $aboutRepository,
-        UploadBackgroundRepository $uploadBackgroundRepository
+        AboutRepository $aboutRepository
     ): Response {
         return $this->render('default/recent.html.twig', [
 
@@ -88,13 +87,12 @@ class DefaultController extends AbstractController
 
 
     /**
-     * @Route("/journal", name="journal")
+     * @Route("/journal", name="newspaper")
      */
     public function journal(
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/journal.html.twig', [
@@ -105,13 +103,12 @@ class DefaultController extends AbstractController
         ]);
     }
     /**
-     * @Route("/importante", name="importante")
+     * @Route("/actualites-importantes", name="important_actualities")
      */
     public function importante(
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/importante.html.twig', [
@@ -122,13 +119,12 @@ class DefaultController extends AbstractController
         ]);
     }
      /**
-     * @Route("/actualites", name="actualites")
+     * @Route("/actualites", name="actualities")
      */
     public function actualites(
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
-        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/actualites.html.twig', [

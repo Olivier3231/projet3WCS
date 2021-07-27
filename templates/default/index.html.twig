@@ -1,5 +1,7 @@
 
 {% extends 'base.html.twig' %}
+{% block metadescription %}Maitre Thibaud Bejat, Avocat à la Cours de Paris. Droit du travail et droit sociale{% endblock %}
+{% block title %} | Avocat à la Cours{% endblock %}
 {% block body %}
 	{% for imageback in background %}
 		<div class="d-block w-100" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" alt="... ">
@@ -22,8 +24,8 @@
 								</div>
 								<div class="col-8">
 									<div id="card-about" class="card-body">
-										<h5 class="card-title">{{about.title}}</h5>
-										<h6 class="card-text1">{{about.subtitle}}</h6>
+										<h2 class="card-title">{{about.title}}</h2>
+										<h1 class="card-text1">{{about.subtitle}}</h1>
 										<div class="card-text">
 											<p>{{about.description|raw}}</p>
 										</div>
@@ -46,8 +48,8 @@
 								</div>
 								<div class="col-8">
 									<div id="card-about" class="card-body">
-										<h5 class="card-title">{{about.title}}</h5>
-										<h6 class="card-text1">{{about.subtitle}}</h6>
+										<h4 class="card-title">{{about.title}}</h4>
+										<h5 class="card-text1">{{about.subtitle}}</h5>
 										<div class="card-text">
 											<p>{{about.description|raw}}</p>
 										</div>
@@ -70,8 +72,8 @@
 								</div>
 								<div class="col-8">
 									<div id="card-about" class="card-body">
-										<h5 class="card-title">{{about.title}}</h5>
-										<h6 class="card-text1">{{about.subtitle}}</h6>
+										<h4 class="card-title">{{about.title}}</h4>
+										<h5 class="card-text1">{{about.subtitle}}</h5>
 										<div class="card-text">
 											<p>{{about.description|raw}}</p>
 										</div>
@@ -86,7 +88,7 @@
 		<div class="mb-5 mt-2" id="compétences"></div>
 		<br>
 		<hr class="separateur separator--line mt-5">
-		<h1 class="titre mt-3 mb-3">COMPÉTENCES</h1>
+		<h3 class="titre mt-3 mb-3">COMPÉTENCES</h3>
 		<hr class="separateur separator--line">
 		<div class="competence container mb-5 pb-5">
 			<div class="total_card row">
@@ -117,27 +119,27 @@
 			<div class="mb-5 mt-2" id="actualités"></div>
 		</div>
 		<hr class="separateur separator--line">
-		<h1 class="titre mt-3 mb-3">ACTUALITÉS</h1>
+		<h3 class="titre mt-3 mb-3">ACTUALITÉS</h3>
 		<hr class="separateur separator--line">
 		<div class="row-link">
 			<div class="col-2">
 				<div class="nav-item">
-					<a class="nav-link1" aria-current="page" href="../">Les plus récentes</a>
+					<a class="nav-link1" aria-current="page" href="{{path('home')}}">Les plus récentes</a>
 				</div>
 			</div>
 			<div class="col-2">
 				<div class=" nav-item">
-					<a class="nav-link1" aria-current="page" href="/journal">Journal Officiel</a>
+					<a class="nav-link1" aria-current="page" href="{{path('newspaper')}}">Journal Officiel</a>
 				</div>
 			</div>
 			<div class="col-4">
 				<div class="nav-item">
-					<a class="nav-link1" aria-current="page" href="/importante">Les Décisions importantes</a>
+					<a class="nav-link1" aria-current="page" href="{{path('important_actualities')}}">Les Décisions importantes</a>
 				</div>
 			</div>
 			<div class="col-3">
 				<div class="nav-item">
-					<a class="nav-link1" aria-current="page " href="../actualites">Toutes les actualités</a>
+					<a class="nav-link1" aria-current="page " href="{{path('actualities')}}">Toutes les actualités</a>
 				</div>
 			</div>
 		</div>
@@ -212,7 +214,7 @@
 			<div class="mb-5 mt-2" id="contact"></div>
 		</div>
 		<hr class="separateur separator--line">
-		<h1 class="titre mt-3 mb-3 ">CONTACT</h1>
+		<h3 class="titre mt-3 mb-3 ">CONTACT</h3>
 		<hr class="separateur separator--line">
 		<div class="container py-5">
 			<div class=" contact row gx-5">
