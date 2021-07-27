@@ -5,7 +5,7 @@
 
 .card-new {
     height: 50px;
-    width: 50px;
+    width: 200%;
 }
 
 body::after {
@@ -376,8 +376,8 @@ h6 {
 }
 
 .new_description {
-    height: 12.5rem;
-    width: 98%;
+    height: 12rem;
+    width: 80%;
     overflow: hidden;
     margin-bottom: 2%;
 }
