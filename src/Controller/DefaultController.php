@@ -73,10 +73,12 @@ class DefaultController extends AbstractController
      * @Route("/recent", name="recent")
      */
     public function recent(
+        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository
     ): Response {
         return $this->render('default/recent.html.twig', [
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
             ]);
@@ -87,11 +89,13 @@ class DefaultController extends AbstractController
      * @Route("/journal", name="journal")
      */
     public function journal(
+        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/journal.html.twig', [
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findAll(),
         'newscategory' => $newsCategoryRepository->findAll(),
@@ -101,11 +105,13 @@ class DefaultController extends AbstractController
      * @Route("/importante", name="importante")
      */
     public function importante(
+        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/importante.html.twig', [
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findAll(),
         'newscategory' => $newsCategoryRepository->findAll(),
@@ -115,11 +121,13 @@ class DefaultController extends AbstractController
      * @Route("/actualites", name="actualites")
      */
     public function actualites(
+        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/actualites.html.twig', [
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findAll(),
         'newscategory' => $newsCategoryRepository->findAll(),
