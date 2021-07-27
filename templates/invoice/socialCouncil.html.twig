@@ -61,21 +61,21 @@
         {% for rate in rates %}
         <p>Montant des HONORAIRES HT: {{rate.ratesubscription}}€</p>
         <p>Montant T.V.A à: {{rate.VATrate}}%</p>
-        <p class="total">Total TTC: {{rate.ratesubscription + rate.VATrate }} €</p>
+        <p class="total">Total TTC: {{((rate.ratesubscription * rate.VATrate) / 100) + rate.ratesubscription }}€</p>
         <hr class="invoiceSeparator">{% endfor %}
         <div class="payment">
             {{include('invoice/paymentTerms.html.twig')}}
         </div>
         <h2 class="invoiceTitle">PRESTATIONS REALISEES AU COURS DU MOIS</h2>
-        <U class="diligenceTitle mb-3">Description de la diligence:</U>
-        <input class="diligence"></input>
-        {% for diligence in diligences %}
-        <p class="total mt-5">Total des diligences: {{diligence.duration}} minutes</p>{% endfor %}
+        <U class="diligenceTitle mb-3">Description de la diligence:</U> {% for diligence in diligences %}
+        <p class="diligence">- {{diligence.description}}</p>{% endfor %}
+        <U class="mt-5 mb-1">Total des diligences: </U> {% for diligence in diligences %}
+        <p class="total mt-5">{{diligence.duration}} minutes</p>{% endfor %}
         <hr class="invoiceSeparator">
         <h2 class="invoiceTitle">TEMPS RESTANT SUR LE BUDGET EN COURS</h2>
-        <U class="mb-3">Détail budget temps par période</U>
-        <input class="detailTime"></input>
-        <p class="mt-5">Temps restant = ($tempsInitial - $tempsPassé)</p>
+        <U class="mb-3">Détail budget temps par période</U> {% for diligence in diligences %}
+        <p class="detailTime">- {{diligence.description}}: {{diligence.duration}} minutes</p>{% endfor %}
+        <p class="mt-5">Temps restant: ($tempsInitial - $tempsPassé)</p>
         <hr class="invoiceSeparator">
     </div>
     {% include "invoice/footerInvoice.html.twig" %} {% block javascripts %} {{ encore_entry_script_tags('app') }} {% endblock %}

@@ -19,7 +19,7 @@
         height: 100%;
     }
     
-    .backgro .button {
+    .background .button {
         display: flex;
         justify-content: right;
     }
@@ -606,6 +606,7 @@
         .map1 {
             width: 100%;
             display: flex;
+            margin-
         }
         .map {
             width: 30rem;
@@ -668,9 +669,6 @@
         .space {
             display: none;
         }
-        .competence {
-            margin-left: 20%;
-        }
         .map {
             margin-left: 10%;
         }
@@ -703,9 +701,6 @@
         .map {
             margin-left: auto;
             width: 29rem;
-        }
-        .map1 {
-            margin-right: 10%;
         }
         .width {
             width: auto;

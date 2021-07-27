@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %} {% block body %} {% for imageback in background %}
 <div class="d-block w-100" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" alt="... ">
-
-
     <div id="carouselExampleWhite" class="carousel carousel-white slide" data-bs-ride="carousel">
         <div class="carousel-indicators ">
             <button type="button" data-bs-target="#carouselExampleWhite" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -86,7 +84,7 @@
     <div class="text-center pt-5  d-md-block">
         <a href="/#contact" class="btn2 bg-white" style="width:130px">Contact</a>
     </div>
-    <div class=" mb-5 mt-2 " id="compétences "></div>
+    <div class=" mb-5 mt-2 " id="compétences"></div>
     <br>
     <hr class="separateur separator--line mt-5 ">
     <h1 class="titre mt-3 mb-3 ">COMPÉTENCES</h1>
@@ -100,7 +98,6 @@
                     <div class="card-body ">
                         <p class="p-3 card-text_1 ">{{expertise.description|raw}}</p>
                     </div>
-
                 </div>
             </div>
             <div class="space col-4 "></div>
@@ -118,8 +115,10 @@
             </div>
         </div>
         {% endif %} {% endfor %}
-        <div class="mb-5 mt-2 " id="actualités "></div>
-
+        <div class="mb-5 mt-2 " id="actualités"></div>
+        <hr class="separateur separator--line">
+        <h1 class="titre mt-3 mb-3">ACTUALITÉS</h1>
+        <hr class="separateur separator--line">
         <div class="container my-5 py-5 ">
             <div class="article row g-5 ">
                 {% for new in news %}
@@ -145,7 +144,7 @@
                             <p class="p-2 m-4 ">{{ new.description|raw }}</p>
                         </div>
                         <div class="p-1 text-center ">
-                            <a href="#myModal{{ loop.index }} " data-bs-target="#myModal{{ loop.index }} " data-bs-toggle="modal " class="btn bg-white rounded align-center ">
+                            <a href="#myModal{{ loop.index }}" data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal " class="btn bg-white rounded align-center ">
 			        En savoir plus
 			        </a>
                             <div class="modal fade " id="myModal{{ loop.index }} " tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
@@ -187,7 +186,7 @@
                 </div>
                 {% endfor %}
 
-                <div class="mb-5 mt-2 " id="contact "></div>
+                <div class="mb-5 mt-2 " id="contact"></div>
             </div>
             <hr class="separateur separator--line ">
             <h1 class="titre mt-3 mb-3 ">CONTACT</h1>

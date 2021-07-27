@@ -131,7 +131,6 @@ li .footerInvoice {
     display: flex;
     flex-direction: column;
     width: 60%;
-    height: 300px;
 }
 
 .diligenceTitle {
@@ -142,6 +141,4 @@ li .footerInvoice {
 .detailTime {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    height: 300px;
 }
