@@ -2,15 +2,20 @@
 {% block metadescription %}Protection des données{% endblock %}
 {% block title %} | Protection des données{% endblock %}
 {% block body %}
+{% for imageback in background %}
+<div class="d-block w-100 pb-5" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" alt="... ">
+{% endfor %}
 {% if dataprotectionpolicy %}
 <div class="mb-5" id="protectiondonnees"></div>
-<hr class="separateur">
-<h1 class="titre mt-5 mb-5">POLITIQUE DE PROTECTION DES DONNEES</h1>
-<hr class="separateur">
+<br>
+<hr class="separateur separator--line mt-5">
+<h1 class="titre my-5">POLITIQUE DE PROTECTION DES DONNEES</h1>
+<hr class="separateur separator--line mb-5">
 <div class="container">
     <p>
         {{dataprotectionpolicy.description|raw}}
     </p>
 </div>
 {% endif %}
+</div>
 {% endblock %}

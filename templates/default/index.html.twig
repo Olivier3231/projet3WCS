@@ -88,19 +88,19 @@
     <div class="text-center pt-5  d-md-block">
         <a href="/#contact" class="btn2 bg-white" style="width:130px">Contact</a>
     </div>
-    <div class=" mb-5 mt-2 " id="compétences"></div>
+    <div class=" mb-5 mt-2" id="compétences"></div>
     <br>
-    <hr class="separateur separator--line mt-5 ">
-    <h1 class="titre mt-3 mb-3 ">COMPÉTENCES</h1>
+    <hr class="separateur separator--line mt-5">
+    <h1 class="titre mt-3 mb-3">COMPÉTENCES</h1>
     <hr class="separateur separator--line">
-    <div class="container my-5 py-5 ">
-        <div class="article row g-5 ">
+    <div class="container my-5 py-5">
+        <div class="article row g-5">
         {% for expertise in expertises %}
-            <div class="news col-sm-6 ">
-                <div class="card_5 ">
-                    <div class="row ">
-                        <div class="col-12 ">
-                        <h5 class="m-4 ">{{expertise.title}}</h5>
+            <div class="news col-sm-6">
+                <div class="card_5">
+                    <div class="row">
+                        <div class="col-12">
+                        <h5 class="m-4">{{expertise.title}}</h5>
                         </div>
                         <div class="exp_description1 p-3">
                         <p class="exp_description m-4">{{expertise.description|raw}}</p>
@@ -110,116 +110,113 @@
             </div>
         {% endfor %}
         </div>
-    </div>    
-
-    <div class="mb-5 mt-2 " id="actualités "></div>
-    <hr class="separateur separator--line ">
-    <h1 class="titre mt-3 mb-3 ">ACTUALITÉS</h1>
-    <hr class="separateur separator--line ">
-    <div class="row-link ">
-        <a class="nav-link1 " aria-current="page " href="{{path( 'actualities')}} ">Toutes les actualités</a>
-        <a class="nav-link1 " aria-current="page " href="{{path( 'newspaper')}} ">Journal Officiel</a>
-        <a class="nav-link1 " aria-current="page " href="{{path( 'important_actualities')}} ">Les Décisions importantes</a>
     </div>
-    <div class="container my-5 py-5 ">
-        <div class="article row g-5 ">
+    <div class="my-5" id="actualités"></div>
+    <br>
+    <br>
+    <hr class="separateur separator--line mt-5">
+    <h1 class="titre mt-3 mb-3">ACTUALITÉS</h1>
+    <hr class="separateur separator--line mb-5">
+    <div class="row-link">
+        <a class="nav-link1" aria-current="page" href="{{path( 'actualities')}}">Toutes les actualités</a>
+        <a class="nav-link1" aria-current="page" href="{{path( 'newspaper')}}">Journal Officiel</a>
+        <a class="nav-link1" aria-current="page" href="{{path( 'important_actualities')}}">Les Décisions importantes</a>
+    </div>
+    <div class="container my-5 py-5">
+        <div class="article row g-5">
             {% for new in news %}
-            <div class="news col-sm-6 ">
-                <div class="card_5 ">
-                    <div class="row ">
+            <div class="news col-sm-6">
+                <div class="card_5">
+                    <div class="row">
                         <div class="col-10">
-                            <h5 class="m-4 ">
+                            <h5 class="m-4">
                                 {{new.title}}
                             </h5>
                         </div> 
-                        <div class="col-2 ">
-                            <div class="logo mt-4 ">
-                                <img class="img-news " src={{ new.newscategory.logo }}>
+                        <div class="col-2">
+                            <div class="logo mt-4">
+                                <img class="img-news" src={{ new.newscategory.logo }}>
                             </div>
                         </div>
                     </div>
-                    <h6 class="m-4 ">
+                    <h6 class="m-4">
                         {{new.newscategory.name}}
                     </h6>
-                    <div class="new_description ">
-                        <p class="p-2 m-4 ">{{ new.description|raw }}</p>
+                    <div class="new_description">
+                        <p class="p-2 m-4">{{ new.description|raw }}</p>
                     </div>
-                    <div class="p-1 text-center ">
-                        <a href="#myModal{{ loop.index }} " data-bs-target="#myModal{{ loop.index }} " data-bs-toggle="modal " class="btn bg-white rounded align-center ">
+                    <div class="p-1 text-center">
+                        <a href="#myModal{{ loop.index }} " data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class="btn bg-white rounded align-center">
 			        En savoir plus
 			        </a>
-                        <div class="modal fade " id="myModal{{ loop.index }} " tabindex="-1 " role="dialog " aria-labelledby="exampleModalCenterTitle " aria-hidden="true ">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg " role="document ">
-                                <div class="modal-content ">
-                                    <div class=" modal-header ">
-                                        <h5 class="modal-title " id="exampleModalLongTitle ">{{new.title}}</h5>
+                        <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle " aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class=" modal-header">
+                                        <h5 class="modal-title " id="exampleModalLongTitle">{{new.title}}</h5>
                                     </div>
-                                    <div class="modal-body ">
-                                        <div class="container-fluid ">
-                                            <div class="row ">
-                                                <div class="col-sm-12 ">
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-sm-12">
                                                     <h6>{{new.newscategory.name}}</h6>
                                                     <div class="row ">
-                                                        <div class="col-10 m-5 ">
+                                                        <div class="col-10 m-5">
                                                             {{new.subtitle}}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row ">
-                                                <div class="col-md-12 ml-auto ">{{new.description|raw}}</div>
+                                            <div class="row">
+                                                <div class="col-md-12 ml-auto">{{new.description|raw}}</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer ">
-                                        <button type="button " class="btn btn-secondary " data-bs-dismiss="modal ">Fermer</button>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <p class="card-date m-3 ">
-                            {{new.date|date("d-m-Y ")}}
+                        <p class="card-date m-3">
+                            {{new.date|date("d-m-Y")}}
                         </p>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-        <div class="mb-5 mt-2 " id="contact "></div>
+        <div class="mb-5 mt-2" id="contact"></div>
     </div>
-    <hr class="separateur separator--line ">
-    <h1 class="titre mt-3 mb-3 ">CONTACT</h1>
-    <hr class="separateur separator--line ">
-    <div class="container py-5 ">
-        <div class=" contact row gx-5 ">
-            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 ">{% form_theme form 'bootstrap_4_layout.html.twig' %}
-                <div class="form ">
+    <hr class="separateur separator--line mb-5">
+    <h1 class="titre mt-3 mb-3">CONTACT</h1>
+    <hr class="separateur separator--line mb-5">
+    <div class="container py-5">
+        <div class=" contact row gx-5">
+            <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12">{% form_theme form 'bootstrap_4_layout.html.twig' %}
+                <div class="form">
                     {{ form_start(form) }}
                     <div class="m-3 ">{{form_widget(form.firstname)}}</div>
-                    <div class="form-error ">
+                    <div class="form-error">
                         {{ form_errors(form.firstname) }}
                     </div>
-                    <div class="m-3 ">{{form_widget(form.lastname)}}</div>
-                    <div class="form-error ">
+                    <div class="m-3">{{form_widget(form.lastname)}}</div>
+                    <div class="form-error">
                         {{ form_errors(form.lastname) }}
                     </div>
-                    <div class="m-3 ">{{form_widget(form.email)}}</div>
-                    <div class="form-error ">
+                    <div class="m-3">{{form_widget(form.email)}}</div>
+                    <div class="form-error">
                         {{ form_errors(form.email) }}
                     </div>
-                    <div class="m-3 ">{{form_widget(form.phone_number)}}</div>
-                    <div class="form-error ">
+                    <div class="m-3">{{form_widget(form.phone_number)}}</div>
+                    <div class="form-error">
                         {{ form_errors(form.phone_number) }}
                     </div>
-                    <div class="message m-3 ">{{form_widget(form.message)}}</div>
-                    <div class="form-error ">
+                    <div class="message m-3">{{form_widget(form.message)}}</div>
+                    <div class="form-error">
                         {{ form_errors(form.message) }}
-                    </div>
-                    <div class="m-3 p-3 ">{{form_widget(form.checkbox)}}</div>
-                    <div class="text-center ">
-                        <button class="btn m-5 bg-white rounded text-center ">{{ button_label|default('Envoyer') }}</button> {{ form_end(form) }}
                     </div>
                 </div>
                 <div class="m-3 p-3">{{form_widget(form.checkbox)}}</div>
@@ -228,12 +225,11 @@
                 </div>
                 {{ form_end(form) }}
             </div>
-            <div class="map1 col-6 pt-3 ">
-                <iframe class="map " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.978548696972!2d2.2912774158180307!3d48.87768547928943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f932e07fec1%3A0xe493fc5a9e79c52d!2s52%20Rue%20des%20Acacias%2C%2075017%20Paris!5e0!3m2!1sfr!2sfr!4v1623337638778!5m2!1sfr!2sfr "
-                    loading="lazy "></iframe>
+            <div class="map1 col-6 pt-3">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.978548696972!2d2.2912774158180307!3d48.87768547928943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f932e07fec1%3A0xe493fc5a9e79c52d!2s52%20Rue%20des%20Acacias%2C%2075017%20Paris!5e0!3m2!1sfr!2sfr!4v1623337638778!5m2!1sfr!2sfr"
+                    loading="lazy"></iframe>
             </div>
         </div>
     </div>
-</div>
 </div>
 {% endfor %} {% endblock %}

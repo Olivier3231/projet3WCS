@@ -1,15 +1,14 @@
 {
-  "build/app.css": "/build/app.b5bdc98e.css",
-  "build/app.js": "/build/app.4f17a1dc.js",
-  "build/admin.css": "/build/admin.8940ff5d.css",
-  "build/admin.js": "/build/admin.6bf0e9b4.js",
-  "build/invoice.css": "/build/invoice.aad5c25e.css",
-  "build/invoice.js": "/build/invoice.2e9d880a.js",
-  "build/runtime.js": "/build/runtime.c5ef6ec9.js",
-  "build/758.a341b4bb.js": "/build/758.a341b4bb.js",
-  "build/vecteezy_light-grey-background_1907694.png": "/build/vecteezy_light-grey-background_1907694.badaee88.png",
-  "build/avatarThibaud.png": "/build/avatarThibaud.b1af2ee2.png",
-  "build/logo3.png": "/build/logo3.3037d69a.png",
-  "build/logothibaut.png": "/build/logothibaut.4777358f.png",
-  "build/logo2.png": "/build/logo2.6503831a.png"
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/admin.css": "/build/admin.css",
+  "build/admin.js": "/build/admin.js",
+  "build/invoice.css": "/build/invoice.css",
+  "build/invoice.js": "/build/invoice.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_ob-7db861.js",
+  "build/vecteezy_light-grey-background_1907694.png": "/build/vecteezy_light-grey-background_1907694.png",
+  "build/avatarThibaud.png": "/build/avatarThibaud.png",
+  "build/logo1.png": "/build/logo1.png",
+  "build/logothibaut.png": "/build/logothibaut.png"
 }

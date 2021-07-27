@@ -67,12 +67,12 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p class="card-date m-3"> {{new.date|date("d-m-Y")}} </p>
-                    </div>
+                <div>
+                    <p class="card-date m-3"> {{new.date|date("d-m-Y")}} </p>
                 </div>
             </div>
-            {% else %} {% endif %} {% endfor %}
         </div>
+        {% else %} {% endif %} {% endfor %}
     </div>
-    {% endblock %}
+</div>
+{% endblock %}

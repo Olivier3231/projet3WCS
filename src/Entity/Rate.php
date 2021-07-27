@@ -27,7 +27,7 @@ class Rate
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
      */
-    private $hourly_ate;
+    private $hourly_rate;
 
     /**
      * @ORM\Column(type="decimal", precision=5, scale=2)
