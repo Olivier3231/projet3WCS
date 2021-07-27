@@ -1,4 +1,8 @@
-{% extends 'base.html.twig' %}{% block body %}{% for imageback in background %}
+{% extends 'base.html.twig' %}
+{% block metadescription %}Actualités- Droit du travail et droit sociale{% endblock %}
+{% block title %} | Actualités{% endblock %}
+{% block body %}
+{% for imageback in background %}
 <div class="d-block w-100" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" alt="... ">
     {% endfor %}
     <div class="mb-5" id="actualités"></div>

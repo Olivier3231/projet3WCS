@@ -1,11 +1,13 @@
-{% extends 'base.html.twig' %}{% block body %}
+{% extends 'base.html.twig' %}
+{% block metadescription %}Mentions légales{% endblock %}
+{% block title %} | Mentions légales{% endblock %}
+{% block body %}
+{% if mentionslegales %}
 <div class="mb-5" id="mentionslegales"></div>
-
 <hr class="separateur">
 <h1 class="titre mt-5 mb-5">MENTIONS LEGALES</h1>
-
 <div class="container">
-    <p>
-        {{mentionslegales.description|raw}}
-    </p>
-</div>{% endblock %}
+    <p>{{mentionslegales.description|raw}}</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,4 +1,8 @@
-{% extends 'base.html.twig' %} {% block body %} {% for imageback in background %}
+{% extends 'base.html.twig' %}
+{% block metadescription %}Maitre Thibaud Bejat, Avocat au barreau de Paris. Droit du travail et droit social{% endblock %}
+{% block title %} | Avocat au barreau de Paris{% endblock %}
+{% block body %}
+{% for imageback in background %}
 <div class="d-block w-100" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" alt="... ">
     <div id="carouselExampleWhite" class="carousel carousel-white slide" data-bs-ride="carousel">
         <div class="carousel-indicators ">

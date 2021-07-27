@@ -8,17 +8,13 @@
         Vous êtes connecté en tant que: <b>{{ app.user.username }}</b>, si vous souhaitez vous déconnecter, veuillez cliquer ci-après<a class="btn m-5 bg-white rounded text-center" href="{{ path('app_logout') }}">Déconnexion</a>
     </div>
     {% endif %}
-
     <h1 class="h3 mb-5 font-weight-normal">Veuillez vous connecter:</h1>
     <label class="username" for=" inputUsername">Nom d'utilisateur</label>
     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mb-3" autocomplete="username" required autofocus>
     <label class="password" for="inputPassword">Mot de passe</label>
     <input type="password" name="password" id="inputPassword" class="form-control mb-5" autocomplete="current-password" required>
-
     <input type="hidden" name="_csrf_token" value="{{ csrf_token( 'authenticate') }}">
-
     <div class="m-5"></div>
-
     <button class="btn bg-white rounded text-center" type="submit">
         Connexion
     </button>

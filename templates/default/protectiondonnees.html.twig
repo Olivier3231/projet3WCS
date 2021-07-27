@@ -1,6 +1,9 @@
-{% extends 'base.html.twig' %}{% block body %}
+{% extends 'base.html.twig' %}
+{% block metadescription %}Protection des données{% endblock %}
+{% block title %} | Protection des données{% endblock %}
+{% block body %}
+{% if dataprotectionpolicy %}
 <div class="mb-5" id="protectiondonnees"></div>
-
 <hr class="separateur">
 <h1 class="titre mt-5 mb-5">POLITIQUE DE PROTECTION DES DONNEES</h1>
 <hr class="separateur">
@@ -8,5 +11,6 @@
     <p>
         {{dataprotectionpolicy.description|raw}}
     </p>
-
-</div>{% endblock %}
+</div>
+{% endif %}
+{% endblock %}
