@@ -1,0 +1,32 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.c5ef6ec9.js",
+        "/build/758.a341b4bb.js",
+        "/build/app.4f17a1dc.js"
+      ],
+      "css": [
+        "/build/app.b5bdc98e.css"
+      ]
+    },
+    "admin": {
+      "js": [
+        "/build/runtime.c5ef6ec9.js",
+        "/build/admin.6bf0e9b4.js"
+      ],
+      "css": [
+        "/build/admin.8940ff5d.css"
+      ]
+    },
+    "invoice": {
+      "js": [
+        "/build/runtime.c5ef6ec9.js",
+        "/build/invoice.2e9d880a.js"
+      ],
+      "css": [
+        "/build/invoice.aad5c25e.css"
+      ]
+    }
+  }
+}

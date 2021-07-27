@@ -2023,6 +2023,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Seldaek/monolog/zipball/71312564759a7db5b789296369c1a264efc43aad",
                 "reference": "71312564759a7db5b789296369c1a264efc43aad",
+
                 "shasum": ""
             },
             "require": {
