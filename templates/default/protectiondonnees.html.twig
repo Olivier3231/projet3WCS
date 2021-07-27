@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}{% block body %}
+<div class="mb-5" id="protectiondonnees"></div>
+
+<hr class="separateur">
+<h1 class="titre mt-5 mb-5">POLITIQUE DE PROTECTION DES DONNEES</h1>
+<hr class="separateur">
+<div class="container">
+    <p>
+        {{dataprotectionpolicy.description|raw}}
+    </p>
+
+</div>{% endblock %}

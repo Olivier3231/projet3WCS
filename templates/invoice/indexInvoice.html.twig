@@ -7,14 +7,14 @@
     <title>Facturation{% block title %}{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('build/invoice.css') }}">
-    <link rel="icon" type="image/png" href="{{ asset('build/logothibaut.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('build/logo1.png') }}" />
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet"> {% block stylesheets %} {{ encore_entry_link_tags('app') }} {% endblock %}
 </head>
 
 <header class="m-5">
     <nav class="navbar navbar-expand-lg navbar-invoice fixed-top">
         <div class="container-fluid">
-            <img class="logoNav rounded-circle" src="{{ asset( 'build/logothibaut.png') }}" alt=" ">
+            <img class="logoNav rounded-circle" src="{{ asset( 'build/logo1.png') }}" alt=" ">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,7 +35,8 @@
         <tr>
             {% for folderId in folders %}
             <td class="t1">
-                <p>Facture n°: {{ 'now' | date('Y') }}|{{folderId.id}}</p>
+                <p>Facture n°:
+                    <b>{{ 'now' | date('Y') }}|{{folderId.id}}</b></p>
                 <p>À l'attention de
                     <select name="gender">
                         <option value="">---</option>
@@ -44,29 +45,27 @@
                     </select> {{folderId.customer.firstname}} {{folderId.customer.lastname}}
                 </p>
             </td>
-
             <td class="t2">
-                <p>Adresse de facturation:</p>
+                <U>Adresse de facturation:</U>
                 <p>{{folderId.customer.adress}}</p>
                 <p>{{folderId.customer.zipCode}} {{folderId.customer.city}}</p>
-                <p> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
+                <p class="date"> {{folderId.owner.city}}, le {{ "now"|date("d/m/Y") }} </p>
             </td>
-
-        </tr> {% endfor %}
+        </tr>
     </table>
     <div class="invoiceBody">
-
-        <h2 class="invoiceTitle">DETAILS DES DILIGENCES</h2>
-        {% for folderId in folders %}
-        <p>{{folderId.presetdiligenceId.description}}</p>
+        <h2 class="invoiceTitle m-5">DETAILS DES DILIGENCES</h2>
+        {% for presetdiligence in presetdiligences %}
+        <p>{{presetdiligence.description}}</p>{% endfor %}
         <p class="total">Total des diligences: $Temps passé</p>
         <hr class="invoiceSeparator">
-        <h2 class="invoiceTitle">Montant des honoraires</h2>
-        <p>Taux horaire: {{folderId.rate.hourlyrate}}€</p>
-        <p>Montant des HONORAIRES HT: {{folderId.rate.ratesubscription}}€</p>
-        <p>Montant T.V.A à: {{folderId.rate.VATrate}}%</p>
+        <h2 class="invoiceTitle m-5">Montant des honoraires</h2>
+        {% for rate in rates %}
+        <p>Taux horaire: {{rate.hourlyrate}}€</p>
+        <p>Montant des HONORAIRES HT: {{rate.ratesubscription}}€</p>
+        <p>Montant T.V.A à: {{rate.VATrate}}%</p>
         <p class="total">Total TTC: $prix €</p>
-        <hr class="invoiceSeparator"> {% endfor %}
+        <hr class="invoiceSeparator"> {% endfor %}{% endfor %}
     </div>
     <div class="payment">
         {{include('invoice/paymentTerms.html.twig')}}

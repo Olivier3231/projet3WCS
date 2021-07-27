@@ -75,10 +75,12 @@ class DefaultController extends AbstractController
     public function recent(
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
-        AboutRepository $aboutRepository
+        AboutRepository $aboutRepository,
+        UploadBackgroundRepository $uploadBackgroundRepository
     ): Response {
         return $this->render('default/recent.html.twig', [
-        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
+
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),    
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
             ]);
@@ -92,6 +94,7 @@ class DefaultController extends AbstractController
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
+        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/journal.html.twig', [
@@ -108,6 +111,7 @@ class DefaultController extends AbstractController
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
+        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/importante.html.twig', [
@@ -124,6 +128,7 @@ class DefaultController extends AbstractController
         UploadBackgroundRepository $uploadBackgroundRepository,
         NewsRepository $newsRepository,
         AboutRepository $aboutRepository,
+        UploadBackgroundRepository $uploadBackgroundRepository,
         NewsCategoryRepository $newsCategoryRepository
     ): Response {
         return $this->render('default/actualites.html.twig', [

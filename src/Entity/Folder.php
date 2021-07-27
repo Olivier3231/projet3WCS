@@ -69,7 +69,6 @@ class Folder
         $this->created_at = new DateTime();
         $this->diligence = new ArrayCollection();
         $this->presetDiligence = new ArrayCollection();
-        
     }
 
     public function getId(): ?int
@@ -202,5 +201,4 @@ class Folder
 
         return $this;
     }
-
 }

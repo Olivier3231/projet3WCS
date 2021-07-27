@@ -24,7 +24,9 @@ use App\Entity\SubFolder;
 use App\Entity\Owner;
 use App\Entity\Rate;
 use App\Entity\BusinessType;
+use App\Entity\DataProtectionPolicy;
 use App\Entity\Footer;
+use App\Entity\LegalMention;
 use App\Entity\UploadBackground;
 use App\Entity\UploadCarrousel;
 use App\Entity\PaymentTerms;
@@ -59,28 +61,29 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::section('PERSONNALISATION', 'fa fa-pencil');
         yield MenuItem::linkToCrud('Compétences', 'fas fa-balance-scale', Expertise::class);
         yield MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class);
-        yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-book fa-fw', NewsCategory::class);
-        yield MenuItem::linkToCrud('Carrousel', 'fas fa-parachute-box', UploadCarrousel::class);
-        yield MenuItem::linkToCrud('Background', 'far fa-images', UploadBackground::class);
-        yield MenuItem::linkToCrud('Footer', 'far fa-images', Footer::class);
+        yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-newspaper-o', NewsCategory::class);
+        yield MenuItem::linkToCrud('Carrousel', 'far fa-images', UploadCarrousel::class);
+        yield MenuItem::linkToCrud('Background', 'fa fa-file-image-o', UploadBackground::class);
+        yield MenuItem::linkToCrud('Footer', 'fas fa-shoe-prints', Footer::class);
         
        
         yield MenuItem::section('Facturation');
         yield MenuItem::linkToCrud('Dossiers', 'fas fa-folder-minus', Folder::class);
         yield MenuItem::linkToCrud('SousDossiers', 'fas fa-folder-minus', SubFolder::class);
-        yield MenuItem::linkToCrud('Clients', 'fas fa-handshake', Customer::class);
+        yield MenuItem::linkToCrud('Clients', 'fa fa-address-card', Customer::class);
         yield MenuItem::linkToCrud('Type Procédure', 'fas fa-euro-sign', BusinessType::class);
-        yield MenuItem::linkToCrud('Diligences', 'fas fa-user-check', Diligence::class);
+        yield MenuItem::linkToCrud('Diligences', 'fa fa-gavel', Diligence::class);
         yield MenuItem::linkToCrud('Diligences préétablies', 'fas fa-user-check', PresetDiligence::class);
         yield MenuItem::linkToCrud('Facture', 'fas fa-file-pdf', Bill::class);
-        yield MenuItem::linkToCrud('Méthode Facturation', 'fas fa-file-pdf', BillingMethod::class);
-        yield MenuItem::linkToCrud('Status Factures', 'fas fa-file-pdf', BillStatus::class);
-        yield MenuItem::linkToCrud('Elements de Facture', 'fas fa-file-pdf', PaymentTerms::class);
+        yield MenuItem::linkToCrud('Méthode Facturation', 'fa fa-file-text-o', BillingMethod::class);
+        yield MenuItem::linkToCrud('Statut Factures', 'fa fa-file-text', BillStatus::class);
+        yield MenuItem::linkToCrud('Elements de Facture', 'fa fa-file-o', PaymentTerms::class);
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-landmark', Owner::class);
         yield MenuItem::linkToCrud('Tarification', 'fas fa-percent', Rate::class);
         yield MenuItem::section('Divers');
         yield MenuItem::linkToCrud('Contact', 'fas fa-headset', Contact::class);
-        
+        yield MenuItem::linkToCrud('Protection Données', 'fa fa-database', DataProtectionPolicy::class);
+        yield MenuItem::linkToCrud('Mentions Legales', 'fa fa-th-list', LegalMention::class);
         yield MenuItem::linkToLogout('Deconnexion', 'fa fa-sign-out');
     }
 

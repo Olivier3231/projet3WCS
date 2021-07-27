@@ -38,6 +38,10 @@ h3 {
     margin: 0.5em;
 }
 
+.date {
+    padding-top: 20px;
+}
+
 .headerInvoice {
     display: flex;
     flex-direction: column;
@@ -121,4 +125,23 @@ li .footerInvoice {
 .footerInvoice {
     display: flex;
     justify-content: center;
+}
+
+.diligence {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 300px;
+}
+
+.diligenceTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.detailTime {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 300px;
 }
