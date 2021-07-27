@@ -70,7 +70,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/recent", name="recent")
+     * @Route("/actualites-recentes", name="recent_actualities")
      */
     public function recent(
         NewsRepository $newsRepository,
@@ -78,7 +78,7 @@ class DefaultController extends AbstractController
         UploadBackgroundRepository $uploadBackgroundRepository
     ): Response {
         return $this->render('default/recent.html.twig', [
-        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),    
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
             ]);
@@ -86,7 +86,7 @@ class DefaultController extends AbstractController
 
 
     /**
-     * @Route("/journal", name="journal")
+     * @Route("/journal", name="newspaper")
      */
     public function journal(
         NewsRepository $newsRepository,
@@ -102,7 +102,7 @@ class DefaultController extends AbstractController
         ]);
     }
     /**
-     * @Route("/importante", name="importante")
+     * @Route("/actualites-importantes", name="important_actualities")
      */
     public function importante(
         NewsRepository $newsRepository,
@@ -118,7 +118,7 @@ class DefaultController extends AbstractController
         ]);
     }
      /**
-     * @Route("/actualites", name="actualites")
+     * @Route("/actualites", name="actualities")
      */
     public function actualites(
         NewsRepository $newsRepository,
