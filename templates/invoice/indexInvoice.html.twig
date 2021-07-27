@@ -42,7 +42,7 @@
                         <option value="">---</option>
                         <option value="Mr">Monsieur</option>
                         <option value="Mme">Madame</option>
-                    </select> {{folderId.customer.firstname}} {{folderId.customer.lastname}}
+                    </select> {{folderId.customer}}
                 </p>
             </td>
             <td class="t2">
@@ -64,7 +64,7 @@
         <p>Taux horaire: {{rate.hourlyrate}}€</p>
         <p>Montant des HONORAIRES HT: {{rate.ratesubscription}}€</p>
         <p>Montant T.V.A à: {{rate.VATrate}}%</p>
-        <p class="total">Total TTC: $prix €</p>
+        <p class="total">Total TTC: {{ rate.hourlyrate + ((rate.ratesubscription * rate.VATrate) / 100) + rate.ratesubscription }}€</p>
         <hr class="invoiceSeparator"> {% endfor %}{% endfor %}
     </div>
     <div class="payment">

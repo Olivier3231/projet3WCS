@@ -78,8 +78,7 @@ class DefaultController extends AbstractController
         AboutRepository $aboutRepository
     ): Response {
         return $this->render('default/recent.html.twig', [
-
-        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),    
+        'background' => $uploadBackgroundRepository->findAll([], ['id' => 'DESC'], 1),
         'abouts' => $aboutRepository->findAll(),
         'news' => $newsRepository->findBy([], ['id' => 'DESC'], 2),
             ]);
