@@ -1,0 +1,9 @@
+User-agent=*
+Disallow:/tests
+Disallow:/templates/security
+Disallow:/templates/invoice
+Disallow:/templates/reset_password
+Disallow:/templates/bundles/EasyAdminBundle
+
+Sitemap: http://www.thibaud-bejat.com/sitemap.xml
+Sitemap: https://www.thibaud-bejat.com/sitemap.xml

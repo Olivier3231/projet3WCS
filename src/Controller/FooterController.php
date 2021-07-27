@@ -21,20 +21,20 @@ class FooterController extends AbstractController
     }
 
     /**
-     * @Route("/mentionslegales", name="mentionslegales")
+     * @Route("/mentions-legales", name="legal_mention")
      */
-    public function mentionsLegales(LegalMentionRepository $LegalMentionRepository): Response {
+    public function mentionsLegales(LegalMentionRepository $legalMentionRepository): Response {
         return $this->render('default/mentionslegales.html.twig',[
-            'mentionslegales' => $LegalMentionRepository->findAll()[0],
+            'mentionslegales' => $legalMentionRepository->findAll()[0] ?? '',
         ]);
     }
 
     /**
-     * @Route("/protectiondonnees", name="protectiondonnees")
+     * @Route("/protection-des-donnees", name="data_protection")
      */
     public function protectiondonnees(DataProtectionPolicyRepository $dataProtectionPolicyRepository): Response {
         return $this->render('default/protectiondonnees.html.twig', [
-            'dataprotectionpolicy' => $dataProtectionPolicyRepository->findAll()[0],
+            'dataprotectionpolicy' => $dataProtectionPolicyRepository->findAll()[0] ?? '',
         ]);
     }
 
