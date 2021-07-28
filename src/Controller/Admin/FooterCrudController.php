@@ -46,4 +46,14 @@ class FooterCrudController extends AbstractCrudController
         ->remove(Crud::PAGE_DETAIL, Action::EDIT)
         ;
     }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Pied de page')
+        ->setPageTitle('edit', 'Pied de page')
+        ->setPageTitle('new', 'Pied de page')
+        ->setPageTitle('detail', 'Pied de page')
+        ;
+    }
 }

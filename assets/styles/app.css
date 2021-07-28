@@ -19,7 +19,6 @@ body::after {
     height: 100%;
 }
 
-
 .background .button {
     display: flex;
     justify-content: right;
@@ -55,7 +54,6 @@ hr {
 
 
 /* navbar */
-
 
 .custom {
     font-size: 24px;
@@ -249,13 +247,14 @@ h1 {
 
 h5 {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1pt;
 }
 
 h6 {
     font-size: 22px;
+    margin: 0px;
 }
 
 .picture {
@@ -322,6 +321,7 @@ h6 {
     width: 95%;
     margin-left: 4%;
 }
+
 
 /*Actualités*/
 
@@ -482,13 +482,11 @@ footer {
 }
 
 @media screen and (min-width: 1441px) {
-  
     .img-carousel {
         height: 90vh;
         width: 100vw;
         align-items: center;
     }
-  
     .btn2 {
         height: 1.5rem;
         size: 20rem!important;

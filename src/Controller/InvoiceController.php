@@ -10,15 +10,9 @@ use App\Repository\OwnerRepository;
 use App\Repository\PaymentTermsRepository;
 use App\Repository\PresetDiligenceRepository;
 use App\Repository\RateRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Knp\Bundle\SnappyBundle\KnpSnappyBundle;
-use Knp\Snappy\Pdf;
-use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class InvoiceController extends AbstractController
 {

@@ -33,11 +33,10 @@ class ContactCrudController extends AbstractCrudController
             TelephoneField::new('phonenumber','Téléphone'),
             TextEditorField::new('message','Message'),
             DateTimeField::new('CreatedAt', 'Date de Création'),
-            BooleanField::new('checkbox'),
-            
-
+            BooleanField::new('checkbox'),        
         ];
     }
+    
     public function configureAssets(Assets $assets): Assets
     {
         return $assets

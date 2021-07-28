@@ -56,7 +56,6 @@ class DataProtectionPolicyCrudController extends AbstractCrudController
         ->add(Crud::PAGE_INDEX, Action::DETAIL)
         ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
             return $actions->setLabel('Créer Protection des Données');
-        });
-        
+        });        
     }
 }

@@ -56,7 +56,7 @@
     <div class="invoiceBody">
         <h2 class="invoiceTitle m-5">DETAILS DES DILIGENCES</h2>
         {% for presetdiligence in presetdiligences %}
-        <p>{{presetdiligence.description}}</p>{% endfor %}
+        <p>{{presetdiligence.description | raw}}</p>{% endfor %}
         <p class="total">Total des diligences: $Temps passé</p>
         <hr class="invoiceSeparator">
         <h2 class="invoiceTitle m-5">Montant des honoraires</h2>

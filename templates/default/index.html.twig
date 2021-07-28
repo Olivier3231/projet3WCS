@@ -1,8 +1,5 @@
-{% extends 'base.html.twig' %}
-{% block metadescription %}Maitre Thibaud Bejat, Avocat au barreau de Paris. Droit du travail et droit social{% endblock %}
-{% block title %} | Avocat au barreau de Paris{% endblock %}
-{% block body %}
-{% for imageback in background %}
+{% extends 'base.html.twig' %} {% block metadescription %}Maitre Thibaud Bejat, Avocat au barreau de Paris. Droit du travail et droit social{% endblock %} {% block title %} | Avocat au barreau de Paris{% endblock %} {% block body %} {% for imageback in
+background %}
 <div class="d-block w-100" style="background-image:url('{{ vich_uploader_asset(imageback, 'imageUpload') }}')" border="0" alt="... ">
     <div id="carouselExampleWhite" class="carousel carousel-white slide" data-bs-ride="carousel">
         <div class="carousel-indicators ">
@@ -95,20 +92,20 @@
     <hr class="separateur separator--line">
     <div class="container my-5 py-5">
         <div class="article row g-5">
-        {% for expertise in expertises %}
+            {% for expertise in expertises %}
             <div class="news col-sm-6">
                 <div class="card_5">
                     <div class="row">
                         <div class="col-12">
-                        <h5 class="m-4">{{expertise.title}}</h5>
+                            <h5 class="m-4">{{expertise.title}}</h5>
                         </div>
                         <div class="exp_description1 p-3">
-                        <p class="exp_description m-4">{{expertise.description|raw}}</p>
+                            <p class="exp_description m-4">{{expertise.description|raw}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
     <div class="my-5" id="actualités"></div>
@@ -129,21 +126,21 @@
                 <div class="card_5">
                     <div class="row">
                         <div class="col-10">
-                            <h5 class="m-4">
+                            <h5 class="p-3">
                                 {{new.title}}
                             </h5>
-                        </div> 
+                        </div>
                         <div class="col-2">
                             <div class="logo mt-4">
                                 <img class="img-news" src={{ new.newscategory.logo }}>
                             </div>
                         </div>
                     </div>
-                    <h6 class="m-4">
+                    <h6 class="p-3">
                         {{new.newscategory.name}}
                     </h6>
-                    <div class="new_description">
-                        <p class="p-2 m-4">{{ new.description|raw }}</p>
+                    <div class="new_description mb-4">
+                        <p>{{ new.description|raw }}</p>
                     </div>
                     <div class="p-1 text-center">
                         <a href="#myModal{{ loop.index }} " data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class="btn bg-white rounded align-center">

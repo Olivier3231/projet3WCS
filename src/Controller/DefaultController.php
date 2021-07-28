@@ -2,31 +2,18 @@
 
 namespace App\Controller;
 
-use App\Entity\News;
-use App\Entity\About;
-use App\Entity\Footer;
 use App\Entity\Contact;
-use App\Entity\Expertise;
 use App\Form\ContactType;
-use App\Entity\NewsCategory;
-use App\Entity\UploadCarrousel;
-use App\Entity\UploadBackground;
-use Doctrine\ORM\Mapping as ORM;
-use App\Entity\ContactRepository;
 use App\Repository\NewsRepository;
 use App\Repository\AboutRepository;
-use App\Repository\FooterRepository;
 use App\Repository\ExpertiseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\NewsCategoryRepository;
-use Symfony\Component\Validator\Validation;
 use App\Repository\UploadCarrouselRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\UploadBackgroundRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController

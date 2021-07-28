@@ -30,8 +30,6 @@ use App\Entity\LegalMention;
 use App\Entity\UploadBackground;
 use App\Entity\UploadCarrousel;
 use App\Entity\PaymentTerms;
-use Symfony\Component\Translation\Translator;
-
 
 class AdminController extends AbstractDashboardController
 {
@@ -63,21 +61,21 @@ class AdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Actualités', 'fas fa-book-reader', News::class);
         yield MenuItem::linkToCrud('Catégories d\'actualités', 'fa fa-newspaper-o', NewsCategory::class);
         yield MenuItem::linkToCrud('Carrousel', 'far fa-images', UploadCarrousel::class);
-        yield MenuItem::linkToCrud('Background', 'fa fa-file-image-o', UploadBackground::class);
-        yield MenuItem::linkToCrud('Footer', 'fas fa-shoe-prints', Footer::class);
+        yield MenuItem::linkToCrud("Fond d'écran", 'fa fa-file-image-o', UploadBackground::class);
+        yield MenuItem::linkToCrud('Pied de page', 'fas fa-shoe-prints', Footer::class);
         
        
         yield MenuItem::section('Facturation');
         yield MenuItem::linkToCrud('Dossiers', 'fas fa-folder-minus', Folder::class);
-        yield MenuItem::linkToCrud('SousDossiers', 'fas fa-folder-minus', SubFolder::class);
+        yield MenuItem::linkToCrud('Sous-dossiers', 'fas fa-folder-minus', SubFolder::class);
         yield MenuItem::linkToCrud('Clients', 'fa fa-address-card', Customer::class);
         yield MenuItem::linkToCrud('Type Procédure', 'fas fa-euro-sign', BusinessType::class);
         yield MenuItem::linkToCrud('Diligences', 'fa fa-gavel', Diligence::class);
-        yield MenuItem::linkToCrud('Diligences préétablies', 'fas fa-user-check', PresetDiligence::class);
+        yield MenuItem::linkToCrud('Diligences pré-établies', 'fas fa-user-check', PresetDiligence::class);
         yield MenuItem::linkToCrud('Facture', 'fas fa-file-pdf', Bill::class);
         yield MenuItem::linkToCrud('Méthode Facturation', 'fa fa-file-text-o', BillingMethod::class);
         yield MenuItem::linkToCrud('Statut Factures', 'fa fa-file-text', BillStatus::class);
-        yield MenuItem::linkToCrud('Elements de Facture', 'fa fa-file-o', PaymentTerms::class);
+        yield MenuItem::linkToCrud('Eléments de Facture', 'fa fa-file-o', PaymentTerms::class);
         yield MenuItem::linkToCrud('Propriétaire', 'fas fa-landmark', Owner::class);
         yield MenuItem::linkToCrud('Tarification', 'fas fa-percent', Rate::class);
         yield MenuItem::section('Divers');
@@ -93,7 +91,6 @@ class AdminController extends AbstractDashboardController
      */
     public function logout(): void
     {
-         // controller can be blank: it will never be executed!
          throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
 }

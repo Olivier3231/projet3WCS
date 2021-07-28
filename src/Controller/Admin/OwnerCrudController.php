@@ -22,7 +22,7 @@ class OwnerCrudController extends AbstractCrudController
         return Owner::class;
     }
 
-public function configureFields(string $pageName): iterable
+    public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id')->hideOnForm(),
@@ -39,6 +39,7 @@ public function configureFields(string $pageName): iterable
             AvatarField::new('logo', 'logo')->hideOnIndex(),
         ];
     }
+
     public function configureAssets(Assets $assets): Assets
     {
         return $assets

@@ -31,7 +31,7 @@ class UploadCarrouselCrudController extends AbstractCrudController
         $fields = [];
 
         if ($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {
-            array_push($fields, ImageField::new('upload')->setBasePath('uploads/'));
+            array_push($fields, ImageField::new('upload', 'Image')->setBasePath('uploads/'));
         } else {
             array_push($fields, TextField::new('imageUpload')
             ->setFormType(VichImageType::class));
@@ -47,5 +47,14 @@ class UploadCarrouselCrudController extends AbstractCrudController
         ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
             return $actions->setLabel('Créer Carroussel');
         });
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Carroussel')
+        ->setPageTitle('edit', 'Carroussel')
+        ->setPageTitle('new', 'Carroussel')
+        ;
     }
 }

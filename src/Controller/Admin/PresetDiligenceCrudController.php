@@ -18,6 +18,7 @@ class PresetDiligenceCrudController extends AbstractCrudController
     {
         return PresetDiligence::class;
     }
+    
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -54,5 +55,4 @@ class PresetDiligenceCrudController extends AbstractCrudController
             return $actions->setLabel('Créer Diligence Préétablie');
             });
     }
-
 }

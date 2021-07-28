@@ -52,5 +52,4 @@ class BusinessTypeCrudController extends AbstractCrudController
             return $actions->setLabel('Créer Type de Procédure');
             });
     }
-
 }

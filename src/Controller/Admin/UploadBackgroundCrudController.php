@@ -29,7 +29,7 @@ class UploadBackgroundCrudController extends AbstractCrudController
         $fields = [];
 
         if ($pageName == Crud::PAGE_INDEX || $pageName == Crud::PAGE_DETAIL) {
-            array_push($fields, ImageField::new('upload')->setBasePath('uploads/'));
+            array_push($fields, ImageField::new('upload', 'Image')->setBasePath('uploads/'));
         } else {
             array_push($fields, TextField::new('imageUpload')
             ->setFormType(VichImageType::class));
@@ -43,9 +43,18 @@ class UploadBackgroundCrudController extends AbstractCrudController
         
         ->add(Crud::PAGE_NEW, Action::INDEX)
         ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $actions) {
-            return $actions->setLabel('Créer Background');
+            return $actions->setLabel('Créer Fond d\'écran');
         });
         
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+        ->setPageTitle('index', 'Fond d\'écran')
+        ->setPageTitle('edit', 'Fond d\'écran')
+        ->setPageTitle('new', 'Fond d\'écran')
+        ;
     }
 }
 

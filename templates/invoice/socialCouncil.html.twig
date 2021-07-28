@@ -68,13 +68,13 @@
         </div>
         <h2 class="invoiceTitle">PRESTATIONS REALISEES AU COURS DU MOIS</h2>
         <U class="diligenceTitle mb-3">Description de la diligence:</U> {% for diligence in diligences %}
-        <p class="diligence">- {{diligence.description}}</p>{% endfor %}
+        <p class="diligence">- {{diligence.description | raw}}</p>{% endfor %}
         <U class="mt-5 mb-1">Total des diligences: </U> {% for diligence in diligences %}
         <p class="total mt-5">{{diligence.duration}} minutes</p>{% endfor %}
         <hr class="invoiceSeparator">
         <h2 class="invoiceTitle">TEMPS RESTANT SUR LE BUDGET EN COURS</h2>
         <U class="mb-3">Détail budget temps par période</U> {% for diligence in diligences %}
-        <p class="detailTime">- {{diligence.description}}: {{diligence.duration}} minutes</p>{% endfor %}
+        <p class="detailTime">- {{diligence.description | raw}}: {{diligence.duration}} minutes</p>{% endfor %}
         <p class="mt-5">Temps restant: ($tempsInitial - $tempsPassé)</p>
         <hr class="invoiceSeparator">
     </div>
