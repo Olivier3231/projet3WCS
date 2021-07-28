@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Controller\InvoiceController;
+
 use App\Entity\Folder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;

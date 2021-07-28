@@ -31,6 +31,8 @@ use App\Entity\UploadBackground;
 use App\Entity\UploadCarrousel;
 use App\Entity\PaymentTerms;
 
+
+
 class AdminController extends AbstractDashboardController
 {
 
@@ -67,7 +69,7 @@ class AdminController extends AbstractDashboardController
        
         yield MenuItem::section('Facturation');
         yield MenuItem::linkToCrud('Dossiers', 'fas fa-folder-minus', Folder::class);
-        yield MenuItem::linkToCrud('Sous-dossiers', 'fas fa-folder-minus', SubFolder::class);
+        yield MenuItem::linkToCrud('Sous-Dossiers', 'fas fa-folder-minus', SubFolder::class);
         yield MenuItem::linkToCrud('Clients', 'fa fa-address-card', Customer::class);
         yield MenuItem::linkToCrud('Type Procédure', 'fas fa-euro-sign', BusinessType::class);
         yield MenuItem::linkToCrud('Diligences', 'fa fa-gavel', Diligence::class);
@@ -91,6 +93,7 @@ class AdminController extends AbstractDashboardController
      */
     public function logout(): void
     {
+         // controller can be blank: it will never be executed!
          throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
 }
